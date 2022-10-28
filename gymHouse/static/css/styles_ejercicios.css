@@ -1,0 +1,63 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff; 
+    font-size: 1em;
+    line-height: 1.5em;
+}
+/* Estilo de los ejercicios de sección entrenar --------- */
+.ejercicio{
+    width: 30%;
+    min-width: 8rem;
+    max-width: 12rem;
+    margin: 2rem 1rem 1rem 0;
+    background: #101010;
+    border-radius:6px;
+    display: flex;
+    flex-flow: column;
+}
+.imgejercicio{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    background-color: rgb(225, 225, 225);
+    border-radius: 10px;
+    margin: -2rem auto 1rem;
+}
+.imgejercicio img{
+    width: 5rem;
+    padding: 4px;
+    display:flex;
+    align-content: center;
+}
+.ejercicio p{
+    font-family: "raleway semibold";
+    font-size: 1.2rem;
+    text-align: center;
+    color:white;
+    margin: 0 auto 0.5rem;
+}

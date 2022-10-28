@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="header" content="" />
+        <script src="assets/js/jquery-3.6.1.min.js"></script>
+        <script src="assets/js/agregarejercicios.js"></script>
+
+        <link rel="stylesheet" href="assets/styles_menu.css" />
+        <link rel="stylesheet" href="assets/styles_ejercicios.css" />
+        <link rel="stylesheet" href="assets/styles_admin_entrenar-agregar.css" />
+        <link rel="stylesheet" href="assets/styles_admin_entrenar.css" />
+        <title>Admin: Entrenar</title>
+    
+    </head>
+    <body>
+
+        <input type="checkbox" class="checkbox" id="menu-toogle"/>
+        <label for="menu-toogle" class="menu-toogle"><img src="assets/images/menu.png"></label>
+
+        <nav class="menu">
+            <div class="menu_icons">
+                <ul> <!-- poner los links correctos -->
+                    <li>
+                        <a href="#"> <img class="logo" src="assets/images/logo.png"> </a> 
+                    </li> 
+                    <li>
+                        <a href="#"> <img src="assets/images/user.png"> <p>Cuenta</p> </a>
+                    </li> 
+                    <li> 
+                        <a href="#"> <img src="assets/images/gym/gym.png"> <p>Entrenar</p> </a> 
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/edit.png"> <p>Noticias</p> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/calendar.png"> <p>Turnos</p> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/users-alt.png"> <p>Alumnos</p> </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="screen">
+            <form class="screen-secciones" method="post" action="">
+                <!-- cambiar los ID de los ejercicios, etc -->
+                <div class="seccion" id="abdominales">
+                    <div class="title_desplegable">
+                        <h2>Abdomen</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="brazos">
+                    <div class="title_desplegable">
+                        <h2>Brazos</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="espalda">
+                    <div class="title_desplegable">
+                        <h2>Espalda</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                        <div class="imgejercicio">
+                            <img src="assets/images/gym/workout.png">
+                        </div>
+                        <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="piernas">
+                    <div class="title_desplegable">
+                        <h2>Piernas</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="gluteos">
+                    <div class="title_desplegable">
+                        <h2>Glúteos</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="elongacion">
+                    <div class="title_desplegable">
+                        <h2>Elongación</h2>
+                        <img src="assets/images/angle-small-left.png">
+                    </div>
+
+                    <div class="plegable">
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="imgejercicio">
+                                <img src="assets/images/gym/workout.png">
+                            </div>
+                            <p>cruzadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="entrenar-botones">
+                    <h3>¿Deseas agregar un nuevo ejercicio?</h3>
+                    <div class="botones">
+                        <input type="button" value="Agregar" class="btn-abrir">
+                        <button id="abrir-historial" >
+                            <a href="admin_entrenar-historial.html">
+                                Historial de rutinas
+                            </a>
+                        </button>   
+                    </div>
+                </div>
+            </form>
+
+            <div class="screen-ejercicio" id="divcerrado">
+                <div class="ejercicio">
+                    <div class="imgejercicio">
+                        <img src="assets/images/gym/workout.png">
+                    </div>
+                    <p>Cruzadas</p>
+                </div>
+                <div class="ejercicio-pasos">
+                    <p>
+                        Paso 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Minus tenetur quasi quas quaerat sed vero. Similique nisi omnis officiis
+                        <br><br>
+                        Paso 2: Repellendus aspernatur voluptate numquam eligendi quia.
+                        Reprehenderit hic nobis eveniet maiores? 
+                    </p>
+                    <form action="">
+                        
+                    </form>
+                </div>
+                <div class="ejercicio-video">
+                    <img src="assets/images/imagen1.jpg">
+                </div>
+            </div>
+        </section>
+
+        <div class="pop-up">
+            <div class="pop-up-wrap">
+                <form action="" class="nuevoejercicio">
+                    <div class="agregarejercicio">
+                        <div class="ejercicio-nombre">
+                            <div class="ejercicio-nombre-c1">
+                                <p>Nombre del ejercicio</p>
+                                <input type="text" value="Ingresar nombre...">
+                            </div>
+                            <!-- <div class="ejercicio-nombre-c2">
+                                <img src="assets/images/picture.svg">
+                                <p>Colocar imagen</p>
+                            </div> -->
+                        </div>
+
+                        <h1>PASOS</h1>
+
+                        <div class="ejercicio-pasos">
+                            <textarea name="comentarios" rows="10" cols="50">Escribe aquí los pasos...</textarea>                 
+                        </div>
+
+                        <div class="agregarvideo">
+                            <label for="myfile"> Selecciona una imagen o video: </label>
+                            <input type="file" id="myfile" name="myfile" max="1">
+                            <!-- dsp agregar el accept="" con los tipos de
+                            extensiones a priorizar -->
+                        </div>
+                        
+
+                        <!-- agregar opcion para añadir imagen, video o gif -->
+
+                        <div class="guardarejercicio">
+                            <button type="submit"><p>Guardar ejercicio</p></button>
+                        </div>
+                    </div>
+                    <div class="tipoejercicio">
+                        <img src="assets/images/cross.png" id="close">
+                        <!--no funciona el efecto al seleccionar el tipo-->
+                        <h1>Elija el tipo de ejercicio...</h1> 
+                        <div class="opciones">
+                            <input type="radio" name="ejercicios" id="brazos" value="brazos" />
+                            <label class="tipos-ejercicios" for="brazos">
+                                <p>Brazos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="piernas" value="piernas" />
+                            <label class="tipos-ejercicios" for="piernas">
+                                <p>Piernas</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="espalda" value="espalda" />
+                            <label class="tipos-ejercicios" for="espalda">
+                                <p>Espalda</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="abdomen" value="abdomen" />
+                            <label class="tipos-ejercicios" for="abdomen">
+                                <p>Brazos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="gluteos" value="gluteos" />
+                            <label class="tipos-ejercicios" for="gluteos">
+                                <p>Glúteos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="elongacion" value="elongacion" />
+                            <label class="tipos-ejercicios" for="elongacion">
+                                <p>Elongación</p>
+                            </label>
+                        </div>
+                                                    
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        $(window).ready(function(){
+            $('.title_desplegable').click(function(){
+               if($(this).next().hasClass('desplegado')){
+                  $(this).next().removeClass('desplegado');
+                  $(this).children('img').hasClass('desplegado');
+                  $(this).children('img').removeClass('desplegado');
+               }else{
+                  $(this).next().addClass('desplegado');
+                  $(this).children('img').addClass('desplegado');
+               }
+            })
+        })
+    </script>
+    <!-- <script>
+        function myFunction() {
+            var x = document.getElementById("divcerrado");
+            if (x.style.display === "none"){ x.style.display = "block";}
+            else { x.style.display = "none";}
+        }
+    </script> -->
+    <script src="assets/js/quechupeee.js"></script>
+</html>

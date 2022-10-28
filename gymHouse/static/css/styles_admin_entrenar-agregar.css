@@ -1,0 +1,428 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa; 
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+/* fin de FONTS */
+/* fondo de mentiritas -------------------- */
+
+.ejercicios{
+    height:fit-content;
+    width: 93.6vw;
+    margin: auto;
+    margin-right: 0;
+}
+.ejercicios h1{
+    font-size: 7rem;
+    width: 100%;
+    text-align: center;
+}
+.ejercicios p{
+    font-size: 4rem;
+    width:60%;
+    margin: 0 auto;
+    line-height: 4rem;
+}
+.ejercicios input{
+    display: flex;
+    align-content: center;
+    margin: 3% auto;
+    width: 37rem;
+    height: 8rem;
+    background: rgb(0, 0, 0);
+    border-radius: 16px;
+    color:white;
+    font-size: 4rem;
+    text-align: center;
+}
+
+/* fin del fondo de mentiritas -------------------- */
+/* cosa para que ande el coso */
+
+.btn-abrir{
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+.btn-abrir{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display:flex;
+    justify-content: center;
+    margin: auto 0;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    transition: all .5s ease;
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: 1.5rem;
+    color: white;
+}
+.btn-abrir:hover{
+    transform: scale(1.08);
+}
+#close{
+    position: absolute;
+    cursor: pointer;
+}
+.pop-up.show{
+    visibility: visible;
+}
+.pop-up-wrap.show{
+    transform: scale(1);
+    opacity: 1;
+}
+.pop-up{
+    width: 94vw;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    background: rgba(0, 0, 0, 0.402);
+
+    visibility: hidden;
+}
+.pop-up-wrap{
+    width: 70%;
+    max-width: 110rem;
+    height: 90%;
+    max-height: 60rem;
+    margin: 3% auto;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    transform: scale(0.6);
+    opacity: 0;
+    transition: .3s ease all;
+
+    /* border: 2px dotted black; */
+    border-radius: 32px;
+}
+
+ /* fin de esa cosa */
+/* estilos del agregar ejercicios -------------------------- */
+
+/* nuevo ejercicio */
+.nuevoejercicio{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 32px;
+    background: linear-gradient(218.05deg, #97B3FF 40.77%, #5135FF 91.77%);
+    /* border: 2px solid rgb(255, 255, 255); */
+}
+
+/* fin de nuevo ejercicio */
+/* agregar ejercicio */
+
+.agregarejercicio{
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    font-family: "raleway bold";
+    font-size: 1.8rem;
+    color: white;
+    /* border: 2px solid rgb(255, 0, 200); */
+}
+.agregarejercicio img{
+    width: 5rem;
+}
+
+.ejercicio-nombre{ 
+    display:flex;
+    margin: 8%;
+    margin-bottom: 0;
+    /* border: 1px dashed black; */
+}
+
+.ejercicio-nombre-c1{
+    width: 74%;
+    height: auto;
+    /* border: 1px dotted black; */
+}
+.ejercicio-nombre-c1 p{
+    font-family: "raleway bold";
+    font-size: 1.8rem;
+    color: white;
+    margin: 7px 0 10px;
+}
+.ejercicio-nombre-c1 input{
+    font-family: "raleway medium";
+    font-size: 1.4rem;
+    width:90%;
+    margin: 0;
+    padding: 13px;
+}
+.ejercicio-nombre-c2{
+    width: 27%;
+    margin: auto;
+    height: auto;
+    /* border: 1px dotted black; */
+}
+.ejercicio-nombre-c2 img{
+    width: 4rem;
+    display:flex;
+    margin: auto;
+}
+.ejercicio-nombre-c2 svg{
+    color:white;
+}
+.ejercicio-nombre-c2 p{
+    width: 100%;
+    font-family: "raleway bold";
+    font-size: 1.4rem;
+    text-align: center;
+    color: white;
+    margin: 6px auto 0;
+    /* border: 1px dotted black; */
+}
+
+.agregarejercicio h1{
+    font-family: "raleway bold";
+    font-size: 1.8rem;
+    color: white;
+    margin: 3% 8% 1%;
+    /* border: 1px dotted black; */
+}
+
+/* ------ */
+
+.ejercicio-pasos{
+    margin: 0 8%;
+    /* border: 1px solid black; */
+}
+.ejercicio-pasos textarea{
+    width: 93%;
+    font-family: "raleway medium";
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: 13px;
+
+    /* border: 1px dashed black; */
+}
+
+.pasos textarea{
+    background: rgb(234, 234, 234);
+    box-shadow: none;
+}
+
+/* ------ */
+
+.agregarvideo{
+    margin: 3% 8%;
+}
+.agregarvideo input{
+    width: 95%;
+    height: 2.2rem;
+    margin: 3% 0 0;
+    padding: 10px;
+}
+
+/* ------ */
+
+.guardarejercicio{
+    height: fit-content;
+    width: 60%;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+.guardarejercicio button{
+    width: 18rem;
+    height: 4rem;
+    margin: 5% auto;
+
+    border-radius: 18px;
+    border-color: transparent;
+    background-color: #D6E1FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
+    transition: all .3s ease;
+}
+.guardarejercicio button:hover{
+    transform: scale(1.08);
+}
+.guardarejercicio p{
+    font-family: "raleway bold";
+    font-size: 1.6rem;
+    color: #5135FF;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+}
+
+/* fin de agregar ejercicio */
+/* tipo ejercicio */
+
+.tipoejercicio{
+    /* display:block; */
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: #6C62E2;
+    box-shadow: inset 10px 0px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 32px;
+    padding: 0;
+}
+#close{
+    display: flex;
+    width: 2rem;
+    right:0;
+    margin: 5%;
+}
+.tipoejercicio h1{
+    font-family: "raleway bold";
+    color: white;
+    margin: 20% 8% 0;
+}
+.opciones{
+    margin: 8%;
+}
+.tipoejercicio input{
+    display: none; 
+}
+.tipos-ejercicios{
+    width:fit-content;
+    height: 3rem;
+    background: rgb(249, 243, 255);
+
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    color: black;
+
+    padding: 17px 32px;
+    margin: 2%;
+    border-radius: 19px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    transition: all .3s ease;
+}
+.tipos-ejercicios:hover{
+    transform: scale(1.08);
+}
+.opciones input[type=radio]:checked + label {
+    background:#b2b2b2;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.751);
+}
+
+/* fin de tipo ejercicio */
+
+/*----------------------------------------------------*/
+/* query pantalla mediana */
+@media (max-width: 1100px) {
+    .pop-up-wrap{
+        width: 90%;
+    }
+    .tipoejercicio h1{
+        font-family: "raleway bold";
+        color: white;
+        margin: 20% 8% 0;
+        line-height: 2rem;
+    }
+}
+/* query celular */
+@media (max-width: 700px) {
+    .pop-up{
+        width: 100vw;
+    }
+    .pop-up-wrap{
+        width: 98%;
+        height: fit-content;
+        margin: auto;
+    
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        scroll-behavior: auto;
+    }
+    .nuevoejercicio{
+        height: 60rem;
+        display: block;
+
+    }
+    .agregarejercicio{
+        width: 100%;
+        height: fit-content;
+    }
+    .tipoejercicio{
+        width: 100%;
+        height: fit-content;
+        background: #6C62E2;
+        box-shadow: inset 10px 0px 14px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        
+    }
+    .tipoejercicio h1{
+        margin: 6% 8% 0;
+    }
+    #close{
+        position: absolute;
+        margin: -40rem 3%;
+    }
+    .tipoejercicio h1{
+        font-family: "raleway semibold";
+        font-size: 1.8rem;
+    }
+    .opciones{
+        height: fit-content;
+        width: 90%;
+        margin: 2% 8%;
+        display: inline-flex;
+        overflow: scroll;
+        /* border: 1px solid white; */
+    }
+    .tipos-ejercicios{
+        margin: 0 2% 3% 0;
+    }
+    .guardarejercicio{
+        width: 100%;
+    }
+    .tipos-ejercicios:hover{
+        transform: scale(1.0);
+    }
+}
+/*----------------------------------------------------*/

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="header" content="" />
+        <script src="assets/js/jquery-3.6.1.min.js"></script>
+        <script src="assets/js/agregarejercicios.js"></script>
+
+        <link rel="stylesheet" href="assets/styles_menu.css" />
+        <link rel="stylesheet" href="assets/styles_admin_entrenar-agregar.css" />
+        <link rel="stylesheet" href="assets/styles_admin_entrenar.css" />
+        <title>Entrenar: Agregar ejercicios</title>
+    
+    </head>
+    <body>
+
+        <!-- <input type="radio" class="radio" id="menu-toogle"/> -->
+        <label for="menu-toogle" class="menu-toogle"><img src="assets/images/menu.png"></label>
+
+        <nav class="menu">
+            <div class="menu_icons">
+                <ul> <!-- poner los links correctos -->
+                    <li>
+                        <a href="#"> <img class="logo" src="assets/images/logo.png"> </a> 
+                    </li> 
+                    <li>
+                        <a href="#"> <img src="assets/images/user.png"> <p>Cuenta</p> </a>
+                    </li> 
+                    <li> 
+                        <a href="#"> <img src="assets/images/gym/gym.png"> <p>Entrenar</p> </a> 
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/edit.png"> <p>Noticias</p> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/calendar.png"> <p>Turnos</p> </a>
+                    </li>
+                    <li>
+                        <a href="#"> <img src="assets/images/users-alt.png"> <p>Alumnos</p> </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="ejercicios">
+            <h1> seccion ejercicios </h1>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam vitae temporibus
+                ullam sint illo earum consequuntur officiis. Temporibus, illo! Veniam recusandae
+                repudiandae optio repellendus, quis aliquid dolorum omnis deleniti nulla
+            </p>
+            <input type="button" value="Abrir Ventana Modal" class="btn-abrir">
+        </div>
+
+        
+
+<!-- aca empieza -->
+
+        <div class="pop-up">
+            <div class="pop-up-wrap">
+                <form action="" class="nuevoejercicio">
+                    <div class="agregarejercicio">
+                        <div class="ejercicio-nombre">
+                            <div class="ejercicio-nombre-c1">
+                                <p>Nombre del ejercicio</p>
+                                <input type="text" value="Ingresar nombre...">
+                            </div>
+                            <div class="ejercicio-nombre-c2">
+                                <img src="assets/images/picture.svg">
+                                <p>Colocar imagen</p>
+                            </div>
+                        </div>
+
+                        <h1>PASOS</h1>
+
+                        <div class="ejercicio-pasos">
+                            <textarea name="comentarios" rows="10" cols="50">Escribe aquí los pasos...</textarea>                 
+                        </div>
+
+                        <div class="agregarvideo">
+                            <label for="myfile"> Selecciona una imagen o video: </label>
+                            <input type="file" id="myfile" name="myfile" max="1">
+                            <!-- dsp agregar el accept="" con los tipos de
+                            extensiones a priorizar -->
+                        </div>
+                        
+
+                        <!-- agregar opcion para añadir imagen, video o gif -->
+
+                        <div class="guardarejercicio">
+                            <button type="submit"><p>Guardar ejercicio</p></button>
+                        </div>
+                    </div>
+                    <div class="tipoejercicio">
+                        <img src="assets/images/cross.png" id="close">
+
+                        <h1>Elija el tipo de ejercicio...</h1>
+                        <div class="opciones">
+                            <input type="radio" name="ejercicios" id="brazos" value="brazos" />
+                            <label class="tipos-ejercicios" for="brazos">
+                                <p>Brazos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="piernas" value="piernas" />
+                            <label class="tipos-ejercicios" for="piernas">
+                                <p>Piernas</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="espalda" value="espalda" />
+                            <label class="tipos-ejercicios" for="espalda">
+                                <p>Espalda</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="abdomen" value="abdomen" />
+                            <label class="tipos-ejercicios" for="abdomen">
+                                <p>Brazos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="gluteos" value="gluteos" />
+                            <label class="tipos-ejercicios" for="gluteos">
+                                <p>Glúteos</p>
+                            </label>
+                            
+                            <input type="radio" name="ejercicios" id="elongacion" value="elongacion" />
+                            <label class="tipos-ejercicios" for="elongacion">
+                                <p>Elongación</p>
+                            </label>
+                        </div>
+                                                    
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

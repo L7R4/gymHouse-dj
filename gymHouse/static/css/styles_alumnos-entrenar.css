@@ -1,0 +1,191 @@
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa; 
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+/* secciones ------------------------*/
+
+.screen{
+    height: 101vh;
+    width: 92vw;
+    margin: 2% 8px auto auto;
+    display:flex;
+    margin-right: 0;
+    /* border: 1px rgb(0, 0, 0) solid; */
+}
+.screen-secciones{
+    width: 93%;
+    height: fit-content;
+    margin: 0rem 2rem;
+    /* border: dotted 1px black; */
+}
+.seccion{
+    width: 100%;
+    height: fit-content;
+    background: #7876FF;
+    border-radius: 16px;
+    transition: all 1s ease-in;
+    margin: 0rem auto 1rem;
+    padding: 1rem;
+}
+.seccion > div{
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    align-content: space-between;
+    margin: auto;
+    /* border: 1px rgb(0, 0, 0) dashed; */
+}
+.seccion > div > h2{
+    height: fit-content;
+    font-family: "raleway bold";
+    font-size: 2.2rem;
+    color: white;
+    /* border: 1px solid black; */
+
+    margin: auto auto auto 2%;;
+}
+.seccion > div > img{
+    width: 3rem;
+    transform: rotate(-90deg);
+    margin: auto 2% auto auto;
+    filter: invert(1);
+
+    /* border: 1px solid black; */
+}
+
+.seccion > div > img.desplegado{
+    width: 3rem;
+    transform: rotate(90deg);
+    /* border: 1px solid black; */
+    margin: auto 2% auto auto;
+}
+
+.plegable{
+    height: 0px;
+    display:none;
+    overflow:hidden;
+    
+    display: flex;
+    transition: height 1s ease;
+    max-width: 98%;
+    flex-wrap: wrap;
+    margin: 1rem;
+    
+}
+div.plegable.desplegado{
+    height: 600px;
+    height: fit-content;
+    display: flex;
+    
+    width: 90%;
+    transition: height 1s ease;
+    margin: 2rem auto 0;
+    /* border: 1px solid black; */
+    
+}
+div.plegable.desplegado > .ejercicio{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 1rem 1rem 0;
+}
+
+.screen-ejercicio{
+    display: none;
+    width: 40%;
+    height: fit-content;
+    margin: 0 2rem;
+    padding-top: 3rem;
+
+    border-radius: 18px;
+    background: #BACCFF;
+    /* border: dotted 1px black; */
+}
+.screen-ejercicio > .ejercicio{
+    width: 90%;
+    min-width: 8rem;
+    max-width: 90%;
+    margin: 0 auto 3%;
+    background: #282828;
+}
+.screen-ejercicio > .ejercicio-pasos{
+    width: auto;
+    margin: auto;
+    padding: 1.6rem 2rem;
+    background: #D6E1FF;
+}
+.screen-ejercicio > .ejercicio-pasos p{
+    font-family:"raleway medium";
+    font-size: 1.4rem;
+}
+.ejercicio-video{
+    margin: 2rem;
+}
+.ejercicio-video img{
+    width: 100%;
+    margin: auto
+}
+
+/*--------------------------------*/
+@media (max-width: 1100px) {}
+@media (max-width: 700px) {
+    *{
+        letter-spacing: 0.6px;
+    }
+    .landing{
+        width: 100%;
+        margin: auto;
+    }
+    .screen{
+        width: 100%;
+        height: fit-content;
+        display: block;
+    }
+    .seccion > div > h2{
+        font-family: "raleway semibold";
+        font-size: 2rem;
+    }
+    .screen-secciones{
+        width: 90%;
+        margin: 0 1rem;
+    }
+    .screen-ejercicio{
+        width: 93%;
+        margin: 1rem auto 8rem;
+    }
+    .ejercicio-video{
+        margin:2rem;
+    }
+    .ejercicio-video img{
+        width: 100%;
+        margin: auto;
+        padding: 0 0 2rem;
+    }
+}
+/*-------------------------------*/

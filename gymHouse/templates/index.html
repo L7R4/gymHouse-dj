@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>Gym House</title>
+</head>
+<body>
+
+    <!-- Landing page -->
+
+    <main class="main__background"> <!-- Resolver fondo! -->
+        <header>
+            <nav class="header__nav">
+                <ol class="nav__items"> <!-- agregar links y agregar modo celular! -->
+                    <li>
+                        <a href="#">Sobre Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="#">Noticias</a>
+                    </li>
+                    <li>
+                        <a href="">Horarios</a> 
+                    </li>
+                    <li>
+                        <a href="#">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="#">Ubicacion</a>
+                    </li>
+                </ol>
+            </nav>
+            <button class="main__button">  Iniciar Sesion  </button>
+        </header>
+        <div class="main__container"> 
+            <div class="title__container">
+                <h1 class="main__title--border">House <br>Gym</h1>
+                <h1 class="main__title">House <br>Gym</h1>
+            </div>
+            <figure class="main__image">
+                <img src="{% static 'images/Image main.svg' %}" alt=""> <!-- Resolver calidad!!!! -->
+            </figure>
+        </div>
+    </main>
+
+    <!-- Sobre nosotros -->
+
+    <section class="sobrenosotros">
+        <h1 class="sobrenosotros__titulo">Sobre nosotros</h1>
+        <p class="sobrenosotros__texto">
+            Lorem ipsum luzma libnda dolor sit amet, consectetur adipiscing elit.
+            Vestibulum a metus eget nisl congue iaculis. Integer commodo
+            magna quis sapien pulvinar consequat. Sed lectus nisl,
+            malesuada et commodo vel, consectetur et ipsum. Nam et
+            lacus ultricies, blandit magna non, accumsan est. Donec
+            ac fringilla erat, eu commodo lorem. Praesent id leo
+            dignissim, porttitor lectus interdum, laoreet nisl. Aliquam
+            facilisis metus mauris, vitae molestie est rhoncus iaculis.
+            Quisque commodo pharetra ipsum vitae varius. Ut eu mi id mi
+            sollicitudin placerat. Integer ultrices nec nulla non
+            condimentum. Phasellus in ex ac mi iaculis rutrum. Phasellus
+            vitae metus et tortor sollicitudin scelerisque vitae nec nunc.
+            In fringilla mauris ut nibh imperdiet elementum. Vestibulum
+            semper elit feugiat, condimentum mi in, faucibus libero. Ut
+            quam augue, hendrerit at faucibus vel, venenatis vitae est.
+        
+            Aenean magna dolor, luctus sit amet mauris eu, imperdiet
+            tincidunt arcu. Vivamus rutrum orci in tempus ornare. Nam
+            feugiat leo felis, sed luctus urna tristique id. Donec
+            iaculis commodo est. Aenean placerat augue mauris, a
+            iaculis metus rutrum et. In euismod et ipsum id efficitur.
+        </p> 
+
+        <div class="sobrenosotros__imagenes"> <!-- hacer las imagenes responsives -->
+            <figure>
+                <img src="{% static 'images\8.png' %}">
+                <p>Nombre</p>
+            </figure> 
+            <figure>
+                <img src="{% static 'images\1.png' %}">
+                <p>Nombre</p>
+            </figure>
+            <figure>
+                <img src="{% static 'images\7.png' %}">
+                <p>Nombre</p>
+            </figure> 
+        </div>
+        
+        <p class="sobrenosotros__texto">
+            Nam etacus ultricies, blandit magna non, accumsan est. Donec
+            ac fringilla erat, eu commodo lorem. Praesent id leo
+            dignissim, porttitor lectus interdum, laoreet nisl. Donec
+            iaculis commodo est. Aenean placerat augue mauris, a
+            iaculis metus rutrum et. In euismod et ipsum id efficitur.
+        </p>
+    </section>
+
+    <!-- Noticias -->
+    
+    <div class="noticias">
+        <div id="slider-container" class="slider-container"> <!-- Resolver responsive! -->
+            <div class="slider" id="slider">
+              <div class="slider__element"> 
+                <a href="index_noticia.html">
+                    <img
+                      src="{% static 'images/imagen.jfif' %}"
+                      alt=""
+                    />
+                </a>
+                <div class="element__detalle"> 
+                    <h6>Detalle</h6>
+                    <p>Fecha</p>
+                </div>
+              </div>
+              <div class="slider__element">
+                <a href="detalle_noticia.html">
+                    <img
+                      src="{% static 'images/imagen2.jfif' %}"
+                      alt=""
+                    />
+                </a>
+                <div class="element__detalle">
+                    <h6>Detalle</h6>
+                    <p>Fecha</p>
+                </div>
+              </div>
+              <div class="slider__element"> 
+                <a href="detalle_noticia.html">
+                    <img
+                      src="{% static 'images/imagen1.jpg' %}"
+                      alt=""
+                    />
+                </a>
+                <div class="element__detalle">
+                    <h6>Detalle</h6>
+                    <p>Fecha</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="slider-buttons"> 
+            <button id="button-left" class="button">
+              <img src="{% static 'images/left arrow.png' %}" alt="">
+            </button>
+            <button id="button-right" class="button">
+              <img src="{% static 'images/right arrow.png' %}" alt="">
+            </button>
+        </div> 
+    </div>
+
+    <!-- Ubicación -->
+
+    <section class="ubicacion"> 
+        <h1 class="ubicacion_text"> 
+            Nuestro gymnasio se encuentra en el -barrio UOM- siendo el único por la zona
+        </h1> 
+        <iframe class="ubicacion_mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.870679030558!2d-58.96320947942016!3d-27.410963687717057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450dd4ea307821%3A0x20160f1de01dbb45!2sHouse.Gimnasio!5e0!3m2!1ses-419!2sar!4v1659881013184!5m2!1ses-419!2sar" 
+        width="800" height="450" style="border-radius:22px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Horarios -->
+
+    <section class="horarios"> 
+        <h1 class="horarios__title">
+            Nuestros horarios
+        </h1> 
+        <p class="horarios__text">Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent.</p>
+        <div class="agenda"> 
+            <div class="dias">
+                <div class="lun">
+                    <div>
+                        <h6>LUN</h6>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="mar">
+                    <div>
+                        <h6>MAR</h6>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="mie">
+                    <div>
+                        <h6>MIE</h6>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="jue">
+                    <div>
+                        <h6>JUE</h6>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="vie">
+                    <div>
+                        <h6>VIE</h6>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Contacto -->
+
+    <section class="contacto">
+        <h1 class="contacto_title">Contactanos!</h1>
+        <button class="contacto_mandarmensaje" href="https://wa.me/543624863322/?text=Holaa" target="_blank"><p>MANDAR MENSAJE</p></button>
+        <div class="contacto_redes"> 
+            <figure>
+                <img src="{% static 'images\instagram.png' %}">
+                <a href="https://www.instagram.com/">@HouseGym</a>
+            </figure>
+            <figure>
+                <img src="{% static 'images\twitter.png' %}">
+                <a href="https://www.twitter.com/">House_Gym</a>
+            </figure>
+            <figure>
+                <img src="{% static 'images\facebook.png' %}">
+                <a href="https://www.facebook.com/">House Gym Resistencia</a>
+            </figure>
+            <figure>
+                <img src="{% static 'images\whatsapp.png' %}">
+                <a href="https://wa.me/543624863322/">+54 362 4123456</a> <!-- cambiar redes -->
+            </figure>
+        </div>
+    </section>
+    
+    <script src="{% static 'js/slider_noticias.js' %}"></script>
+    <script src="{% static 'js/modal_login.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa; 
+    font-size: 1em;
+    /* display: flex; */
+    line-height: 1.5em;
+}
+/* fin de FONTS */
+
+/* MENU -----------------------------------------------------------------------------------------*/
+.menu{
+    height: 100%;
+    width: 6vw;
+    max-width: 80px;
+    left: 0;
+    top: 0;
+    background: #d6e1ff;
+    color: rgb(0, 0, 0);
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.3);
+
+    position: fixed;
+    display: block;
+    z-index: 100;
+}
+.container_nav{
+    width: 6vw;
+    height: 100%;
+}
+.menu_icons{
+    height: 100%;
+    width: 100%;
+}
+.menu_icons ul{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 9.4rem;
+    width: 100%;
+    display: grid;
+    float: left;
+}
+.menu_icons > ul > li > a > .logo{
+    height: 3.2rem;
+    width: 4.2rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.menu_icons li{
+    height: 11rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    float: left;
+}
+.menu_icons a{
+    text-decoration: none;
+}
+.menu_icons img{
+    height: 2.4rem;
+    width: 2.4rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.menu_icons p{
+    font-family: 'raleway bold'; 
+    font-size: 1.4rem;
+    color: black;
+    margin: 0.4rem;
+}
+.menu_icons li:hover{
+    background: #c4d4ff;
+}
+
+/* MENU VERSION CELULAR ------------------------------------------------------------ */
+@media (max-width: 1100px) {
+    .menu_icons img{
+        height: 2rem;
+        width: 2rem;
+    }
+    .menu_icons p{
+        font-size: 1.2rem;
+        margin: 0.4rem;
+    }
+    .menu_icons > ul > li > a > .logo{
+        height: 3rem;
+        width: 4rem;
+    }
+}
+@media (max-width: 900px) {
+    .menu_icons img{
+        height: 1.8rem;
+        width: 1.8rem;
+    }
+    .menu_icons p{
+        font-size: 1rem;
+        margin: 0.4rem;
+    }
+    .menu_icons > ul > li > a > .logo{
+        height: 2.6rem;
+        width: 3.6rem;
+    }
+}
+@media (max-width: 700px) {
+    .container_nav{
+        display: none;
+        width: 0px;
+    }
+    .menu{
+        display: none;
+        width: 0px;
+    }
+    /* .menu_icons{
+        display: none;
+    } */
+    .aside--space{
+        display: none;
+        width: 0px;
+    }
+}
+/*-------------------------------------------------------*/
+/* fin del MENU */
