@@ -34,7 +34,6 @@ html{
 
 .main__background{
     background: linear-gradient(180deg, #9589E8 0%, #261983 96.35%);
-    width: 100vw;
     height: 100vh;
 }
 .main__container{
@@ -77,11 +76,12 @@ html{
     object-fit: contain;
 }
 header{
-    width: 100vw;
+    /* width: 100vw; */
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
 }
 .header__nav{
     width: 60%;
@@ -123,8 +123,42 @@ header{
     color: white;
     cursor: pointer;
 }
-.main__button.active{
-    
+.modal_login
+{
+    position: absolute;
+    height: fit-content;
+    right: 5%;
+    top: 6rem;
+    background-color: #252C45;
+    opacity: 0;
+    transition: all .6s ease;
+}
+.modal_login.active
+{
+    opacity: 1;
+}
+
+.modal_login > form{
+    display: flex;
+    flex-flow: column;
+    padding: 2rem
+}
+.modal_login > form > label{
+    font-family: "raleway bold";
+    font-size: 1.6rem;
+    color: white;
+}
+.modal_login > form > input
+{
+    height: 30px;
+    border-radius: 1rem  ;
+    border-color: transparent;
+}
+.modal_login > form > #ingresar
+{
+    margin-top: 1rem;
+    border-radius: 2rem  ;
+    border-color: transparent;
 }
 
 
@@ -289,7 +323,7 @@ header{
 
 .ubicacion{
     background:#252C45;
-    width: 100vw;
+    /* width: 100vw; */
     text-align: center;
     padding: 5rem 0 5rem;
 }
