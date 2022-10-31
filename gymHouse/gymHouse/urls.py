@@ -3,12 +3,13 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import IndexView
+from .views import IndexView, Nazi
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", IndexView.as_view(), name="index"),
+    path("nazi/", Nazi.as_view(), name="login_user"),
     # path("login_test")
     # path("e",include("entrenamiento.urls"), name="entrenamiento"),
     # path("p",include("posts.urls"), name="posts"),
