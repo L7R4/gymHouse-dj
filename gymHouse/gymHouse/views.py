@@ -3,6 +3,7 @@ from django.views import generic
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from posts.models import Noticia
+from personas.models import Persona
 
 
 class IndexView(generic.View):
@@ -15,13 +16,13 @@ class IndexView(generic.View):
         })
     def post(self, request, *args, **kwargs):
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
+        
         try:
             grupo_user = user.groups.all()[0]
-            print(grupo_user)
-            grupo_user_string=str(grupo_user)
-            print(type(grupo_user_string))
+            grupo_user_string= str(grupo_user)
         except:
             grupo_user_string ="None"
+
         if grupo_user_string == "None":
             return render(request, self.template_name, {
             "form": AuthenticationForm,
