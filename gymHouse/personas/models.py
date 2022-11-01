@@ -27,6 +27,20 @@ class Persona(models.Model):
     contraseña = models.CharField(max_length=100)
     biografia = models.TextField()
 
+    def __str__(self):
+        return self.nombre + " " + self.apellido
+
+    
+
+class Dia(models.Model):
+    lunes = models.IntegerField(blank = True, null = True)
+    martes = models.IntegerField(blank = True, null = True)
+    miercoles =models.IntegerField(blank = True, null = True)
+    jueves =models.IntegerField(blank = True, null = True)
+    viernes = models.IntegerField(blank = True, null = True)
+    # turnos = models.ManyToManyField(Turno)
+
+
 class Turno(models.Model):
     cantidad_de_dias =(
         ("2_veces", "2 veces/Semana"),
@@ -35,12 +49,7 @@ class Turno(models.Model):
     )
     plan= models.CharField(max_length = 50, choices = cantidad_de_dias)
     alumno = models.ManyToManyField(Persona)
-    
+    dias = models.ManyToManyField(Dia)
 
-class Dia(models.Model):
-    lunes = models.IntegerField(blank = True)
-    martes = models.IntegerField(blank = True)
-    miercoles =models.IntegerField(blank = True)
-    jueves =models.IntegerField(blank = True)
-    viernes = models.IntegerField(blank = True)
-    turnos = models.ManyToManyField(Turno)
+    def __str__(self):
+        return self.plan

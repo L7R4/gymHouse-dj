@@ -3,15 +3,15 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import IndexView, Nazi
+from .views import IndexView, IndexAlumno, IndexProfe
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", IndexView.as_view(), name="index"),
-    path("nazi/", Nazi.as_view(), name="login_user"),
-    # path("login_test")
-    # path("e",include("entrenamiento.urls"), name="entrenamiento"),
-    # path("p",include("posts.urls"), name="posts"),
-    # path("u",include("personas.urls"), name="personas")
+    path("user/", IndexAlumno.as_view(), name="login_user"),
+    path("nazi_profe/", IndexProfe.as_view(), name="login_profe"),
+    path("e/",include("entrenamiento.urls"), name="entrenamiento"),
+    path("u/",include("personas.urls"), name="personas"),
+    path("p/",include("posts.urls"), name="posts"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

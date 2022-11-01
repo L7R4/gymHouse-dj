@@ -18,19 +18,19 @@
             <nav class="header__nav">
                 <ol class="nav__items"> <!-- agregar links y agregar modo celular! -->
                     <li>
-                        <a href="#">Sobre Nosotros</a>
+                        <a href="#sobrenosotros">Sobre Nosotros</a>
                     </li>
                     <li>
-                        <a href="#">Noticias</a>
+                        <a href="#noticias">Noticias</a>
                     </li>
                     <li>
-                        <a href="">Horarios</a> 
+                        <a href="#horarios">Horarios</a> 
                     </li>
                     <li>
-                        <a href="#">Contactanos</a>
+                        <a href="#contactanos">Contactanos</a>
                     </li>
                     <li>
-                        <a href="#">Ubicacion</a>
+                        <a href="#ubicacion">Ubicacion</a>
                     </li>
                 </ol>
             </nav>
@@ -53,6 +53,7 @@
             <div class="title__container">
                 <h1 class="main__title--border">House <br>Gym</h1>
                 <h1 class="main__title">House <br>Gym</h1>
+                {% comment %} <h1>{{ request.user.groups }}</h1> {% endcomment %}
             </div>
             <figure class="main__image">
                 <img src="{% static 'images/Image main.svg' %}" alt=""> <!-- Resolver calidad!!!! -->
@@ -62,7 +63,7 @@
 
     <!-- Sobre nosotros -->
 
-    <section class="sobrenosotros">
+    <section class="sobrenosotros" id="sobrenosotros">
         <h1 class="sobrenosotros__titulo">Sobre nosotros</h1>
         <p class="sobrenosotros__texto">
             Lorem ipsum luzma libnda dolor sit amet, consectetur adipiscing elit.
@@ -114,45 +115,22 @@
 
     <!-- Noticias -->
     
-    <div class="noticias">
+    <div class="noticias" id="noticias">
         <div id="slider-container" class="slider-container"> <!-- Resolver responsive! -->
             <div class="slider" id="slider">
-              <div class="slider__element"> 
-                <a href="index_noticia.html">
-                    <img
-                      src="{% static 'images/imagen.jfif' %}"
-                      alt=""
-                    />
-                </a>
-                <div class="element__detalle"> 
-                    <h6>Detalle</h6>
-                    <p>Fecha</p>
-                </div>
-              </div>
-              <div class="slider__element">
-                <a href="detalle_noticia.html">
-                    <img
-                      src="{% static 'images/imagen2.jfif' %}"
-                      alt=""
-                    />
-                </a>
-                <div class="element__detalle">
-                    <h6>Detalle</h6>
-                    <p>Fecha</p>
-                </div>
-              </div>
-              <div class="slider__element"> 
-                <a href="detalle_noticia.html">
-                    <img
-                      src="{% static 'images/imagen1.jpg' %}"
-                      alt=""
-                    />
-                </a>
-                <div class="element__detalle">
-                    <h6>Detalle</h6>
-                    <p>Fecha</p>
-                </div>
-              </div>
+                {% for post in posts %}
+                    <div class="slider__element"> 
+                        <a href="index_noticia.html">
+                            <img
+                            src="{{post.foto.url}}"
+                            alt=""/>
+                        </a>
+                        <div class="element__detalle"> 
+                            <h6>{{post.titulo}}</h6>
+                            <p>{{post.fecha|date:"d/m/Y"}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="slider-buttons"> 
@@ -167,7 +145,7 @@
 
     <!-- Ubicación -->
 
-    <section class="ubicacion"> 
+    <section class="ubicacion" id="ubicacion"> 
         <h1 class="ubicacion_text"> 
             Nuestro gymnasio se encuentra en el -barrio UOM- siendo el único por la zona
         </h1> 
@@ -177,7 +155,7 @@
 
     <!-- Horarios -->
 
-    <section class="horarios"> 
+    <section class="horarios" id="horarios"> 
         <h1 class="horarios__title">
             Nuestros horarios
         </h1> 
@@ -240,7 +218,7 @@
 
     <!-- Contacto -->
 
-    <section class="contacto">
+    <section class="contacto" id="contactos">
         <h1 class="contacto_title">Contactanos!</h1>
         <button class="contacto_mandarmensaje" href="https://wa.me/543624863322/?text=Holaa" target="_blank"><p>MANDAR MENSAJE</p></button>
         <div class="contacto_redes"> 
