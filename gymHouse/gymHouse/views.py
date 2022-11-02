@@ -64,11 +64,15 @@ class IndexView(generic.View):
 
 class IndexAlumno(generic.View):
     template_name = "index_alumnos.html"
-    context ={
-        "posts": Noticia.objects.all()[:3],
-    }
+    
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, self.context)
+        plan = request.user.turno_set.all()[0]
+        dias_plan = plan.dias.all()
+        return render(request, self.template_name, {
+        "posts": Noticia.objects.all()[:3],
+        "plan": plan,
+        "dias":dias_plan,
+    })
 
 class IndexProfe(generic.View):
     template_name = "index_profes.html"

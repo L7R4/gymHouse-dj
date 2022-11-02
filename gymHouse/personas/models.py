@@ -1,4 +1,3 @@
-from enum import unique
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,AbstractUser
 
@@ -84,11 +83,20 @@ class Persona(AbstractUser):
     
 
 class Dia(models.Model):
-    lunes = models.IntegerField(blank = True, null = True)
-    martes = models.IntegerField(blank = True, null = True)
-    miercoles =models.IntegerField(blank = True, null = True)
-    jueves =models.IntegerField(blank = True, null = True)
-    viernes = models.IntegerField(blank = True, null = True)
+    dias = (
+        ("lunes","Lunes"),
+        ("martes","Martes"),
+        ("miercoles","Miercoles"),
+        ("jueves","Jueves"),
+        ("viernes","Viernes"),
+    )
+
+    dia = models.CharField(max_length=20, choices=dias, default="Ninguno")
+    hora = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.dia + " " + str(self.hora)
+    
 
 
 class Turno(models.Model):

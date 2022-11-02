@@ -93,6 +93,8 @@
         <section class="landing">
             <div class="landing-noticias">
                 <h1>Te podría interesar...</h1>
+
+                
                 <div class="landing-noticias-news">
                     {% comment %} {{posts}} {% endcomment %}
                     {% for post in posts %}
@@ -178,21 +180,24 @@
                         </div>
                         <div class="planmensual-tuplan">
                             <div class="titulo">
-                                <p>3 días/semana</p>
+                                <p>{{plan}}</p>
                             </div>
                             <div class="diashorario">
-                                <div>
-                                    <p class="dia">LUN</p>
-                                    <p class="horario">16hs</p>
-                                </div>
-                                <div>
+                                {% for x in dias %}
+                                    <div>
+                                        <p class="dia">{{x.dia|slice:":3"}}</p>
+                                        <p class="horario">{{x.hora}}</p>
+                                    </div>
+                                {% endfor %}
+                                
+                                {% comment %} <div>
                                     <p class="dia">MIE</p>
                                     <p class="horario">16hs</p>
                                 </div>
                                 <div>
                                     <p class="dia">MIE</p>
                                     <p class="horario">19hs</p>
-                                </div>
+                                </div> {% endcomment %}
                             </div>            
                         </div>
                         <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
