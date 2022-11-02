@@ -53,7 +53,9 @@
             <div class="title__container">
                 <h1 class="main__title--border">House <br>Gym</h1>
                 <h1 class="main__title">House <br>Gym</h1>
-                {% comment %} <h1>{{ request.user.groups }}</h1> {% endcomment %}
+                {% for user in users %}
+                    <h1>{{user.is_staff}}</h1>
+                {% endfor %}
             </div>
             <figure class="main__image">
                 <img src="{% static 'images/Image main.svg' %}" alt=""> <!-- Resolver calidad!!!! -->

@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'personas.Persona'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -72,6 +72,13 @@ TEMPLATES = [
         },
     },
 ]
+AUTH_USER_MODEL = 'personas.Persona'
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.AllowAllUsersModelBackend",
+    "personas.backends.CaseInsensitiveModelBackend",
+    'personas.backends.UserBackend',
+    "django.contrib.auth.backends.ModelBackend"
+)
 
 WSGI_APPLICATION = 'gymHouse.wsgi.application'
 
