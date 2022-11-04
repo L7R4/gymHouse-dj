@@ -4,7 +4,7 @@ from .models import Noticia
 
 class Noticias(generic.ListView):
     model = Noticia
-    template_name = "alumnos_entrenar.html"
+    template_name = "alumnos_noticias.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

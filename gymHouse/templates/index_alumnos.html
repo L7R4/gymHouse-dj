@@ -96,7 +96,6 @@
 
                 
                 <div class="landing-noticias-news">
-                    {% comment %} {{posts}} {% endcomment %}
                     {% for post in posts %}
                         <div class="noticia-sec">
                             <a src="#"> <!-- agregar que redireccione a la noticia -->
@@ -197,10 +196,12 @@
 
                     <div class="landing-playlist">
                         <p>¿Querés que pasemos tu música en los entrenamientos?</p> 
-                        <div class="playlist">
-                            <input type="text" placeholder="Pegá el link de tu playlist acá...">
+                        <form method ="POST" class="playlist">
+                            {% csrf_token %}
+                            <input type="text" name= "link_playlist" placeholder="Pegá el link de tu playlist acá...">
                             <button><p>✓</p></button><!-- que salga un aviso de enviado al apretar el boton -->
-                        </div>
+                            <h1>{{form_valid}}</h1>
+                        </form>
                     </div> 
                 </div>
             </div>

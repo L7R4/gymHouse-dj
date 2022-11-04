@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from posts.models import Noticia
 from personas.models import Persona
+from personas.forms import PlaylistForm
 
 
 class IndexView(generic.View):
@@ -16,9 +17,7 @@ class IndexView(generic.View):
             "users" : Persona.objects.all(),
         })
     def post(self, request, *args, **kwargs):
-        # print(request.POST)
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
-        # user = authenticate(request, username=request.POST.get("username"), password =request.POST.get("password"))
         print(user)
         print(user.rango)
         
@@ -68,11 +67,33 @@ class IndexAlumno(generic.View):
     def get(self, request, *args, **kwargs):
         plan = request.user.turno_set.all()[0]
         dias_plan = plan.dias.all()
+        print(request.user.rango)
         return render(request, self.template_name, {
         "posts": Noticia.objects.all()[:3],
         "plan": plan,
         "dias":dias_plan,
     })
+    def post(self,request,*args, **kwargs):
+        form = PlaylistForm(request.POST)
+        plan = request.user.turno_set.all()[0]
+        dias_plan = plan.dias.all()
+        if form.is_valid():
+            user = request.user
+            user.link_playlist = form.cleaned_data['link_playlist']
+            user.save()
+            return render(request, self.template_name, {
+                "form_valid" : "Ya recibimos tu playlist. Muchas Gracias!",
+                "posts": Noticia.objects.all()[:3],
+                "plan": plan,
+                "dias":dias_plan,
+            })
+        return render(request, self.template_name,{
+            "posts": Noticia.objects.all()[:3],
+            "plan": plan,
+            "dias":dias_plan,
+        })
+        
+
 
 class IndexProfe(generic.View):
     template_name = "index_profes.html"

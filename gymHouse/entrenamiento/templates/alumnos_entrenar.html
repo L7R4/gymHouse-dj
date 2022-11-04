@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="header" content="" />
-        <script src="assets/js/jquery-3.6.1.min.js"></script>
-        <link rel="stylesheet" href="assets/styles_menu.css"/>
-        <link rel="stylesheet" href="assets/styles_menu-celu.css">
-        <link rel="stylesheet" href="assets/styles_ejercicios.css"/>
-        <link rel="stylesheet" href="assets/styles_alumnos-entrenar.css"/>
+        <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles_ejercicios.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/styles_alumnos-entrenar.css' %}"/>
         <title>Entrenar: Alumnos</title>
     
     
@@ -20,30 +21,30 @@
                 <ul>
                     <li>
                         <a href="index_alumnos.html">
-                            <img class="logo" src="assets/images/logo.png">
+                            <img class="logo" src="{% static '/images/logo.png' %}">
                         </a> 
                     </li> 
                     <li>
                         <a href="alumnos_perfil.html">
-                            <img src="assets/images/user.png">
+                            <img src="{% static '/images/user.png' %}">
                             <p>Perfil</p>
                         </a>
                     </li> 
                     <li> 
                         <a href="alumnos_entrenar.html">
-                            <img src="assets/images/gym/gym.png">
+                            <img src="{% static '/images/gym/gym.png' %}">
                             <p>Entrenar</p> 
                         </a> 
                     </li>
                     <li>
                         <a href="alumnos_noticias.html">
-                            <img src="assets/images/edit.png">
+                            <img src="{% static '/images/edit.png' %}">
                             <p>Noticias</p>
                         </a>
                     </li>
                     <li>
                         <a href="alumnos_turnos.html">
-                            <img src="assets/images/calendar.png">
+                            <img src="{% static '/images/calendar.png' %}">
                             <p>Turnos</p>
                         </a>
                     </li>
@@ -88,247 +89,110 @@
         </div>
         <div class="navigation--space" id="navigation--space"></div>
     
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script> document.getElementById("eprofile").style.display='none'; </script>
-        
         <section class="screen">
             <form class="screen-secciones" method="post" action="">
                 <!-- cambiar los ID de los ejercicios, etc -->
                 <div class="seccion" id="abdominales">
                     <div class="title_desplegable">
                         <h2>Abdomen</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
+                        {% for a in abdominales %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{a}}</p>
                             </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="seccion" id="brazos">
                     <div class="title_desplegable">
                         <h2>Brazos</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
-
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
+                        {% for  b in brazos %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{b}}</p>
+                            </div> 
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="seccion" id="espalda">
                     <div class="title_desplegable">
                         <h2>Espalda</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
+                        {% for e in espalda %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{e}}</p>
+                            </div>
+                        
+                        {% endfor %}
+                        
                     </div>
                 </div>
                 <div class="seccion" id="piernas">
                     <div class="title_desplegable">
                         <h2>Piernas</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
+                        {% for p in piernas %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{p}}</p>
                             </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="seccion" id="gluteos">
                     <div class="title_desplegable">
                         <h2>Glúteos</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
+                        {% for g in gluteos %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{g}}</p>
                             </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="seccion" id="elongacion">
                     <div class="title_desplegable">
                         <h2>Elongación</h2>
-                        <img src="assets/images/angle-small-left.png">
+                        <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
+                        {% for e in elongacion %}
+                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                                <div class="imgejercicio">
+                                    <img src="{% static '/images/gym/workout.png' %}">
+                                </div>
+                                <p>{{e}}</p>
                             </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>                
             </form>
@@ -336,7 +200,7 @@
             <div class="screen-ejercicio" id="divcerrado">
                 <div class="ejercicio">
                     <div class="imgejercicio">
-                        <img src="assets/images/gym/workout.png">
+                        <img src="{% static '/images/gym/workout.png' %}">
                     </div>
                     <p>Cruzadas</p>
                 </div>
@@ -350,12 +214,13 @@
                     </p>
                 </div>
                 <div class="ejercicio-video">
-                    <img src="assets/images/imagen1.jpg">
+                    <img src="{% static '/images/imagen1.jpg' %}">
                 </div>
             </div>
         </section>
 
     </body>
+
     <script>
         $(window).ready(function(){
             $('.title_desplegable').click(function(){
@@ -377,4 +242,10 @@
             else { x.style.display = "none";}
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script> document.getElementById("eprofile").style.display='none'; </script>
+
 </html>

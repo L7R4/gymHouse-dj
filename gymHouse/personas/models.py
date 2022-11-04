@@ -58,6 +58,7 @@ class Persona(AbstractUser):
     peso = models.CharField(max_length=5, blank = True, null = True)
     edad = models.CharField(max_length=3, blank = True, null = True)
     biografia = models.TextField(blank = True, null = True)
+    link_playlist = models.URLField(default="")
     admin = models.BooleanField(default=False)
     is_active = models.BooleanField( default=True)
 
@@ -100,10 +101,11 @@ class Dia(models.Model):
 
 
 class Turno(models.Model):
+
     cantidad_de_dias =(
-        ("2_veces", "2 veces/Semana"),
-        ("3_veces", "3 veces/Semana"),
-        ("5_veces", "5 veces/Semana"),
+        ("2 veces/Semana", "2 veces/Semana"),
+        ("3 veces/Semana", "3 veces/Semana"),
+        ("5 veces/Semana", "5 veces/Semana"),
     )
     plan= models.CharField(max_length = 50, choices = cantidad_de_dias)
     alumno = models.ManyToManyField(Persona)
@@ -111,3 +113,4 @@ class Turno(models.Model):
 
     def __str__(self):
         return self.plan
+
