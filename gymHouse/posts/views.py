@@ -16,4 +16,4 @@ class Noticias(generic.ListView):
 
 class DetailNoticia(generic.DetailView):
     model = Noticia
-    template_name = "index_noticia.html"
+    template_name = "alumnos_noticias-noticiacompleta.html"

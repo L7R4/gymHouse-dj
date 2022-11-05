@@ -140,7 +140,7 @@ body{
 
 .news_complete--section p{
     font-family: "raleway regular";
-    font-size: max(1.6vw,min(1.5rem));
+    font-size: max(1.3vw,min(1.5rem));
     text-align: justify;
     line-height: 1.5em;
     width: 100%;
