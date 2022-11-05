@@ -1,12 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/styles_menu.css">
-    <link rel="stylesheet" type="text/css" href="assets/styles_menu-celu.css">
-    <link rel="stylesheet" type="text/css" href="assets/styles_alumnos-noticias.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_alumnos-noticias.css' %}">
     <script src="assets/js/sectionNews.js"></script>
     <title>Gym House: noticias</title>
 </head>
@@ -34,7 +35,7 @@
                 </li>
                 <li>
                     <a href="alumnos_noticias.html">
-                        <img src="assets/images/edit.png">
+                        <img src="images/edit.png">
                         <p>Noticias</p>
                     </a>
                 </li>
@@ -84,71 +85,51 @@
     </div>
     <div class="navigation--space" id="navigation--space"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="assets/js/sectionNews.js"></script>
+
 
     <section class="news">
 
         <div class="news_slider">
             <div class="cards">
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
+                {% for card in noticias_slider %}
+            
+                    <a class="card" href="{% url 'posts:detail_noticia' card.id %}">
+                        <figure>
+                            <img src="{{card.foto.url}}" alt="{{card.titulo}}">
+                        </figure>
+                        <div class="post--images-detail">
+                            <p>{{card.titulo}}</p>
+                        </div>
                     </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
+            
+                {% endfor %}
             </div>
         </div>
 
         <div class="wrapper">
+            {% for card in noticias_slider %}
+            
                 <div class="card">
+                    <a href="{% url 'posts:detail_noticia' card.id %}">
+                        <img src="{{card.foto.url}}" alt="{{card.titulo}}">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>{{card.titulo}}</p>
+                    </div>
+                </div>
+            
+            {% endfor %}
+                {% comment %} <div class="card">
                     <a href="alumnos_noticias-noticiacompleta.html">
                         <img src="assets/img/wafless.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="alumnos_noticias-noticiacompleta.html">
+                        <img src="assets/img/ensalada2.jpg" alt="">
                     </a>
                     <div class="post--images-detail">
                         <p>Noticia</p>
@@ -172,90 +153,79 @@
                 </div>
                 <div class="card">
                     <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
                         <img src="assets/img/ensalada2.jpg" alt="">
                     </a>
                     <div class="post--images-detail">
                         <p>Noticia</p>
                     </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
+                </div> {% endcomment %}
         </div>
 
         <div class="news_posts-bigimg">
 
-            <div class="posts--images">
-                <a href="alumnos_noticias-noticiacompleta.html">
-                    <img src="assets/img/herramientas.jpg" alt="">
-                </a>
-                <div class="post--images-detail">
-                    <p>Noticia</p>
+            {% for post in noticias_bigimg %}
+            
+                <div class="posts--images">
+                    <a href="{% url 'posts:detail_noticia' post.id %}">
+                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>{{post.titulo}}</p>
+                    </div>
                 </div>
-            </div>  
+            
+            {% endfor %}
 
-            <div class="posts--images">
-                <a href="alumnos_noticias-noticiacompleta.html">
-                    <img src="assets/img/ensalada2.jpg" alt="">
-                </a>
-                <div class="post--images-detail">
-                    <p>Noticia</p>
-                </div>
-            </div>
 
         </div>
 
         <div class="news_posts--incrementable">
 
             <div class="news_posts--minimized">
-                <a href="alumnos_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
-                        <img src="assets/img/ensalada.jpg" alt="">
+
+                {% for post in noticias_minimized %}
+            
+                    <a href="{% url 'posts:detail_noticia' post.id %}" class="news_posts--minimized-detailed">
+                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
                         <div class="news_posts--minimized-description">
-                            <p>Title</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
+                            <p>{{post.titulo}}</p>
+                            <p>{{post.texto}}</p>
                         </div>
-                </a>
-                <a href="alumnos_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
-                        <img src="assets/img/wellness.png" alt="">
-                        <div class="news_posts--minimized-description">
-                            <p>Title</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
-                        </div>
-                </a>
-                <a href="alumnos_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
-                        <img src="assets/img/cropped-1920-1080-952959.jpg" alt="">
-                        <div class="news_posts--minimized-description">
-                            <p>Title</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
-                        </div>
-                </a>
+                    </a>
+            
+                {% endfor %}
+
             </div>
 
-            <div class="posts--images">
+            {% comment %} <div class="posts--images">
                     <a href="alumnos_noticias-noticiacompleta.html">
                         <img src="assets/img/wafless.jpg" alt="">
                     </a>
                     <div class="post--images-detail">
                         <p>Noticia</p>
                     </div>
-            </div>
+            </div> {% endcomment %}
+            {% for post in noticias_next_minimized %}
+            
+                <div class="posts--images">
+                    <a href="{% url 'posts:detail_noticia' post.id %}">
+                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>{{post.titulo}}</p>
+                    </div>
+                </div>
+            
+            {% endfor %}
 
         </div>
 
     </section>
     
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'js/sectionNews.js' %}"></script>
 </html>

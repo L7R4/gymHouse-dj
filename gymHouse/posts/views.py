@@ -8,5 +8,12 @@ class Noticias(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["noticias"] = Noticia.objects.all()
+        context["noticias_slider"] = Noticia.objects.all()[:6]
+        context["noticias_bigimg"] = Noticia.objects.all()[6:8]
+        context["noticias_minimized"] = Noticia.objects.all()[8:11]
+        context["noticias_next_minimized"] = Noticia.objects.all()[12:13]
         return context
+
+class DetailNoticia(generic.DetailView):
+    model = Noticia
+    template_name = "index_noticia.html"
