@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from .models import Noticia
+from django.http import JsonResponse
 
 class Noticias(generic.ListView):
     model = Noticia
@@ -14,6 +15,19 @@ class Noticias(generic.ListView):
         context["noticias_next_minimized"] = Noticia.objects.all()[12:13]
         return context
 
+def get_comments(request, id_post):
+    # objecto =self.get_object()
+    recibo = Noticia.objects.get(id = id_post)
+    print(request.GET)
+    # texto = recibo.texto
+    # comments = {
+    #      'texto' : texto,
+    # }
+    return JsonResponse({'texto' : "texto"})
+
 class DetailNoticia(generic.DetailView):
     model = Noticia
-    template_name = "index_noticia.html"
+    template_name = "alumnos_noticias-noticiacompleta.html"
+    
+    def post(self,request, *args, **kwargs):
+       pass
