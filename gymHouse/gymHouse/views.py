@@ -66,8 +66,9 @@ class IndexAlumno(generic.View):
     
     def get(self, request, *args, **kwargs):
         plan = request.user.turno_set.all()[0]
+        print(plan)
         dias_plan = plan.dias.all()
-        print(request.user.rango)
+        # print(request.user.rango)
         return render(request, self.template_name, {
         "posts": Noticia.objects.all()[:3],
         "plan": plan,

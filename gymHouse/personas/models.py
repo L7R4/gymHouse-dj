@@ -107,10 +107,16 @@ class Turno(models.Model):
         ("3 veces/Semana", "3 veces/Semana"),
         ("5 veces/Semana", "5 veces/Semana"),
     )
+    profesores =(
+        ("Javi", "Javi"),
+        ("Pablo", "Pablo"),
+        ("Lauti", "Lauti"),
+    )
+    
     plan= models.CharField(max_length = 50, choices = cantidad_de_dias)
     alumno = models.ManyToManyField(Persona)
     dias = models.ManyToManyField(Dia)
-
+    # profe = models.CharField(max_length = 50, choices = profesores)
     def __str__(self):
         return self.plan
 

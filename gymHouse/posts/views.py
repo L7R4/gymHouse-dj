@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from .models import Noticia
+from personas.models import Persona
 from django.http import JsonResponse
 
 class Noticias(generic.ListView):
@@ -15,15 +16,32 @@ class Noticias(generic.ListView):
         context["noticias_next_minimized"] = Noticia.objects.all()[12:13]
         return context
 
-def get_comments(request, id_post):
-    # objecto =self.get_object()
-    recibo = Noticia.objects.get(id = id_post)
-    print(request.GET)
-    # texto = recibo.texto
-    # comments = {
-    #      'texto' : texto,
-    # }
-    return JsonResponse({'texto' : "texto"})
+def get_comments(request,pk):
+    post = Noticia.objects.get(id = pk)
+    post_id = post.id
+    comentarios = list(post.comentario_set.values('persona','texto','fecha_y_hora'))
+    comments_list = []
+    for comment in comentarios:
+        date_comment = {}
+        
+        user_id = comment['persona']
+        user_name = Persona.objects.get(pk = user_id).nombre
+        user_surname = Persona.objects.get(pk = user_id).apellido
+
+        date = comment['fecha_y_hora']
+        # print(type(date))
+        format_date = date.strftime("%d-%m-%Y %H:%M")
+
+        date_comment['nombre'] = user_name + " " + user_surname
+        date_comment['comentario'] = comment['texto']
+        date_comment['fecha'] = format_date
+        comments_list.append(date_comment)
+
+    data = {
+        'post_id': post_id,
+        'comments' : comments_list,
+    }
+    return JsonResponse(data)
 
 class DetailNoticia(generic.DetailView):
     model = Noticia

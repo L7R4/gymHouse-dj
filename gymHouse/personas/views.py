@@ -1,12 +1,42 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from .models import Turno
+from personas.models import Persona
 
 class Turnos(generic.ListView):
     model = Turno
-    template_name = "alumnos_entrenar.html"
+    template_name = "alumnos_turnos.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["turnos"] = Turno.objects.all()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["turnos"] = Turno.objects.all()
+        
+    #     return context
+
+    def get(self, request, *args, **kwargs):
+        personas = list(Persona.objects.all())
+        # print(personas)
+        turnos =[]
+        for persona in personas:
+            try:
+                data = {}
+                data['persona'] = persona.nombre + " " + persona.apellido
+                cant_semana = persona.turno_set.all()[0]
+                turno = list(cant_semana.dias.all())
+                
+                dias = [item.dia for item in turno]
+                horas = [item.hora for item in turno]
+                
+                data['dias'] = dias
+                data['horas'] = horas
+                data['foto_url'] = persona.foto_de_perfil.url
+                turnos.append(data)
+  
+            except IndexError:
+                print("No tiene turno asignado")
+            
+        print(turnos)
+        return render(request, self.template_name,{
+            'alumnos': turnos
+        })
+    
