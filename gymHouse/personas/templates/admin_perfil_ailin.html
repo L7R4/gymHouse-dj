@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -5,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="header" content="" />       
 
-        <script src="assets/js/sectionProfile.js"></script>
-        <link rel="stylesheet" href="assets/styles_menu.css" />
-        <link rel="stylesheet" href="assets/styles_menu-celu.css" />
-        <link rel="stylesheet" href="assets/styles_admin_perfil.css" />
+        <script src="{% static 'js/sectionProfile.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles_admin_perfil.css' %}" />
         
     </head>
     <body>
@@ -16,37 +17,37 @@
             <div class="menu_icons">
                 <ul> <!-- poner los links correctos -->
                     <li>
-                        <a href="index_admin.html">
-                            <img class="logo" src="assets/images/logo.png">
+                        <a href="{% url 'login_profe' %}">
+                            <img class="logo" src="{% static 'images/logo.png' %}">
                         </a> 
                     </li> 
                     <li>
-                        <a class="show-profile" id="show-profile">
-                            <img src="assets/images/user.png">
+                        <a href="admin_perfil.html">
+                            <img src="{% static 'images/user.png' %}">
                             <p>Perfil</p>
                         </a>
                     </li> 
                     <li> 
-                        <a href="admin_entrenar.html">
-                            <img src="assets/images/gym/gym.png">
+                        <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
+                            <img src="{% static 'images/gym/gym.png' %}">
                             <p>Entrenar</p>
                         </a> 
                     </li>
                     <li>
-                        <a href="admin_noticias.html">
-                            <img src="assets/images/edit.png">
+                        <a href="{% url 'posts:adminNoticia' %}">
+                            <img src="{% static 'images/edit.png' %}">
                             <p>Noticias</p>
                         </a>
                     </li>
                     <li>
-                        <a href="admin_turnos.html">
-                            <img src="assets/images/calendar.png">
+                        <a href="{% url 'personas:adminTurnos' %}">
+                            <img src="{% static 'images/calendar.png' %}">
                             <p>Turnos</p>
                         </a>
                     </li>
                     <li>
-                        <a href="admin_alumnos.html">
-                            <img src="assets/images/users-alt.png">
+                        <a href="{% url 'personas:adminAlumnos' %}">
+                            <img src="{% static 'images/users-alt.png' %}">
                             <p>Alumnos</p>
                         </a>
                     </li>
@@ -56,7 +57,7 @@
         <div class="navigation" id="navigation">
             <ul>
                 <li class="list">
-                    <a href="index_admin.html">
+                    <a href="{% url 'login_profe' %}">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="text">Inicio</span>
                     </a>
@@ -68,25 +69,25 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="admin_entrenar.html">
+                    <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                         <span class="text">Entrenar</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="admin_noticias.html">
+                    <a href="{% url 'posts:adminNoticia' %}">
                         <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                         <span class="text">Noticias</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="admin_turnos.html">
+                    <a href="{% url 'personas:adminTurnos' %}">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                         <span class="text">Turnos</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="admin_alumnos.html">
+                    <a href="{% url 'personas:adminAlumnos' %}">
                         <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
                         <span class="text">Alumnos</span>
                     </a>

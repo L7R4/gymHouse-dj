@@ -17,4 +17,7 @@ class Ejercicios(generic.ListView):
         context["gluteos"] = Ejercicio.objects.filter(nombre_tipo = ["gluteos"])
         print(type(ejercicio_1.nombre_tipo))
         return context
+
+class EjerciciosAdmin(generic.TemplateView):
+    template_name = "admin_entrenar.html"
     

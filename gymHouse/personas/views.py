@@ -38,7 +38,14 @@ class Turnos(generic.ListView):
         return render(request, self.template_name,{
             'alumnos': turnos
         })
-    
+
+class AdminTurnos(generic.TemplateView):
+    template_name = "admin_turnos_ailin.html"
+
+class AdminAlumnos(generic.TemplateView):
+    template_name = "admin_alumnos.html"
+
+
 class ViewEditPerfil(generic.View):
     model = Persona
     template_name = "edit_perfil.html"

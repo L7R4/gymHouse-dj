@@ -113,7 +113,7 @@ class IndexAlumno(generic.View):
         
 
 class IndexProfe(generic.View):
-    template_name = "index_profes.html"
+    template_name = "index_admin_ailin.html"
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 

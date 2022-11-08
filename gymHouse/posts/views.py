@@ -67,3 +67,5 @@ class DetailNoticia(generic.DetailView):
             'comments': post.comentario_set.all()
         })
         
+class AdminNoticias(generic.TemplateView):
+    template_name = "admin_noticias.html"
