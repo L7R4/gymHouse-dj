@@ -7,3 +7,19 @@ class PlaylistForm(forms.ModelForm):
         fields =[
             "link_playlist",
         ]
+class PersonForm(forms.ModelForm):
+    class Meta:
+        model = Persona
+        fields =[
+            "nombre",
+            "apodo",
+            "genero", 
+            "apellido",
+            "telefono",
+            "altura", 
+            "peso", 
+            "edad", 
+            "biografia",
+            "password",
+            "foto_de_perfil",
+        ]

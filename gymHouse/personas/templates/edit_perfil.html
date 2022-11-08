@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_navcel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+    <script src="{% static 'js/sectionProfile.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" id="eprofile" class="eprofile">
+        <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
+            <img src="{{user.foto_de_perfil}}" id="eprofile_data--pic">
+            <label for="eprofile_data--button-image" class="eprofile_data--button-image-label">
+                Cambiar imagen
+            </label>
+            <input type="file" name="foto_de_perfil" id="eprofile_data--button-image" class="eprofile_data--button-image">
+        </div>
+        {% comment %} <input type="image" id="eprofile_data--button-image" class="eprofile_data--button-image" >  {% endcomment %}
+        
+        <div class="eprofile_data--description" id="eprofile_data--description">
+            <h3>Biografía</h3>
+            {% comment %} {{form.biografia}} {% endcomment %}
+            <textarea form="eprofile"  name="biografia" placeholder="Cuentanos un poco acerta de ti!"></textarea>
+        </div>
+        <div class="eprofile_data--nickname">
+            <div class="input-group">
+                <input required="" type="text" name="apodo" autocomplete="off" class="input" value="{% if user.apodo != None %}{{user.apodo}}{% endif %}">
+                <label class="user-label">Apodo</label>
+            </div>
+        </div>
+        <div class="eprofile_data--name" id="eprofile_data--name">
+            <div class="input-group">
+                <input required="" name="" type="text" name="text" autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
+                <label class="user-label">Nombre(s)</label>
+            </div>
+            <div class="input-group">
+                <input required="" type="text" name="text" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
+                <label class="user-label">Apellido(s)</label>
+            </div>
+            <div class="input-group" id="input-group--tel">
+                <input required="" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" class="input">
+                <label class="user-label">Telefono</label>
+            </div>
+            <div class="input-group" id="input-group--email">
+                <input required="" type="email" name="text" autocomplete="off" class="input">
+                <label class="user-label">Correo electronico</label>
+            </div>
+        </div>
+
+        <div class="eprofile_data--gender" id="eprofile_data--gender">
+            <div class="eprofile_data--genderdiv">
+                <label for="man">
+                    <p>Hombre</p>
+                    <figure id="gender_man"> <img src="assets/img/men.png" alt=""></figure>
+                </label>
+                <input type="radio" name="gender" id="man">
+                <label for="woman">
+                    <p>Mujer</p>
+                    <figure id="gender_woman"><img src="assets/img/woman.png" alt=""></figure>
+                </label>
+                <input type="radio" name="gender" id="woman">
+                <label for="other">
+                    <p>Otro</p>
+                    <figure id="gender_other"><img src="assets/img/other.png" alt=""></figure>
+                </label>
+                <input type="radio" name="gender" id="other">  
+            </div>     
+        </div>
+
+        <div class="eprofile_data--numbers" id="eprofile_data--numbers">
+            <div class="input-group">
+                <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
+                <label class="user-label">Altura</label>
+            </div>
+            <div class="input-group">
+                <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
+                <label class="user-label">Peso</label>
+            </div>
+            <div class="input-group">
+                <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3"> 
+                <label class="user-label">Edad</label>
+            </div>
+        </div>
+        <div class="eprofile_data--password" id="eprofile_data--password">
+            <div class="input-group">
+                <input required="" type="password" name="text" autocomplete="off" class="input" id="actualPassword">
+                <label class="user-label">
+                    Contraseña actual
+                </label>
+                <i class="fa-solid fa-eye-slash" id="solid-eye-slash-actual"></i>
+                <i class="fa-solid fa-eye" id="solid-eye-actual"></i>
+            </div>
+            <div class="input-group">
+                <input required="" type="password" name="text" autocomplete="off" class="input" id="newPassword">
+                <label class="user-label">
+                    Nueva contraseña
+                </label>
+                <i class="fa-solid fa-eye-slash" id="solid-eye-slash-new"></i>
+                <i class="fa-solid fa-eye" id="solid-eye-new"></i>
+            </div>
+            {% comment %} <div class="input-group">
+                <input required="" type="password" name="text" autocomplete="off" class="input" id="confirmPassword">
+                <label class="user-label">
+                    Confirmar contraseña
+                </label>
+                <i class="fa-solid fa-eye-slash" id="solid-eye-slash-confirm"></i>
+                <i class="fa-solid fa-eye" id="solid-eye-confirm"></i>
+            </div> {% endcomment %}
+        </div>
+        {% comment %} <button id="eprofile_data--button-update" class="eprofile_data--button-update">
+            <p>actualizar contraseña</p> 
+        </button> {% endcomment %}
+        <button id="eprofile_data--button-save" class="eprofile_data--button-save">
+            <p>Guardar</p> 
+        </button>
+    </form>
+</body>
+</html>

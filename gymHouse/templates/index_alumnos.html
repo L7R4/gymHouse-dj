@@ -100,13 +100,13 @@
                                 </ol>
                             </div>
                             <button id="profile_data--button" class="profile_data--button">
-                                <p>Editar Perfil</p> 
+                                <a href="{% url 'personas:perfil' user.pk %}">Editar Perfil</a> 
                             </button>
                         </div>
                         <!-- Fin perfil minimizado........................................ -->
                         
                         <!-- Fin perfil edicion (clases referenciadas con una E)........................................ -->
-                        <div id="eprofile" class="eprofile">
+                        {% comment %} <div id="eprofile" class="eprofile">
                             <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
                                 <img src="assets/img/avatar/9.png" id="eprofile_data--pic">
                                 <button id="eprofile_data--button-image" class="eprofile_data--button-image">
@@ -209,7 +209,7 @@
                             <button id="eprofile_data--button-save" class="eprofile_data--button-save">
                                 <p>Guardar</p> 
                             </button>
-                        </div>    
+                        </div>     {% endcomment %}
                         <!-- Fin perfil edicion........................................ -->
                     </div>
                 </div>

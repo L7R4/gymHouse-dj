@@ -350,7 +350,7 @@ ol{
     margin-bottom: 3%;
 }
 
-.profile_data--button p{
+.profile_data--button a{
     text-decoration: none;
     font-family: "raleway semibold";
     font-size: max(.9vw,min(1.5rem));
@@ -733,7 +733,7 @@ ol{
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding-top: 3px;
 }
 
