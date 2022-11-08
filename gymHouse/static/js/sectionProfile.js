@@ -2,8 +2,14 @@ window.addEventListener('load', profile)
 window.addEventListener('resize', loadProfile)
 
 function profile(){
-    document.getElementById('section-profile').style.display='none';
-    document.getElementById('show-profile').addEventListener('click',show)  
+    if(screen.width > 800){
+        document.getElementById('section-profile').style.display='none';
+        document.getElementById('show-profile').addEventListener('click',show)  
+    } else {
+        document.getElementById('section-profile').style.display='block';
+        loadProfile();
+    }
+    
 }
 
 function show(){
@@ -20,13 +26,14 @@ function loadProfile(){
     const list = document.querySelectorAll('.list');
     let btnEditProfile = document.getElementById('profile_data--button')
     btnEditProfile.addEventListener('click',animationEdit)
-    document.getElementById('show-profile').addEventListener('click',show)
-    if(screen.width > 700){
+    if(screen.width > 800){
         document.getElementById("navigation--space").style.display='none';
         document.getElementById("navigation").style.display='none';
         list.forEach((item) =>
         item.addEventListener('click',activeLink))
+        document.getElementById('show-profile').addEventListener('click',show)
     } else {
+        document.getElementById('section-profile').style.display='block';
         document.getElementById("navigation--space").style.display='block';
         document.getElementById("navigation").style.display='flex';
         list.forEach((item) =>
@@ -119,8 +126,6 @@ function sectionEdit(){
         document.getElementById('solid-eye-confirm').style.display='none'
         document.getElementById('solid-eye-slash-confirm').style.display='block'
         document.getElementById('confirmPassword').type='password'})
-
-
 }
 
 function getBack(){

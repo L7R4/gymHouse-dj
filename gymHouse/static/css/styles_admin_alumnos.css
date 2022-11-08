@@ -1,0 +1,251 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway regular";/*400*/
+    src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("../fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("../fonts/Raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("../fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("../fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito black";
+    src: url("../fonts/Nunito/static/Nunito-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito extrabold";
+    src: url("../fonts/Nunito/static/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "nunito bold";
+    src: url("../fonts/Nunito/static/Nunito-Bold.ttf");
+}
+/*FIN FONTS-----------------------------------------------------------------------------------------------------*/
+
+/*INICIALIZACION--------------------------------------------------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    background-color: #eceef3;
+    line-height: 1.5em;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+/*Boton de inscripcion*/
+
+.register-pupil{
+    width: 100vw;
+    padding: 0 0 0 8rem;
+    margin: auto;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-pupil button{
+    border: none;
+    border-radius: 18px;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+.register-pupil button p{
+    color: #D6E1FF;
+    font-family: "raleway bold";
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+}
+
+/*Cards de los alumnos-----------------------------------------------------*/
+.cards-container{
+    width: 100vw;
+    padding: 0 0 0 8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.card-info{
+    width: 20vw;
+    min-width: 28rem;
+    max-width: 34rem;
+    height: 42rem;
+    border-radius: 30px;
+    background: beige;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    transition: all 0.3s ease;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/*imagen de perfil (Card)----------*/
+.card-info figure{
+    width: fit-content;
+    height: fit-content;
+    margin: 1rem auto 0;
+}
+.card-info figure img{
+    width: 20rem;
+    height: 20rem;
+    margin: auto;
+    border: 2.5px solid rgba(0, 0, 0, 0.795);
+    border-radius: 50%;
+    padding: 0.8rem;
+}
+
+/*Apodo-Nombre-Edad (Card)----------*/
+.pupil_data--name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 2.6rem;
+}
+.pupil_data--name p{
+    font-family: "raleway semibold";
+    font-size: 1.6rem;
+}
+.pupil_data--name h1{
+    font-family: "raleway bold";
+    font-size: 2.4rem;
+}
+.pupil_data--name h3{
+    font-family: "raleway semibold";
+    font-size: 2rem;
+}
+
+/*ontacto-Altura-Peso (Card)----------*/
+ol{
+    list-style: none;
+    text-align: center;
+    margin: auto;
+}
+.pupil_data--numbers{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 0.8rem;
+    justify-content: space-between;
+}
+.pupil_data--numbers li{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.pupil_data--numbers li p{
+    font-family: "raleway semibold";
+    font-size: 1.2rem;
+}
+.pupil_data--numbers li h5{
+    font-family: "raleway bold";
+    font-size: 1.6rem;
+}
+
+/*plan (Card)----------------------------*/
+.pupil_plan{
+    font-family: "raleway bold";
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 1.2rem;
+}
+ul{
+    list-style: none;
+}
+.pupil_plan-days{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto 2rem;
+}
+.pupil_plan-days li{
+    margin:0 0.5rem;
+}
+.pupil_plan-days li p{
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+}
+/*--------------------*/
+@media (max-width:800px){
+    .navigation--space {
+        height: 0;
+    }
+    .register-pupil{
+        padding: 0;
+    }
+    .cards-container{
+        padding: 0;
+    }
+}
+@media (max-width:430px){
+    .card-info{
+        min-width: 20rem;
+        height: 33rem;
+    }
+    .card-info figure img{
+        width: 12rem;
+        height: 12rem;
+    }
+    .pupil_data--name{
+        line-height: 2rem;
+    }
+    .pupil_data--name p{
+        font-size: 1.4rem;
+    }
+    .pupil_data--name h1{
+        font-family: "raleway bold";
+        font-size: 1.8rem;
+    }
+    .pupil_data--name h3{
+        font-family: "raleway bold";
+        font-size: 1.6rem;
+    }
+    .pupil_data--numbers li p{
+        font-family: "raleway semibold";
+        font-size: 1rem;
+    }
+    .pupil_data--numbers li h5{
+        font-family: "raleway bold";
+        font-size: 1.4rem;
+    }
+    .pupil_plan{
+        font-size: 1.4rem;
+        margin-top: 1rem;
+    }
+    .pupil_plan-days li p{
+        font-size: 1.3rem;
+    }
+}

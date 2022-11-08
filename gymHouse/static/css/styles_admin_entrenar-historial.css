@@ -217,6 +217,10 @@ body {
 }
 /* query celular */
 @media (max-width: 700px) {
+    .navigation--space{
+        height: 0rem;
+        visibility: hidden;
+    }
     .historialrutinas{
         width: 100%;
         position:static;
@@ -224,7 +228,7 @@ body {
     .historial{
         height: fit-content;
         width: 96%;
-        margin: 6rem auto;
+        margin: 1rem auto;
     }
     .pickdate{
         width: 90%;
@@ -232,8 +236,8 @@ body {
     .historial button{
         background: none;
         border: none;
-        top: 75px;
-        left: 15px;
+        top: 1.8rem;
+        left: 1.5rem;
     }
     .historial > button > img{
         width: 2.6rem;
@@ -248,9 +252,14 @@ body {
         height: fit-content;
         width: 100%;
         margin-bottom: 2rem;
+        min-width: 24rem;
     }
     .hombres{
         height: fit-content;
         width: 100%;
+        min-width: 24rem;
+    }
+    .relleno{
+        height: 10rem;
     }
 }

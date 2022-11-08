@@ -51,7 +51,7 @@
     display: none;
 }
 
-@media (max-width:800px) {
+@media (max-width:700px) {
     .navigation--space{
         display: block;
         height: 80px;

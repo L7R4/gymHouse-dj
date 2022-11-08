@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="assets/styles_menu.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles_menu-celu.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles_admin_noticias.css">
+
+    <title>Gym House: Noticias</title>
+</head>
+<body>
+    <nav class="menu">
+        <div class="menu_icons">
+            <ul> <!-- poner los links correctos -->
+                <li>
+                    <a href="index_admin.html">
+                        <img class="logo" src="assets/images/logo.png">
+                    </a> 
+                </li> 
+                <li>
+                    <a href="admin_perfil.html">
+                        <img src="assets/images/user.png">
+                        <p>Perfil</p>
+                    </a>
+                </li> 
+                <li> 
+                    <a href="admin_entrenar.html">
+                        <img src="assets/images/gym/gym.png">
+                        <p>Entrenar</p>
+                    </a> 
+                </li>
+                <li>
+                    <a href="admin_noticias.html">
+                        <img src="assets/images/edit.png">
+                        <p>Noticias</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_turnos.html">
+                        <img src="assets/images/calendar.png">
+                        <p>Turnos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_alumnos.html">
+                        <img src="assets/images/users-alt.png">
+                        <p>Alumnos</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navigation" id="navigation">
+        <ul>
+            <li class="list">
+                <a href="index_admin.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="admin_perfil.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_entrenar.html">
+                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                    <span class="text">Entrenar</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_noticias.html">
+                    <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <span class="text">Noticias</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_turnos.html">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Turnos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_alumnos.html">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Alumnos</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <div class="navigation--space" id="navigation--space"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
+
+     <!-- fin de los menú -->
+
+     <!--no engancha el css de esta seccion x alguna razon-->
+    <section class="news">
+
+        <div class="news_slider"> <!--no se pueden clickear las img por la animación de arrastrar-->
+            <div class="cards">
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/wafless.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/wafless.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/ensalada2.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/wafless.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/ensalada2.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/ensalada2.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news_posts-bigimg">
+
+            <div class="posts--images">
+                <a href="admin_noticias-noticiacompleta.html">
+                    <img src="assets/img/herramientas.jpg" alt="">
+                </a>
+                <div class="post--images-detail">
+                    <p>Noticia</p>
+                </div>
+            </div>  
+
+            <div class="posts--images">
+                <a href="admin_noticias-noticiacompleta.html">
+                    <img src="assets/img/ensalada2.jpg" alt="">
+                </a>
+                <div class="post--images-detail">
+                    <p>Noticia</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="news_posts--incrementable">
+
+            <div class="news_posts--minimized">
+                <a href="admin_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
+                        <img src="assets/img/ensalada.jpg" alt="">
+                        <div class="news_posts--minimized-description">
+                            <p>Title</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
+                        </div>
+                </a>
+                <a href="admin_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
+                        <img src="assets/img/wellness.png" alt="">
+                        <div class="news_posts--minimized-description">
+                            <p>Title</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
+                        </div>
+                </a>
+                <a href="admin_noticias-noticiacompleta.html" class="news_posts--minimized-detailed">
+                        <img src="assets/img/cropped-1920-1080-952959.jpg" alt="">
+                        <div class="news_posts--minimized-description">
+                            <p>Title</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, excepturi ullam odio tempora debitis voluptatum doloremque rerum repellendus quas, quidem facilis libero illo, ab hic! Magni illum eligendi debitis nihil?</p>
+                        </div>
+                </a>
+            </div>
+
+            <div class="posts--images">
+                    <a href="admin_noticias-noticiacompleta.html">
+                        <img src="assets/img/wafless.jpg" alt="">
+                    </a>
+                    <div class="post--images-detail">
+                        <p>Noticia</p>
+                    </div>
+            </div>
+
+        </div>
+
+        <div class="botoncito">
+            <button>
+                <a href="admin_noticias-crear.html">
+                    AGREGAR NOTICIA
+                </a>
+            </button>
+        </div>
+
+    </section>
+
+</body>
+</html>

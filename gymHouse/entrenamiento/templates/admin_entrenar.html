@@ -6,8 +6,9 @@
         <meta name="header" content="" />
         <script src="assets/js/jquery-3.6.1.min.js"></script>
         <script src="assets/js/agregarejercicios.js"></script>
-
+        
         <link rel="stylesheet" href="assets/styles_menu.css" />
+        <link rel="stylesheet" href="assets/styles_menu-celu.css" />
         <link rel="stylesheet" href="assets/styles_ejercicios.css" />
         <link rel="stylesheet" href="assets/styles_admin_entrenar-agregar.css" />
         <link rel="stylesheet" href="assets/styles_admin_entrenar.css" />
@@ -15,38 +16,102 @@
     
     </head>
     <body>
-
-        <input type="checkbox" class="checkbox" id="menu-toogle"/>
-        <label for="menu-toogle" class="menu-toogle"><img src="assets/images/menu.png"></label>
-
         <nav class="menu">
             <div class="menu_icons">
                 <ul> <!-- poner los links correctos -->
                     <li>
-                        <a href="#"> <img class="logo" src="assets/images/logo.png"> </a> 
+                        <a href="index_admin.html">
+                            <img class="logo" src="assets/images/logo.png">
+                        </a> 
                     </li> 
                     <li>
-                        <a href="#"> <img src="assets/images/user.png"> <p>Cuenta</p> </a>
+                        <a href="admin_perfil.html">
+                            <img src="assets/images/user.png">
+                            <p>Perfil</p>
+                        </a>
                     </li> 
                     <li> 
-                        <a href="#"> <img src="assets/images/gym/gym.png"> <p>Entrenar</p> </a> 
+                        <a href="admin_entrenar.html">
+                            <img src="assets/images/gym/gym.png">
+                            <p>Entrenar</p>
+                        </a> 
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/edit.png"> <p>Noticias</p> </a>
+                        <a href="admin_noticias.html">
+                            <img src="assets/images/edit.png">
+                            <p>Noticias</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/calendar.png"> <p>Turnos</p> </a>
+                        <a href="admin_turnos.html">
+                            <img src="assets/images/calendar.png">
+                            <p>Turnos</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/users-alt.png"> <p>Alumnos</p> </a>
+                        <a href="admin_alumnos.html">
+                            <img src="assets/images/users-alt.png">
+                            <p>Alumnos</p>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
+        <div class="navigation" id="navigation">
+            <ul>
+                <li class="list">
+                    <a href="index_admin.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Inicio</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="admin_perfil.html">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="text">Perfil</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_entrenar.html">
+                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                        <span class="text">Entrenar</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_noticias.html">
+                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                        <span class="text">Noticias</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_turnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Turnos</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_alumnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Alumnos</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+        <div class="navigation--space" id="navigation--space"></div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
+    
+         <!-- fin de los menú -->
+
 
         <section class="screen">
-            <form class="screen-secciones" method="post" action="">
-                <!-- cambiar los ID de los ejercicios, etc -->
+            <div class="screen-secciones">
+               
                 <div class="seccion" id="abdominales">
                     <div class="title_desplegable">
                         <h2>Abdomen</h2>
@@ -54,53 +119,49 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="abdomen1" name="ejercicios">
+                            <label for="abdomen1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Abdomen1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "abdomen2" value="abdomen2" name="ejercicios">
+                            <label for="abdomen2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>abdomen2</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "abdomen3" value="abdomen3" name="ejercicios">
+                            <label for="abdomen3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>abdomen3</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "abdomen4" value="abdomen4" name="ejercicios">
+                            <label for="abdomen4">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>abdomen4</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -108,26 +169,59 @@
                     <div class="title_desplegable">
                         <h2>Brazos</h2>
                         <img src="assets/images/angle-small-left.png">
+                     
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="nashe1" name="ejercicios">
+                            <label for="nashe">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Nashe1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe2" value="nashe2" name="ejercicios">
+                            <label for="nashe2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Nashe2</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe3" value="nashe3" name="ejercicios">
+                            <label for="nashe3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Nashe3</p>
+                            </label>
+                        </div>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe4" value="nashe4" name="ejercicios">
+                            <label for="nashe4">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Nashe4</p>
+                            </label>
+                        </div>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe5" value="nashe5">
+                            <label for="nashe5">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>Nashe5</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -138,65 +232,115 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id ="nashe" value ="espalda1" name ="ejercicios">
+                            <label for="espalda1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda1</p>
+                            </label>
                         </div>
-                        <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda1" name="ejercicios">
+                            <label for="espalda1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda2" name="ejercicios">
+                            <label for="espalda2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda2</p>
+                            </label>
                         </div>
-                        <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda3" name="ejercicios">
+                            <label for="espalda3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda3</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda4" name="ejercicios">
+                            <label for="espalda4">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda4</p>
+                            </label>
                         </div>
-                        <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda5" name="ejercicios">
+                            <label for="espalda5">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda5</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda6" name="ejercicios">
+                            <label for="espalda6">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda6</p>
+                            </label>
                         </div>
-                        <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda7" name="ejercicios">
+                            <label for="espalda7">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda7</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda8" name="ejercicios">
+                            <label for="espalda8">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda8</p>
+                            </label>
                         </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
-                        </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                        <div class="imgejercicio">
-                            <img src="assets/images/gym/workout.png">
-                        </div>
-                        <p>cruzadas</p>
+
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="espalda9" name="ejercicios">
+                            <label for="espalda9">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>espalda9</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -207,23 +351,35 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="pierna1" name="ejercicios">
+                            <label for="pierna1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>pierna1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="pierna2" name="ejercicios">
+                            <label for="pierna2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>pierna2</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="pierna3" name="ejercicios">
+                            <label for="pierna3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>pierna3</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -234,23 +390,35 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="gluteos1" name="ejercicios">
+                            <label for="gluteos1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>gluteos1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="gluteos2" name="ejercicios">
+                            <label for="gluteos2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>gluteos2</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="gluteos3" name="ejercicios">
+                            <label for="gluteos3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>gluteos3</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -261,23 +429,35 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="elongacion1" name="ejercicios">
+                            <label for="elongacion1">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>elongacion1</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="elongacion2" name="ejercicios">
+                            <label for="elongacion2">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>elongacion2</p>
+                            </label>
                         </div>
-                        <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                            <div class="imgejercicio">
-                                <img src="assets/images/gym/workout.png">
-                            </div>
-                            <p>cruzadas</p>
+                        <div class="ejercicio">
+                            <input type="checkbox" id = "nashe" value="elongacion3" name="ejercicios">
+                            <label for="elongacion3">
+                                <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                <div class="imgejercicio">
+                                    <img src="assets/images/gym/workout.png">
+                                </div>
+                                <p>elongacion3</p>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -292,32 +472,24 @@
                         </button>   
                     </div>
                 </div>
-            </form>
+            </div> 
 
             <div class="screen-ejercicio" id="divcerrado">
-                <div class="ejercicio">
-                    <div class="imgejercicio">
-                        <img src="assets/images/gym/workout.png">
-                    </div>
-                    <p>Cruzadas</p>
+                <div class="fecha">
+                    <h1>Creá la rutina</h1>
+                    <input type="date" name="fecha" min="2022-10-12" max="2025-12-31" />
                 </div>
-                <div class="ejercicio-pasos">
-                    <p>
-                        Paso 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Minus tenetur quasi quas quaerat sed vero. Similique nisi omnis officiis
-                        <br><br>
-                        Paso 2: Repellendus aspernatur voluptate numquam eligendi quia.
-                        Reprehenderit hic nobis eveniet maiores? 
-                    </p>
-                    <form action="">
-                        
+                <div class="ejercicio-pasos"></div>
+                    <form class="form_ejercicios">
+                        <!-- <input type="text"> -->
+                        <input type="submit">
                     </form>
                 </div>
                 <div class="ejercicio-video">
-                    <img src="assets/images/imagen1.jpg">
                 </div>
             </div>
         </section>
+<!-- popup de agregar ejercicio -->
 
         <div class="pop-up">
             <div class="pop-up-wrap">
@@ -328,10 +500,6 @@
                                 <p>Nombre del ejercicio</p>
                                 <input type="text" value="Ingresar nombre...">
                             </div>
-                            <!-- <div class="ejercicio-nombre-c2">
-                                <img src="assets/images/picture.svg">
-                                <p>Colocar imagen</p>
-                            </div> -->
                         </div>
 
                         <h1>PASOS</h1>
@@ -356,8 +524,8 @@
                     </div>
                     <div class="tipoejercicio">
                         <img src="assets/images/cross.png" id="close">
-                        <!--no funciona el efecto al seleccionar el tipo-->
-                        <h1>Elija el tipo de ejercicio...</h1> 
+
+                        <h1>Elija el tipo de ejercicio...</h1>
                         <div class="opciones">
                             <input type="radio" name="ejercicios" id="brazos" value="brazos" />
                             <label class="tipos-ejercicios" for="brazos">
@@ -410,12 +578,5 @@
             })
         })
     </script>
-    <!-- <script>
-        function myFunction() {
-            var x = document.getElementById("divcerrado");
-            if (x.style.display === "none"){ x.style.display = "block";}
-            else { x.style.display = "none";}
-        }
-    </script> -->
     <script src="assets/js/quechupeee.js"></script>
 </html>

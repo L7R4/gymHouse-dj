@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="header" content="" />       
+
+        <script src="assets/js/sectionProfile.js"></script>
+        <link rel="stylesheet" href="assets/styles_menu.css" />
+        <link rel="stylesheet" href="assets/styles_menu-celu.css" />
+        <link rel="stylesheet" href="assets/styles_admin_perfil.css" />
+        
+    </head>
+    <body>
+        <nav class="menu">
+            <div class="menu_icons">
+                <ul> <!-- poner los links correctos -->
+                    <li>
+                        <a href="index_admin.html">
+                            <img class="logo" src="assets/images/logo.png">
+                        </a> 
+                    </li> 
+                    <li>
+                        <a class="show-profile" id="show-profile">
+                            <img src="assets/images/user.png">
+                            <p>Perfil</p>
+                        </a>
+                    </li> 
+                    <li> 
+                        <a href="admin_entrenar.html">
+                            <img src="assets/images/gym/gym.png">
+                            <p>Entrenar</p>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="admin_noticias.html">
+                            <img src="assets/images/edit.png">
+                            <p>Noticias</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin_turnos.html">
+                            <img src="assets/images/calendar.png">
+                            <p>Turnos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin_alumnos.html">
+                            <img src="assets/images/users-alt.png">
+                            <p>Alumnos</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="navigation" id="navigation">
+            <ul>
+                <li class="list">
+                    <a href="index_admin.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Inicio</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="admin_perfil.html">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="text">Perfil</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_entrenar.html">
+                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                        <span class="text">Entrenar</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_noticias.html">
+                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                        <span class="text">Noticias</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_turnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Turnos</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_alumnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Alumnos</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+        <div class="navigation--space" id="navigation--space"></div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
+
+        <!-- fin de los menú -->
+        <section class="section-profile" id="section-profile">
+            <div id="perfil_bg--blur" class="perfil_bg--blur">
+                <div class="perfil_bg--gradient" id="perfil_bg--gradient">
+                    <div class="perfil_bg" id="perfil_bg">
+                        <!-- Perfil minimizado........................................ -->
+                        <div class="navbar--fill" id="navbar--fill"></div> 
+                        <div id="profile" class="profile">
+                            <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                <img src="assets/img/avatar/9.png" class="profile_data--pic" id="profile_data--pic">
+                            </div>
+                            <div class="profile_data--name" id="profile_data--name">
+                                <h1>L4R7</h1>
+                                <figure></figure>
+                                <h3>Lautaro Rodriguez</h3>
+                                <p>19 años</p>
+                            </div>
+                            <div class="profile_data--description" id="profile_data--description">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio autem deleniti aliquid exercitationem iure et sit consectetur similique eaque molestias, voluptatibus modi magni a eum quas dicta fugit ratione mollitia.</p>
+                            </div>
+                            <div class="profile_data--numbers" id="profile_data--numbers">
+                                <ol>
+                                    <li>
+                                        <h5>3624036724</h5>
+                                        <p>CONTACTO</p>
+                                    </li>
+                                    <li>
+                                        <h5>180</h5>
+                                        <p>ALTURA</p>
+                                    </li>
+                                    <li>
+                                        <h5>90</h5>
+                                        <p>PESO</li>
+                                    </li>
+                                </ol>
+                            </div>
+                            <button id="profile_data--button" class="profile_data--button">
+                                <p>Editar Perfil</p> 
+                            </button>
+                        </div>
+                        <!-- Fin perfil minimizado........................................ -->
+                        
+                        <!-- Fin perfil edicion (clases referenciadas con una E)........................................ -->
+                        <div id="eprofile" class="eprofile">
+                            <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
+                                <img src="assets/img/avatar/9.png" id="eprofile_data--pic">
+                                <button id="eprofile_data--button-image" class="eprofile_data--button-image">
+                                    <p>Cambiar imagen</p> 
+                                </button>
+                            </div>
+                            
+                            <div class="eprofile_data--description" id="eprofile_data--description">
+                                <h3>Biografía</h3>
+                                <textarea placeholder="Cuentanos un poco acerta de ti!"></textarea>
+                            </div>
+                            <div class="eprofile_data--nickname">
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" class="input">
+                                    <label class="user-label">Apodo</label>
+                                </div>
+                            </div>
+                            <div class="eprofile_data--name" id="eprofile_data--name">
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
+                                    <label class="user-label">Nombre(s)</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="text" name="text" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
+                                    <label class="user-label">Apellido(s)</label>
+                                </div>
+                                <div class="input-group" id="input-group--tel">
+                                    <input required="" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" class="input">
+                                    <label class="user-label">Telefono</label>
+                                </div>
+                                <div class="input-group" id="input-group--email">
+                                    <input required="" type="email" name="text" autocomplete="off" class="input">
+                                    <label class="user-label">Correo electronico</label>
+                                </div>
+                            </div>
+    
+                            <div class="eprofile_data--gender" id="eprofile_data--gender">
+                                <div class="eprofile_data--genderdiv">
+                                    <label for="man">
+                                        <p>Hombre</p>
+                                        <figure id="gender_man"> <img src="assets/img/men.png" alt=""></figure>
+                                    </label>
+                                    <input type="radio" name="gender" id="man">
+                                    <label for="woman">
+                                        <p>Mujer</p>
+                                        <figure id="gender_woman"><img src="assets/img/woman.png" alt=""></figure>
+                                    </label>
+                                    <input type="radio" name="gender" id="woman">
+                                    <label for="other">
+                                        <p>Otro</p>
+                                        <figure id="gender_other"><img src="assets/img/other.png" alt=""></figure>
+                                    </label>
+                                    <input type="radio" name="gender" id="other">  
+                                </div>     
+                            </div>
+    
+                            <div class="eprofile_data--numbers" id="eprofile_data--numbers">
+                                <div class="input-group">
+                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
+                                    <label class="user-label">Altura</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
+                                    <label class="user-label">Peso</label>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3"> 
+                                    <label class="user-label">Edad</label>
+                                </div>
+                            </div>
+                            <div class="eprofile_data--password" id="eprofile_data--password">
+                                <div class="input-group">
+                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="actualPassword">
+                                    <label class="user-label">
+                                        Contraseña actual
+                                    </label>
+                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-actual"></i>
+                                    <i class="fa-solid fa-eye" id="solid-eye-actual"></i>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="newPassword">
+                                    <label class="user-label">
+                                        Nueva contraseña
+                                    </label>
+                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-new"></i>
+                                    <i class="fa-solid fa-eye" id="solid-eye-new"></i>
+                                </div>
+                                <div class="input-group">
+                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="confirmPassword">
+                                    <label class="user-label">
+                                        Confirmar contraseña
+                                    </label>
+                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-confirm"></i>
+                                    <i class="fa-solid fa-eye" id="solid-eye-confirm"></i>
+                                </div>
+                            </div>
+                            <button id="eprofile_data--button-update" class="eprofile_data--button-update">
+                                <p>actualizar contraseña</p> 
+                            </button>
+                            <button id="eprofile_data--button-save" class="eprofile_data--button-save">
+                                <p>Guardar</p> 
+                            </button>
+                        </div>    
+                        <!-- Fin perfil edicion........................................ -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

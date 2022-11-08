@@ -1,0 +1,589 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway regular";/*400*/
+    src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("../fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("../fonts/Raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("../fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("../fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito black";
+    src: url("../fonts/Nunito/static/Nunito-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito extrabold";
+    src: url("../fonts/Nunito/static/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "nunito bold";
+    src: url("../fonts/Nunito/static/Nunito-Bold.ttf");
+}
+/*FIN FONTS-----------------------------------------------------------------------------------------------------*/
+
+/*INICIALIZACION--------------------------------------------------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    background-color: #eceef3;
+    line-height: 1.5em;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+
+
+/*POP-UP para cambiar de plan*/
+
+.planmensual--pop-up{
+    width: 100vw;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.402);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.planmensual--pop-up_wrap{
+    background: #D6E1FF;
+    border-radius: 32px;
+}
+/*--------------------------------------------------------------------*/
+/*primer cuadrito real donde van los dato*/
+.pop-up--data{
+    width: 42rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.input-group {
+    position: relative;
+    margin: 0.3rem;
+}
+.input {
+    width: 90%;
+    border: solid 1.5px #ffffff;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+}
+.user-label {
+    position: absolute;
+    top: 1.5%;
+    left: 15px;
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.input:focus, .input:valid {
+    outline: none;
+    border: 1.7px solid #ffffff;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: #D6E1FF;
+    padding: 0.3em;
+    color: #5135FF;
+    font-family: "raleway bold";
+    top: 1px;
+}
+/*Primer cuadrito*/
+.pop-up--first{
+    width: 42rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.pop-up--first > p{
+    font-family: "raleway semibold";
+    font-size: 1.6rem;
+    color: rgb(0, 0, 0);
+    margin: 2rem auto;
+}
+
+/*Icono x------------------------------*/
+
+.planmensual--pop-up_wrap i{
+    padding: .5rem .5rem 0 0;
+    font-size: 2rem;
+    align-self: end;
+    margin-bottom: .5%;
+    cursor: pointer;
+}
+
+/*Seleccionar el alumno------------------------------*/
+.container {
+    width: 100%;
+    height: 35%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    font-family: "raleway medium";
+    font-size: 1.3rem;
+}
+
+.select-box {
+    display: flex;
+    width: 65%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.select-box .options-container {
+    background: #fff;
+    color: #000;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+
+    order: 1;
+}
+
+.selected {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    height: 30%;
+    color: #000;
+    position: relative;
+    order: 0;
+}
+
+.selected::after {
+    content: "";
+    background: url("../img/arrow-down.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: auto;
+;
+
+    transition: all 0.4s;
+}
+
+.select-box .options-container.actived {
+    max-height: 100%;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.select-box .options-container.actived + .selected::after {
+    transform: rotateX(180deg);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: #62636662;
+    border-radius: 8px;
+}
+
+.select-box .option, .selected {
+    padding: 2% 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.select-box .option:hover {
+    background: #e2e2e2b2;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+
+/*Seleccionar Plan---------------------------------*/
+
+ul{
+    list-style: none;
+}
+
+.pop-up--first ul{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+.pop-up--plan{
+    background: #FFFFFF;
+    border-radius: 18px;
+    line-height: 2em;
+    margin: 1rem 0.5rem;
+}
+
+.pop-up--plan p{
+    height: auto;
+    font-family: "raleway medium";
+    font-size: max(1vw,min(1.4rem));
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1rem;
+}
+/*Mensual suscription*/
+
+.landing-planmensual{
+    width: 42rem;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+.planmensual-titulo img{
+    width: 6rem;
+    display:flex;
+    justify-content: center;
+    margin: 10px auto 1%;
+    /* border: 1px black dashed; */
+}
+.planmensual-titulo p{
+    font-family: "raleway semibold";
+    font-size: 2rem;
+    text-align: center;
+    margin: 2px auto 10px;
+    /* border: 1px black dashed; */
+}
+.plan p{
+    font-family: "raleway semibold";
+    font-size: max(0.9vw,min(1.4rem));
+    text-align: center;
+    margin: 16px 0 8px;
+}
+
+.landing-planmensual button{
+    width: 23%;
+    min-width: 14rem;
+    height: 16%;
+    min-height: 4rem;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display:flex;
+    justify-content: center;
+    margin: 0 auto 3px;
+}
+.landing-planmensual button p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: max(0.75vw,min(1.4rem));
+    color: white;
+    display: flex;
+    align-content: center;
+    margin: auto;
+}
+/*Botones (siguiente - atras)------------------------------------*/
+.planmensual--pop-up_wrap button:first-of-type{
+    border-radius: 14px;
+    border: none;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    margin: 2rem auto 1rem;
+    width: fit-content;
+}
+
+.planmensual--pop-up_wrap button:first-of-type p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    color: white;
+    padding: 1rem 3rem;
+    margin: auto;
+}
+
+.planmensual--pop-up_wrap button:last-of-type{
+    background: none;
+    border: none;
+    display: flex;
+    margin: 0 auto 2rem;
+}
+
+.planmensual--pop-up_wrap button p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration-line: underline;
+}
+
+/*--------------------------------------------------------------------*/
+/*Segundo cuadrito*/
+.pop-up--second{
+    width: 42rem;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.pop-up--second > p{
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0);
+    margin: 1rem auto;
+}
+
+/*dias-------------------------------------------*/
+.pop-up--second ul{
+    display: flex;
+    justify-content: space-between;
+}
+.day{
+    background: #FFF;
+    border-radius: 18px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.day > p{
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0);
+    padding: 1rem 2rem;
+}
+
+.selection p:first-of-type{
+    margin-top: 1rem;
+}
+/*dias seleccionados*/
+
+.selection{
+    background: #ADABFF;
+    border: 3px solid #8976FF;
+    border-radius: 18px;
+    height: 90%;
+    width: 19%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*horario*/
+.custom-num {
+    display: flex;
+    width: 90%;
+    border-radius : 3em;
+    transition: 1s;
+    background-color: #fff;
+}
+
+.custom-num i{
+    transform: rotateZ(-90deg);
+    align-self: center;
+    cursor: pointer;
+    width: 30%;
+}
+
+.num-input::-webkit-outer-spin-button,
+.num-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.num-input {
+    font-family: "raleway bold";
+    font-size: 1.5rem;
+    background:none;
+    border:none;
+    color:#000;
+    width: 2rem;
+}
+
+.num-input:focus{
+    outline: none;
+}
+/*texto hs*/
+.hs{
+    font-family: "raleway regular";
+    font-size: 1.5rem;
+    text-align:center;
+    background:none;
+    border:none;
+    color:#000;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+}
+
+/*----------------------------------------------------------------------*/
+/*Tercer cuadrito*/
+.pop-up--third{
+    width: 42rem;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+.pop-up--third h5{
+    font-family: "raleway bold";
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 3rem auto;
+}
+
+/*Info cambiada*/
+.plan-changed{
+    width: 100%;
+    background: #FFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+
+.plan-changed > p:first-of-type{
+    font-family: "raleway semibold";
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.plan-changed > p:last-of-type{
+    font-family: "raleway semibold";
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.plan-changed ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.plan-changed ul li{
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #ADABFF;
+    border: 2px solid #8976FF;
+    border-radius: 18px;
+}
+
+.plan-changed ul li p{
+    font-family: "raleway bold";
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/* Celphone */
+
+/*Section shifts*/
+
+@media (max-width:800px) {
+    .planmensual--pop-up_wrap {
+        margin: auto;
+    }
+    .pop-up--first {
+        width: 38rem;
+    }
+    .pop-up--first ul {
+        padding: 0;
+    }
+    .pop-up--second {
+        width: 38rem;
+    }
+    .pop-up--third {
+        width: 38rem;
+    }
+}
+@media (max-width:400px) {
+    .pop-up--first {
+        width: 30rem;
+    }
+    .pop-up--first ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    .select-box {
+        width: 100%
+    }
+    .pop-up--first > p {
+        text-align: center;
+        margin: 1rem auto;
+    }
+    .pop-up--plan {
+        margin: 0.5rem auto;
+    }
+    .pop-up--second {
+        width: 30rem;
+    }
+    .pop-up--third {
+        width: 30rem;
+    }
+}

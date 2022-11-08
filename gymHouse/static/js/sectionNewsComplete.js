@@ -26,4 +26,16 @@ function loadNewsComplete(){
         document.getElementById('fa-solid fa-comment').style.display='none';
         document.getElementById('fa-regular fa-comment').style.display='block';
     })
+
+    document.getElementById('fa-regular fa-pen-to-square').style.display='block';
+    document.getElementById('fa-solid fa-pen-to-square').style.display='none';
+
+    document.getElementById('fa-regular fa-pen-to-square').addEventListener('click', function(){
+        document.getElementById('fa-regular fa-pen-to-square').style.display='none';
+        document.getElementById('fa-solid fa-pen-to-square').style.display='block';
+    })
+    document.getElementById('fa-solid fa-pen-to-square').addEventListener('click', function(){
+        document.getElementById('fa-solid fa-pen-to-square').style.display='none';
+        document.getElementById('fa-regular fa-pen-to-square').style.display='block';
+    })
 }

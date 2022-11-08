@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="assets/styles_menu.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles_menu-celu.css">
+    <link rel="stylesheet" href="assets/styles_admin-cambiarplanes.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles_admin_turnos.css">
+
+    <title>Gym House: Turnos</title>
+</head>
+<body>
+    <nav class="menu">
+        <div class="menu_icons">
+            <ul> <!-- poner los links correctos -->
+                <li>
+                    <a href="index_admin.html">
+                        <img class="logo" src="assets/images/logo.png">
+                    </a> 
+                </li> 
+                <li>
+                    <a href="admin_perfil.html">
+                        <img src="assets/images/user.png">
+                        <p>Perfil</p>
+                    </a>
+                </li> 
+                <li> 
+                    <a href="admin_entrenar.html">
+                        <img src="assets/images/gym/gym.png">
+                        <p>Entrenar</p>
+                    </a> 
+                </li>
+                <li>
+                    <a href="admin_noticias.html">
+                        <img src="assets/images/edit.png">
+                        <p>Noticias</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_turnos.html">
+                        <img src="assets/images/calendar.png">
+                        <p>Turnos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_alumnos.html">
+                        <img src="assets/images/users-alt.png">
+                        <p>Alumnos</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navigation" id="navigation">
+        <ul>
+            <li class="list">
+                <a href="index_admin.html">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="admin_perfil.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_entrenar.html">
+                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                    <span class="text">Entrenar</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_noticias.html">
+                    <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <span class="text">Noticias</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_turnos.html">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Turnos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="admin_alumnos.html">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Alumnos</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <div class="navigation--space" id="navigation--space"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <!-- fin de los menú -->
+
+    <div class="turnos">
+        <div class="shifts" id="shifts">
+        <div class="shifts_table" id="shifts_table">
+            <h1>TURNOS</h1>
+            <div class="shifts_days--monday" id="shifts_days--monday">
+                <h3 class="shifts_days" id="shifts_days--l">Lunes</h3>
+                <div class="shift_info--overflow">
+                    <div class="shift_info--conteiner">
+                        <div class="shifts_info" id="shifts_info--l13">
+                            <p class="shifts_info--hour">13hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l14">
+                            <p class="shifts_info--hour">14hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l15">
+                            <p class="shifts_info--hour">15hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l16">
+                            <p class="shifts_info--hour">16hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l17">
+                            <p class="shifts_info--hour">17hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l18">
+                            <p class="shifts_info--hour">18hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l19">
+                            <p class="shifts_info--hour">19hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l20">
+                            <p class="shifts_info--hour">20hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--l21">
+                            <p class="shifts_info--hour">21hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="shifts_days--tuesday" id="shifts_days--tuesday">
+                <h3 class="shifts_days" id="shifts_days--m">Martes</h3>
+                <div class="shift_info--overflow">
+                    <div class="shift_info--conteiner">
+                        <div class="shifts_info" id="shifts_info--m13">
+                            <p class="shifts_info--hour">13hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m14">
+                            <p class="shifts_info--hour">14hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m15">
+                            <p class="shifts_info--hour">15hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m16">
+                            <p class="shifts_info--hour">16hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m17">
+                            <p class="shifts_info--hour">17hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m18">
+                            <p class="shifts_info--hour">18hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m19">
+                            <p class="shifts_info--hour">19hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m20">
+                            <p class="shifts_info--hour">20hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--m21">
+                            <p class="shifts_info--hour">21hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="shifts_days--wednesday" id="shifts_days--wednesday">
+                <h3 class="shifts_days" id="shifts_days--mi">Miércoles</h3>
+                <div class="shift_info--overflow">
+                    <div class="shift_info--conteiner">
+                        <div class="shifts_info" id="shifts_info--mi13">
+                            <p class="shifts_info--hour">13hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi14">
+                            <p class="shifts_info--hour">14hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi15">
+                            <p class="shifts_info--hour">15hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi16">
+                            <p class="shifts_info--hour">16hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi17">
+                            <p class="shifts_info--hour">17hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi18">
+                            <p class="shifts_info--hour">18hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi19">
+                            <p class="shifts_info--hour">19hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi20">
+                            <p class="shifts_info--hour">20hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--mi21">
+                            <p class="shifts_info--hour">21hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shifts_days--thursday" id="shifts_days--thursday">
+                <h3 class="shifts_days" id="shifts_days--j">Jueves</h3>
+                <div class="shift_info--overflow">
+                    <div class="shift_info--conteiner">
+                        <div class="shifts_info" id="shifts_info--j13">
+                            <p class="shifts_info--hour">13hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j14">
+                            <p class="shifts_info--hour">14hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j15">
+                            <p class="shifts_info--hour">15hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j16">
+                            <p class="shifts_info--hour">16hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j17">
+                            <p class="shifts_info--hour">17hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j8">
+                            <p class="shifts_info--hour">18hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j19">
+                            <p class="shifts_info--hour">19hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j20">
+                            <p class="shifts_info--hour">20hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--j21">
+                            <p class="shifts_info--hour">21hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shifts_days--friday" id="shifts_days--friday">
+                <h3 class="shifts_days" id="shifts_days--v">Viernes</h3>
+                <div class="shift_info--overflow">
+                    <div class="shift_info--conteiner">
+                        <div class="shifts_info" id="shifts_info--v13">
+                            <p class="shifts_info--hour">13hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v14">
+                            <p class="shifts_info--hour">14hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v15">
+                            <p class="shifts_info--hour">15hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v16">
+                            <p class="shifts_info--hour">16hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v17">
+                            <p class="shifts_info--hour">17hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v18">
+                            <p class="shifts_info--hour">18hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v19">
+                            <p class="shifts_info--hour">19hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v20">
+                            <p class="shifts_info--hour">20hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                        <div class="shifts_info" id="shifts_info--v21">
+                            <p class="shifts_info--hour">21hs</p>
+                            <p class="shifts_info--prof">Prof. Javi</p>
+                            <button class="shifts_info--pupils"><p>Alumnos</p></button>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        </div>
+
+        <div class="acomodar">
+            <div class="landing-planmensual">
+                <div class="planmensual-titulo">
+                    <img src="assets/images/gym/fitness.png">
+                </div>
+                <div class="plan"><p>¿Querés cambiar algun plan?</p></div>
+                <button id="change-plan"><p>Cambiar plan</p></button> 
+            </div>
+
+            <div class="classmates">
+                <div class="classmates_phrase">
+                    <p>Alumnos que van a este horario</p>
+                </div>
+                <div class="classmates_names">
+                <ol>
+                    <li>
+                        <figure><img src="/assets/img/avatar/9.png" alt=""></figure>
+                        <p>Tu</p>
+                    </li>
+                    <li>
+                        <figure><img src="/assets/img/avatar/8.png" alt=""></figure></figure>
+                        <p>Lautaro Rodriguez</p>
+                    </li>
+                    <li>
+                        <figure><img src="/assets/img/avatar/1.png" alt=""></figure>
+                        <p>Ailin Meana</p>
+                    </li>
+                    <li>
+                        <figure><img src="/assets/img/avatar/11.png" alt=""></figure>
+                        <p>Aron Soto</p>
+                    </li>
+                </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="planmensual--pop-up" id="planmensual--pop-up">
+            <div class="planmensual--pop-up_wrap"> 
+                <form class="pop-up--first" id="pop-up--first">
+                    <i class="fa-solid fa-xmark"></i>
+                    <p>Elegí el alumno al que vas a cambiar el plan</p>
+
+                    <div class="container">
+                        <div class="select-box">
+                            <div class="options-container">
+                                <div class="option">
+                                    <input type="radio" class="radio" id="Soto Aron" name="category"/>
+                                    <label for="Soto Aron">Soto Aron</label>
+                                </div>
+                        
+                                <div class="option">
+                                    <input type="radio" class="radio" id="Rodriguez Lautaro" name="category" />
+                                    <label for="Rodriguez Lautaro">Rodriguez Lautaro</label>
+                                </div>
+                        
+                                <div class="option">
+                                    <input type="radio" class="radio" id="Meana Ailin" name="category" />
+                                    <label for="Meana Ailin">Meana Ailin</label>
+                                </div>
+                        
+                                <div class="option">
+                                    <input type="radio" class="radio" id="Pablito Montiales" name="category" />
+                                    <label for="Pablito Montiales">Pablito Montiales</label>
+                                </div>
+                            </div>   
+                            
+                            <div class="selected">
+                                ...
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <p>Seleccioná el plan correspondiente</p>
+                    <ul>
+                        <li class="pop-up--plan">
+                            <p>2 días/semana</p>
+                        </li>
+                        <li class="pop-up--plan">
+                            <p>3 días/semana</p>
+                        </li>
+                        <li class="pop-up--plan">
+                            <p>5 días/semana</p>
+                        </li>
+                    </ul>
+                    <button id="first_button"><p>Siguiente</p></button>
+                    <button id="first_secondbutton"><p>Atrás</p></button>
+                </form>
+
+                <form class="pop-up--second" id="pop-up--second">
+                    <i class="fa-solid fa-xmark"></i>
+                    <p>Elegí los días y horarios que el alumno va a asistir</p>
+                    <ul>
+                        <li class="day selection">
+                            <p>LUN</p>
+                            <div class="custom-num">
+                                <i class="fas fa-angle-up arr-up" id="arr-down"></i>
+                                <input
+                                type="number"
+                                class="num-input"
+                                id="num-imput"
+                                min="14"
+                                max="22"
+                                value="15"/>
+                                <i class="fas fa-angle-down arr-down" id="arr-up"> </i>
+                            </div>
+                            <p class="hs">hs</p>
+                        </li>
+                        <li class="day">
+                            <p>MAR</p>
+                        </li>
+                        <li class="day">
+                            <p>MIÉ</p>
+                        </li>
+                        <li class="day">
+                            <p>JUE</p>
+                        </li>
+                        <li class="day">
+                            <p>VIE</p>
+                        </li>
+                    </ul>
+                    <button id="second_button"><p>Finalizar</p></button>
+                    <button id="second_secondbutton"><p>Atrás</p></button>
+                </form>
+
+                <div class="pop-up--third" id="pop-up--third">
+                    <i class="fa-solid fa-xmark" id="xmark"></i>
+                    <h5>¡Plan cambiado exitosamente!</h5>
+                    <div class="plan-changed">
+                        <p>Aron Soto</p>
+                        <p>3 días/semana</p>
+                        <ul>
+                            <li>
+                                <p>Lun</p>
+                                <p>16hs</p>
+                            </li>
+                            <li>
+                                <p>Mié</p>
+                                <p>16hs</p>
+                            </li>
+                            <li>
+                                <p>Jue</p>
+                                <p>16hs</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="fill-mediaquery"></div>
+
+    </div>
+
+    <script>
+        document.getElementById('planmensual--pop-up').style.display='none';
+    </script>
+    <script src="assets/js/sectionShifts-admin.js"></script>
+
+</body>
+</html>

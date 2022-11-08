@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="header" content="" />       
+        <link rel="stylesheet" href="assets/styles_menu.css" />
+        <link rel="stylesheet" href="assets/styles_menu-celu.css" />
+        <link rel="stylesheet" href="assets/styles_admin_landing.css" />
+        <title>Gym House: Admin</title>
+    
+    </head>
+    <body>
+        <nav class="menu">
+            <div class="menu_icons">
+                <ul> <!-- poner los links correctos -->
+                    <li>
+                        <a href="index_admin.html">
+                            <img class="logo" src="assets/images/logo.png">
+                        </a> 
+                    </li> 
+                    <li>
+                        <a href="admin_perfil.html">
+                            <img src="assets/images/user.png">
+                            <p>Perfil</p>
+                        </a>
+                    </li> 
+                    <li> 
+                        <a href="admin_entrenar.html">
+                            <img src="assets/images/gym/gym.png">
+                            <p>Entrenar</p>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="admin_noticias.html">
+                            <img src="assets/images/edit.png">
+                            <p>Noticias</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin_turnos.html">
+                            <img src="assets/images/calendar.png">
+                            <p>Turnos</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin_alumnos.html">
+                            <img src="assets/images/users-alt.png">
+                            <p>Alumnos</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="navigation" id="navigation">
+            <ul>
+                <li class="list">
+                    <a href="index_admin.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Inicio</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="admin_perfil.html">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="text">Perfil</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_entrenar.html">
+                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                        <span class="text">Entrenar</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_noticias.html">
+                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                        <span class="text">Noticias</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_turnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Turnos</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="admin_alumnos.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Alumnos</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+        <div class="navigation--space" id="navigation--space"></div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
+
+        <!-- fin de los menú -->
+
+        <section class="landing">
+            <div class="landing-noticias">
+                <h1>Te podría interesar...</h1>
+                <div class="landing-noticias-news">
+                    <div class="noticia-sec">
+                        <a src="#"> <!-- agregar que redireccione a la noticia -->
+                            <img src="assets/images/entrenamiento.webp">
+                            <div class="titulo-noticiasecundaria"> 
+                                <p>Beneficios del estiramiento</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="noticia-principal">
+                        <a src="#"> <!-- agregar que redireccione a la noticia -->
+                            <img src="assets/images/tacos.webp">
+                            <div class="titulo-noticiaprincipal">
+                                <p>Tacos Healty sin TACC</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="noticia-sec">
+                        <a src="#"> <!-- agregar que redireccione a la noticia -->
+                            <img src="assets/images/herramientas.jpg">
+                            <div class="titulo-noticiasecundaria">
+                                <p>Disciplinas complementarias</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a src="#"> <!-- agregar link a la seccion noticias -->
+                    <button class="landing-noticias-boton">
+                        <p>Ver todas las noticias</p>
+                    </button>
+                </a>
+            </div>
+            <div class="landing-ordenar"> 
+                <div class="landing-ejercicios"> 
+                <!-- cambiar colores, agregar iconos definitivos -->
+                    <a href="#">
+                        <div class="ejercicios-titulo">
+                            <p>Ejercicios</p> 
+                        </div>
+                    </a>
+                    <div class="ejercicios">
+                        <div class="ejercicios-sup">
+                            <a href="admin_entrenar.html" id="abdominales">
+                                <img src="assets/images/gym/workout.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" id="brazos">                                
+                                <img src="assets/images/gym/training.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" id="calentamiento">
+                                <img src="assets/images/gym/stationary-bike.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" class="vuelan" id="piernas">
+                                <img src="assets/images/gym/running.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" class="vuelan" id="gluteos">
+                                <img src="assets/images/gym/dumbbells.png">
+                                <p>saber más</p>
+                            </a>
+                        </div>
+                        <div class="ejercicios-inf">
+                            <a href="admin_entrenar.html" id="pecho">
+                                <img src="assets/images/gym/workout.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" id="hombros">
+                                <img src="assets/images/gym/training.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" id="estiramiento">
+                                <img src="assets/images/gym/stationary-bike.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" class="vuelan" id="cardio">
+                                <img src="assets/images/gym/running.png">
+                                <p>saber más</p>
+                            </a>
+                            <a href="admin_entrenar.html" class="vuelan" id="espalda">
+                                <img src="assets/images/gym/dumbbells.png">
+                                <p>saber más</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-playlist"> 
+                    <div class="landing-planmensual"> 
+                        <div class="planmensual-titulo">
+                            <img src="assets/images/lovefitness.png">
+                            <p>Tu plan mensual</p>
+                        </div>
+                        <div class="planmensual-tuplan">
+                            <div class="titulo">
+                                <p>3 días/semana</p>
+                            </div>
+                            <div class="diashorario">
+                                <div>
+                                    <p class="dia">LUN</p>
+                                    <p class="horario">16hs</p>
+                                </div>
+                                <div>
+                                    <p class="dia">MIE</p>
+                                    <p class="horario">16hs</p>
+                                </div>
+                                <div>
+                                    <p class="dia">MIE</p>
+                                    <p class="horario">19hs</p>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
+                        <button><a href="#">Cambiar plan</a></button>
+                    </div>
+
+                    <form class="landing-encuesta">
+                        <p>¿Querés cambiar la encuesta?</p>
+                        <input type="text">
+                        <button>CAMBIAR</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

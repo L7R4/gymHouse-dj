@@ -104,14 +104,11 @@ body {
     opacity: 1;
 }
 .pop-up{
-    width: 94vw;
+    width: 100vw;
     position: fixed;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     right: 0;
-
     background: rgba(0, 0, 0, 0.402);
-
     visibility: hidden;
 }
 .pop-up-wrap{
@@ -267,8 +264,6 @@ body {
     /* border: 1px solid black; */
 }
 .guardarejercicio button{
-    width: 18rem;
-    height: 4rem;
     margin: 5% auto;
 
     border-radius: 18px;
@@ -283,10 +278,8 @@ body {
 .guardarejercicio p{
     font-family: "raleway bold";
     font-size: 1.6rem;
+    padding: 1rem 3rem;
     color: #5135FF;
-    width: 100%;
-    text-align: center;
-    align-content: center;
     margin: auto;
 }
 
@@ -357,6 +350,14 @@ body {
     .pop-up-wrap{
         width: 90%;
     }
+    .pop-up{
+        width: 94vw;
+        position: fixed;
+        top: 0; bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.402);
+        visibility: hidden;
+    }
     .tipoejercicio h1{
         font-family: "raleway bold";
         color: white;
@@ -372,23 +373,47 @@ body {
     .pop-up-wrap{
         width: 98%;
         height: fit-content;
-        margin: auto;
+    }
+    .agregarejercicio{
+        height: fit-content;
+        min-height: 48rem;
+    }
+    .tipoejercicio{
+        width: fit-content;
+    } 
     
+}
+@media (max-width: 600px) {
+    .pop-up{
+        width: 100vw;
+    }
+    .pop-up-wrap{
+        width: 98%;
+        min-height: none;
+        height: fit-content;
+        margin: auto;
+
         display: flex;
         align-content: center;
         justify-content: center;
         scroll-behavior: auto;
     }
     .nuevoejercicio{
-        height: 60rem;
+        max-width: 36rem;
+        height: 56rem;
+        min-height: 0;
         display: block;
-
     }
     .agregarejercicio{
         width: 100%;
+        min-height: 0;
         height: fit-content;
     }
     .tipoejercicio{
+        right: 0; left: 0;
+        margin: auto;
+        max-width: 36rem;
+        min-height: none;
         width: 100%;
         height: fit-content;
         background: #6C62E2;
@@ -399,9 +424,12 @@ body {
     .tipoejercicio h1{
         margin: 6% 8% 0;
     }
+    .ejercicio-pasos textarea {
+        height: 12rem;
+    }
     #close{
         position: absolute;
-        margin: -40rem 3%;
+        top: -36rem;
     }
     .tipoejercicio h1{
         font-family: "raleway semibold";
@@ -409,17 +437,17 @@ body {
     }
     .opciones{
         height: fit-content;
-        width: 90%;
-        margin: 2% 8%;
+        width: 86%;
+        margin: 1rem 8%;
         display: inline-flex;
         overflow: scroll;
-        /* border: 1px solid white; */
     }
     .tipos-ejercicios{
         margin: 0 2% 3% 0;
     }
     .guardarejercicio{
-        width: 100%;
+        width: 36rem;
+        margin: auto;
     }
     .tipos-ejercicios:hover{
         transform: scale(1.0);
