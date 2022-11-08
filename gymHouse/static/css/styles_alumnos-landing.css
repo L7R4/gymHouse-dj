@@ -146,6 +146,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display:flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
     transition: all .5s ease;
 }
@@ -449,7 +450,7 @@ body {
     text-align: center;
     margin: 16px 0 8px;
 }
-.landing-planmensual button{
+.landing-planmensual a{
     width: 15rem;
     height: 4rem;
     border-radius: 14px;
@@ -461,18 +462,12 @@ body {
     margin: 0 auto 3px;
     cursor: pointer;
     transition: all .5s ease;
-}
-.landing-planmensual button:hover{
-    transform: scale(1.08);
-}
-.landing-planmensual button a{
     text-decoration: none;
     font-family: "raleway semibold";
     font-size: 1.5rem;
-    color: white;
-    display: flex;
-    align-content: center;
-    margin: auto;
+}
+.landing-planmensual a:hover{
+    transform: scale(1.08);
 }
 
 /*----------------------------------------------------*/
@@ -526,15 +521,14 @@ body {
         text-align: center;
         margin: 16px 0 8px;
     }
-    .landing-planmensual button{
+    .landing-planmensual a{
         width: 14rem;
         height: 4rem;
         cursor:auto;
         transition:none;
-    }
-    .landing-planmensual button a{
         font-size: 1.4rem;
     }
+    
     .dia{
         font-family: "raleway semibold";
         text-align: center;

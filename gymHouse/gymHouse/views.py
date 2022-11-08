@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from posts.models import Noticia
 from personas.models import Persona
+from posts.models import FormularioIndex
 from personas.forms import PlaylistForm
+
+
+def signout(request):
+    logout(request)
+    return redirect("index")
 
 
 class IndexView(generic.View):
@@ -18,16 +24,11 @@ class IndexView(generic.View):
         })
     def post(self, request, *args, **kwargs):
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
-        print(user)
-        print(user.rango)
-        
+   
         try:
             grupo_user = user.rango
-            # grupo_user_string= str(grupo_user)
-            print(grupo_user)
         except:
-            grupo_user_string ="None"
-            print("NO capo no ando")
+            grupo_user = "None"
 
         if grupo_user == "None":
             return render(request, self.template_name, {
@@ -65,19 +66,33 @@ class IndexAlumno(generic.View):
     template_name = "index_alumnos.html"
     
     def get(self, request, *args, **kwargs):
-        plan = request.user.turno_set.all()[0]
-        print(plan)
-        dias_plan = plan.dias.all()
+        try:
+            plan = request.user.turno_set.all()[0]
+            dias_plan = plan.dias.all()
+            
+        except:
+            print("No tiene turnos")
+            plan = None
+            dias_plan = None
         # print(request.user.rango)
         return render(request, self.template_name, {
         "posts": Noticia.objects.all()[:3],
         "plan": plan,
         "dias":dias_plan,
+        'encuesta': FormularioIndex.objects.get(pk=1)
     })
+
+    
     def post(self,request,*args, **kwargs):
         form = PlaylistForm(request.POST)
-        plan = request.user.turno_set.all()[0]
-        dias_plan = plan.dias.all()
+        try:
+            plan = request.user.turno_set.all()[0]
+            dias_plan = plan.dias.all()
+        except:
+            print("No tiene turnos")
+            plan = None
+            dias_plan = None
+
         if form.is_valid():
             user = request.user
             user.link_playlist = form.cleaned_data['link_playlist']
@@ -87,18 +102,22 @@ class IndexAlumno(generic.View):
                 "posts": Noticia.objects.all()[:3],
                 "plan": plan,
                 "dias":dias_plan,
+                'encuesta': FormularioIndex.objects.get(pk=1)
             })
         return render(request, self.template_name,{
             "posts": Noticia.objects.all()[:3],
             "plan": plan,
             "dias":dias_plan,
+            'encuesta': FormularioIndex.objects.get(pk=1)
         })
         
-
 
 class IndexProfe(generic.View):
     template_name = "index_profes.html"
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
-    
+
+
+
+
     

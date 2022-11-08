@@ -10,13 +10,13 @@ class MyAccountManager(BaseUserManager):
             username = username,
             email = self.normalize_email(email),
             nombre = nombre,
+            password = password,
+            contraseña = password
         )
-        user.set_password(password)
+        # user.set_password(password)
         user.save(using=self._db)
         return user
     
-    
-
 
     def create_superuser(self,email,nombre,username, password):
 
@@ -47,7 +47,7 @@ class Persona(AbstractUser):
     username = models.CharField("Nombre de usuario", unique=True, max_length= 100)
     email = models.EmailField("Correo Electrónico",max_length=254, blank = True, null = True)
     rango = models.CharField("Rango", max_length=20, choices=tipo)
-    # password = models.CharField("Contraseña",max_length= 100)
+    contraseña = models.CharField("Contraseña",max_length= 100,default="")
     nombre = models.CharField(max_length=100)
     apodo = models.CharField(max_length=50,blank = True, null = True)
     genero = models.CharField(max_length=20, choices=generos,blank = True, null = True)

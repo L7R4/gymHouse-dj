@@ -18,3 +18,9 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.texto
+
+class FormularioIndex(models.Model):
+    link = models.URLField(default="")
+
+    def __str__(self):
+        return self.link

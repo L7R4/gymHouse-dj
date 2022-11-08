@@ -12,6 +12,7 @@ class PersonForm(forms.ModelForm):
         model = Persona
         fields =[
             "nombre",
+            'email',
             "apodo",
             "genero", 
             "apellido",
@@ -20,6 +21,19 @@ class PersonForm(forms.ModelForm):
             "peso", 
             "edad", 
             "biografia",
-            "password",
             "foto_de_perfil",
         ]
+    def __init__(self, *args, **kwargs):
+        super(self.__class__, self).__init__(*args, **kwargs)
+        # asi se puede hacer que los campos no sean requeridos
+        self.fields['nombre'].required = False
+        self.fields['email'].required = False
+        self.fields['apodo'].required = False
+        self.fields['genero'].required = False
+        self.fields['apellido'].required = False
+        self.fields['telefono'].required = False
+        self.fields['altura'].required = False
+        self.fields['peso'].required = False
+        self.fields['edad'].required = False
+        self.fields['biografia'].required = False
+        self.fields['foto_de_perfil'].required = False

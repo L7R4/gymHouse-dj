@@ -86,131 +86,26 @@
                             <div class="profile_data--numbers" id="profile_data--numbers">
                                 <ol>
                                     <li>
-                                        <h5>3624036724</h5>
+                                        
+                                        <h5>{% if user.telefono != None %}{{user.telefono}}{% endif %}</h5>
                                         <p>CONTACTO</p>
                                     </li>
                                     <li>
-                                        <h5>180</h5>
+                                        <h5>{% if user.altura != None %}{{user.altura}}{% endif %}</h5>
                                         <p>ALTURA</p>
                                     </li>
                                     <li>
-                                        <h5>90</h5>
+                                        <h5>{% if user.peso != None %}{{user.peso}}{% endif %}</h5>
                                         <p>PESO</li>
                                     </li>
                                 </ol>
                             </div>
                             <button id="profile_data--button" class="profile_data--button">
-                                <a href="{% url 'personas:perfil' user.pk %}">Editar Perfil</a> 
+                                <a href="{% url 'personas:perfil' %}">Editar Perfil</a> 
                             </button>
+                            <a href="{% url 'logout' %}">Salir de la cuenta</a>
                         </div>
                         <!-- Fin perfil minimizado........................................ -->
-                        
-                        <!-- Fin perfil edicion (clases referenciadas con una E)........................................ -->
-                        {% comment %} <div id="eprofile" class="eprofile">
-                            <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
-                                <img src="assets/img/avatar/9.png" id="eprofile_data--pic">
-                                <button id="eprofile_data--button-image" class="eprofile_data--button-image">
-                                    <p>Cambiar imagen</p> 
-                                </button>
-                            </div>
-                            
-                            <div class="eprofile_data--description" id="eprofile_data--description">
-                                <h3>Biografía</h3>
-                                <textarea placeholder="Cuentanos un poco acerta de ti!"></textarea>
-                            </div>
-                            <div class="eprofile_data--nickname">
-                                <div class="input-group">
-                                    <input required="" type="text" name="text" autocomplete="off" class="input">
-                                    <label class="user-label">Apodo</label>
-                                </div>
-                            </div>
-                            <div class="eprofile_data--name" id="eprofile_data--name">
-                                <div class="input-group">
-                                    <input required="" type="text" name="text" autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
-                                    <label class="user-label">Nombre(s)</label>
-                                </div>
-                                <div class="input-group">
-                                    <input required="" type="text" name="text" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
-                                    <label class="user-label">Apellido(s)</label>
-                                </div>
-                                <div class="input-group" id="input-group--tel">
-                                    <input required="" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" class="input">
-                                    <label class="user-label">Telefono</label>
-                                </div>
-                                <div class="input-group" id="input-group--email">
-                                    <input required="" type="email" name="text" autocomplete="off" class="input">
-                                    <label class="user-label">Correo electronico</label>
-                                </div>
-                            </div>
-    
-                            <div class="eprofile_data--gender" id="eprofile_data--gender">
-                                <div class="eprofile_data--genderdiv">
-                                    <label for="man">
-                                        <p>Hombre</p>
-                                        <figure id="gender_man"> <img src="assets/img/men.png" alt=""></figure>
-                                    </label>
-                                    <input type="radio" name="gender" id="man">
-                                    <label for="woman">
-                                        <p>Mujer</p>
-                                        <figure id="gender_woman"><img src="assets/img/woman.png" alt=""></figure>
-                                    </label>
-                                    <input type="radio" name="gender" id="woman">
-                                    <label for="other">
-                                        <p>Otro</p>
-                                        <figure id="gender_other"><img src="assets/img/other.png" alt=""></figure>
-                                    </label>
-                                    <input type="radio" name="gender" id="other">  
-                                </div>     
-                            </div>
-    
-                            <div class="eprofile_data--numbers" id="eprofile_data--numbers">
-                                <div class="input-group">
-                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
-                                    <label class="user-label">Altura</label>
-                                </div>
-                                <div class="input-group">
-                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
-                                    <label class="user-label">Peso</label>
-                                </div>
-                                <div class="input-group">
-                                    <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3"> 
-                                    <label class="user-label">Edad</label>
-                                </div>
-                            </div>
-                            <div class="eprofile_data--password" id="eprofile_data--password">
-                                <div class="input-group">
-                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="actualPassword">
-                                    <label class="user-label">
-                                        Contraseña actual
-                                    </label>
-                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-actual"></i>
-                                    <i class="fa-solid fa-eye" id="solid-eye-actual"></i>
-                                </div>
-                                <div class="input-group">
-                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="newPassword">
-                                    <label class="user-label">
-                                        Nueva contraseña
-                                    </label>
-                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-new"></i>
-                                    <i class="fa-solid fa-eye" id="solid-eye-new"></i>
-                                </div>
-                                <div class="input-group">
-                                    <input required="" type="password" name="text" autocomplete="off" class="input" id="confirmPassword">
-                                    <label class="user-label">
-                                        Confirmar contraseña
-                                    </label>
-                                    <i class="fa-solid fa-eye-slash" id="solid-eye-slash-confirm"></i>
-                                    <i class="fa-solid fa-eye" id="solid-eye-confirm"></i>
-                                </div>
-                            </div>
-                            <button id="eprofile_data--button-update" class="eprofile_data--button-update">
-                                <p>actualizar contraseña</p> 
-                            </button>
-                            <button id="eprofile_data--button-save" class="eprofile_data--button-save">
-                                <p>Guardar</p> 
-                            </button>
-                        </div>     {% endcomment %}
-                        <!-- Fin perfil edicion........................................ -->
                     </div>
                 </div>
             </div>
@@ -265,21 +160,19 @@
                 
                 <div class="landing-noticias-news">
                     {% for post in posts %}
-                        <div class="noticia-sec">
-                            <a src="#"> <!-- agregar que redireccione a la noticia -->
+                        <a href="{% url 'posts:detail_noticia' post.pk %}" class="noticia-sec">
+                            <div> <!-- agregar que redireccione a la noticia -->
                                 <img src="{{post.foto.url}}">
                                 <div class="titulo-noticiasecundaria"> 
                                     <p>{{post.titulo}}</p>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     {% endfor %}
                 </div>
                 
-                <a src="#"> <!-- agregar link a la seccion noticias -->
-                    <button class="landing-noticias-boton">
-                        <p>Ver todas las noticias</p>
-                    </button>
+                <a href="{% url 'posts:noticias' %}" class="landing-noticias-boton"> 
+                    Ver todas las noticias
                 </a>
             </div>
             
@@ -359,7 +252,7 @@
                             </div>            
                         </div>
                         <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
-                        <button><a href="#">Cambiar plan</a></button>
+                        <a href="https://wa.me/5493624643544">Cambiar plan</a>
                     </div>
 
                     <div class="landing-playlist">
@@ -376,7 +269,7 @@
             <div class="landing-encuesta">
                 <p>Ayudanos a seguir mejorando nuestro servicio</p>
                 <button> 
-                    <a href="#">Participar en una encuesta</a> <!-- linkear alguna encuesta -->
+                    <a href="{{encuesta}}">Participar en una encuesta</a> <!-- linkear alguna encuesta -->
                 </button> 
             </div>
         </section>

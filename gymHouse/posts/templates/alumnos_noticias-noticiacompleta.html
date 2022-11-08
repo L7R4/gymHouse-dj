@@ -93,57 +93,44 @@
         </div>
         <div class="news_complete">
             <div class="img-fill"></div>
-            <img src="{{object.foto.url}}" class="news_img" alt="{{object.titulo}}">
+            <img src="{{post.foto.url}}" class="news_img" alt="{{post.titulo}}">
             
-            <h3>{{object.titulo}}</h3>
-            <p>{{object.texto}}</p>
+            <h3>{{post.titulo}}</h3>
+            <p>{{post.texto}}</p>
 
             <div class="coments--conteiner">
 
-                <div class="icons">
+                {% comment %} <div class="icons">
 
                     <i class="fa-regular fa-heart" id="fa-regular fa-heart"></i>
                     <i class="fa-solid fa-heart" id="fa-solid fa-heart"></i>
 
                     <i class="fa-regular fa-comment" id="fa-regular fa-comment"></i>
                     <i class="fa-solid fa-comment" id="fa-solid fa-comment"></i>
-                </div>
+                </div> {% endcomment %}
                 
                 <div class="coments">
                     <div class="coments-overflow">
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/img/avatar/12.png" alt="">
-                                <h5>Aron Soto</h5>
+                        {% if comments.count == 0 %}
+                            <h1>Parece que no hay comentarios! Sé el primero!</h1>
+                        
+                        {% endif %}
+                        {% for comment in comments %}
+                            <div class="coments--user">
+                                <div class="coments--userinfo">
+                                    <img src="{{comment.persona.foto_de_perfil}}" alt="{{comment.persona}}">
+                                    <h5>{{comment.persona}}</h5>
+                                </div>
+                                <p>{{comment}}</p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, reprehenderit vel beatae sint laboriosam.</p>
-                        </div>
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/img/avatar/9.png" alt="">
-                                <h5>user</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetursint laboriosam.</p>
-                        </div>
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/img/avatar/9.png" alt="">
-                                <h5>user</h5>
-                            </div>
-                            <p>Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis esse minima sed. Consequuntur libero beatae nihil cumque rerum, molestias modi accusantium eaque accusamus enim atque! Atque voluptatum eveniet ab dolorum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem repellat quod architecto magni repudiandae temporibus, rem enim officiis eum aliquam cupiditate vitae numquam suscipit cumque dolor id. Veniam, distinctio quas? ipsum dolor sit amet consectetursint laboriosam.</p>
-                        </div>
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/img/avatar/9.png" alt="">
-                                <h5>user</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetursint laboriosam.</p>
-                        </div>
+                        {% endfor %}
+
                     </div>
                 </div>    
-                <form class="input_comment" method="POST">
+                <form class="input_comment" method="POST" id="form_comment">
                     {% csrf_token %}
-                    <input type="text" placeholder="Escribe aqui" name="comment" id="comment">
+                    <input type="text" name="texto" id="comment">
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
         </div>
@@ -151,7 +138,7 @@
 
     <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/sectionNewsComplete.js' %}"></script>
-    <script src="{% static 'js/comments_ajax.js' %}"></script>
+    {% comment %} <script src="{% static 'js/comments_ajax.js' %}"></script> {% endcomment %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
