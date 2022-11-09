@@ -11,8 +11,8 @@ class Noticia(models.Model):
         return self.titulo
 
 class Comentario(models.Model):
-    persona = models.ForeignKey(Persona, on_delete=models.PROTECT)
-    noticia = models.ForeignKey(Noticia, on_delete=models.PROTECT)
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE)
     texto = models.TextField()
     fecha_y_hora = models.DateTimeField(auto_now_add=True)
 
