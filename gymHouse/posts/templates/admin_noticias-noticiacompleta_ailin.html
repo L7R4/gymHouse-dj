@@ -35,7 +35,7 @@
                     </a> 
                 </li>
                 <li>
-                    <a href="{% url 'posts:adminNoticia' %}">
+                    <a href="{% url 'posts:noticias' %}">
                         <img src="{% static 'images/edit.png' %}">
                         <p>Noticias</p>
                     </a>
@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li class="list">
-                <a href="{% url 'posts:adminNoticia' %}">
+                <a href="{% url 'posts:noticias' %}">
                     <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                     <span class="text">Noticias</span>
                 </a>
@@ -110,40 +110,35 @@
         <a class="turnback" href="admin_noticias.html">
             <img src="assets/images/turn-back.png">
         </a>
-        <form action="" class="noticia">
+        <div class="noticia">
             <div class="imagen">
-                <img src="assets/images/entrenamiento.webp">
+                <img src="{{post.foto.url}}">
             </div>
             <div class="texto">
                 <div class="texto-titulo">
                     <h3>{{post.titulo}}</h3>
                 </div>
                 <div class="texto-contenido">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis culpa quam. Quidem voluptate nihil eius corporis. 
-                        <br>
-                        <br>
-                        Sunt dignissimos distinctio, dolorum sapiente quo quod, laudantium numquam aspernatur odio optio porro!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis culpa quam. Quidem voluptate nihil eius corporis. Sunt dignissimos distinctio, dolorum sapiente quo quod, laudantium numquam aspernatur odio optio porro!
-                        <br>
-                        <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis culpa quam. Quidem voluptate nihil eius corporis. Sunt dignissimos distinctio, dolorum sapiente quo quod, laudantium numquam aspernatur odio optio porro!
-                        <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore perspiciatis culpa quam. Quidem voluptate nihil eius corporis. Sunt dignissimos distinctio, dolorum sapiente quo quod, laudantium numquam aspernatur odio optio porro!
-                    </p>           
+                    <p>{{post.texto}}</p>   
                 </div>
             </div>
             <div class="formato">
-                <div class="icons">
-                    <i class="fa-regular fa-heart" id="fa-regular fa-heart"></i>
-                    <i class="fa-solid fa-heart" id="fa-solid fa-heart"></i>
-
-                    <i class="fa-regular fa-comment" id="fa-regular fa-comment"></i>
-                    <i class="fa-solid fa-comment" id="fa-solid fa-comment"></i>
-                </div>
                 <div class="coments">
                     <div class="coments-overflow">
-                        <div class="coments--user">
+                        {% if comments.count == 0 %}
+                            <h1>Parece que no hay comentarios! Sé el primero!</h1>
+                        
+                        {% endif %}
+                        {% for comment in comments %}
+                            <div class="coments--user">
+                                <div class="coments--userinfo">
+                                    <img src="/public/{{comment.persona.foto_de_perfil}}" alt="{{comment.persona}}">
+                                    <h5>{{comment.persona}}</h5>
+                                </div>
+                                <p>{{comment}}</p>
+                            </div>
+                        {% endfor %}
+                        {% comment %} <div class="coments--user">
                             <div class="coments--userinfo">
                                 <img src="assets/images/avatar/2.png" alt="">
                                 <h5>Lalinchi</h5>
@@ -163,11 +158,16 @@
                                 <h5>Don Juan</h5>
                             </div>
                             <p>Lorem ipsum dolor sit amet consectetursint laboriosam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, aliquid? Deleniti consectetur consequatur ullam facere eveniet, dignissimos nulla pariatur quos delectus minima amet hic blanditiis illum nostrum assumenda est iste.</p>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
-                </div>    
+                </div>
+                <form class="input_comment" method="POST" id="form_comment">
+                    {% csrf_token %}
+                    <input class="inputtext" type="text" name="texto" id="comment">
+                    <input class="boton" type="submit" value="Enviar">
+                </form>   
             </div>
-        </form>
+        </div>
         <div class="rellenofinal"></div>
     </div>
     

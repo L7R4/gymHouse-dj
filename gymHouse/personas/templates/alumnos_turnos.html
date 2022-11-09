@@ -50,7 +50,8 @@
         </div>
     </nav>
 
-    <section class="shifts" id="shifts">
+    <div class="turnos"> <!--este cambie la class-->
+        <div class="shifts" id="shifts"><!--este agregué-->
         <div class="shifts_table" id="shifts_table">
             <h1>TURNOS</h1>
             <div class="shifts_days--monday" id="shifts_days--monday">
@@ -839,46 +840,48 @@
                 </div>
             </div>    
         </div>
+        </div>
 
-        <div class="landing-planmensual"> <!-- subir un poco el sombreado para que se vea por arriba -->
-            <div class="planmensual-titulo">
-                <img src="assets/img/gym/fitness.png"> <!-- mejorar la calidad del icono -->
-                <p>Tu plan mensual</p>
-            </div>
-            <div class="planmensual-tuplan">
-                <div class="titulo">
-                    <p>3 días/semana</p>
+        <div class="acomodar"><!--este agregué-->
+            <div class="landing-planmensual"> 
+                <div class="planmensual-titulo">
+                    <img src="assets/img/gym/fitness.png"> <!-- mejorar la calidad del icono -->
+                    <p>Tu plan mensual</p>
                 </div>
-                <div class="diashorario">
-                    <div>
-                        <p class="dia">LUN</p>
-                        <p class="horario">16hs</p>
+                <div class="planmensual-tuplan">
+                    <div class="titulo">
+                        <p>3 días/semana</p>
                     </div>
-                    <div>
-                        <p class="dia">MIE</p>
-                        <p class="horario">16hs</p>
-                    </div>
-                    <div>
-                        <p class="dia">MIE</p>
-                        <p class="horario">19hs</p>
-                    </div>
-                </div>            
+                    <div class="diashorario">
+                        <div>
+                            <p class="dia">LUN</p>
+                            <p class="horario">16hs</p>
+                        </div>
+                        <div>
+                            <p class="dia">MIE</p>
+                            <p class="horario">16hs</p>
+                        </div>
+                        <div>
+                            <p class="dia">MIE</p>
+                            <p class="horario">19hs</p>
+                        </div>
+                    </div>            
+                </div>
+                <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
+                <button><p>Cambiar plan</p></button> <!-- agregar alguna animacion al clickear -->
             </div>
-            <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
-            <button><p>Cambiar plan</p></button> <!-- agregar alguna animacion al clickear -->
-        </div>
         
-        <div class="window_turno_alumnos" id="window_turno_alumnos">
-            <button id="window_turno_alumnos_close">X</button>
-            <h1>Alumnos que van al mismo horario que tu!</h1>
+            <div class="window_turno_alumnos" id="window_turno_alumnos">
+                <button id="window_turno_alumnos_close">X</button>
+                <h1>Alumnos que van al mismo horario que tu!</h1>
 
-            <div class="alumnos_wrapper">
+                <div class="alumnos_wrapper">
+                </div>
+
             </div>
-
         </div>
-
         <div class="fill-mediaquery"></div>
-    </section>
+    </div>
 
 </body>
 <script src="{% static 'js/model.js' %}">

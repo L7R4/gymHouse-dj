@@ -93,21 +93,13 @@
         </div>
         <div class="news_complete">
             <div class="img-fill"></div>
+            {% comment %} {{post.foto}} {% endcomment %}
             <img src="{{post.foto.url}}" class="news_img" alt="{{post.titulo}}">
             
             <h3>{{post.titulo}}</h3>
             <p>{{post.texto}}</p>
 
             <div class="coments--conteiner">
-
-                {% comment %} <div class="icons">
-
-                    <i class="fa-regular fa-heart" id="fa-regular fa-heart"></i>
-                    <i class="fa-solid fa-heart" id="fa-solid fa-heart"></i>
-
-                    <i class="fa-regular fa-comment" id="fa-regular fa-comment"></i>
-                    <i class="fa-solid fa-comment" id="fa-solid fa-comment"></i>
-                </div> {% endcomment %}
                 
                 <div class="coments">
                     <div class="coments-overflow">
@@ -118,8 +110,10 @@
                         {% for comment in comments %}
                             <div class="coments--user">
                                 <div class="coments--userinfo">
-                                    <img src="{{comment.persona.foto_de_perfil}}" alt="{{comment.persona}}">
+                                    {% comment %} {{comment.persona.foto_de_perfil}} {% endcomment %}
+                                    <img src="/public/{{comment.persona.foto_de_perfil}}" alt="{{comment.persona}}">
                                     <h5>{{comment.persona}}</h5>
+                                    {% comment %} <h5>{{comment.persona.foto_de_perfil}}</h5> {% endcomment %}
                                 </div>
                                 <p>{{comment}}</p>
                             </div>
