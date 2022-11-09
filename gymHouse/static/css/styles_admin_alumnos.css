@@ -79,7 +79,18 @@ body{
     border-radius: 18px;
     background-color: #5135FF;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    cursor: pointer;
 }
+
+#data_secondbutton
+{
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-family: "raleway bold";
+    font-size: 1.2rem;
+}
+
 .register-pupil button p{
     color: #D6E1FF;
     font-family: "raleway bold";
@@ -193,6 +204,7 @@ ul{
 }
 .pupil_plan-days li{
     margin:0 0.5rem;
+    text-align: center;
 }
 .pupil_plan-days li p{
     font-family: "raleway semibold";

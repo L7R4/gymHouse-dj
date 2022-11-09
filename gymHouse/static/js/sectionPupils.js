@@ -64,13 +64,14 @@ function changeShift(){
         first.style.display = 'flex';
         data.style.display = 'none';
     });
-
+    // let modal = document.getElementById("planmensual--pop-up")
     document.getElementById('data_secondbutton').addEventListener('click', firstSecondButton => {
         popUp.style.display = 'none';
         data.style.display = 'none';
         first.style.display = 'none';
         second.style.display = 'none';
         third.style.display = 'none';
+        // modal.style.display ="none";
     });
 
     document.getElementById('solid-eye-slash-actual').style.display='inline-block'
