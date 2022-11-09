@@ -110,13 +110,28 @@
 
         <div class="news_slider"> <!--no se pueden clickear las img por la animación de arrastrar-->
             <div class="cards">
-                <div class="card">
+                {% for card in noticias_slider %}
+            
+                    <a class="card" href="{% url 'posts:adminNoticiaDetail' card.id %}">
+                        <figure>
+                            <img src="{{card.foto.url}}" alt="{{card.titulo}}">
+                        </figure>
+                        <div class="post--images-detail">
+                            <p>{{card.titulo}}</p>
+                        </div>
+                    </a>
+            
+                {% endfor %}
+                {% comment %} <div class="card">
                     <a href="admin_noticias-noticiacompleta.html">
                         <img src="assets/img/wafless.jpg" alt="">
                     </a>
                     <div class="post--images-detail">
                         <p>Noticia</p>
                     </div>
+                    
+
+
                 </div>
                 <div class="card">
                     <a href="admin_noticias-noticiacompleta.html">
@@ -157,7 +172,7 @@
                     <div class="post--images-detail">
                         <p>Noticia</p>
                     </div>
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
 
