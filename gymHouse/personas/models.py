@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,AbstractUser
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self,email,nombre,username,password = None):
+    def create_user(self,email,nombre,apellido,edad,username,password = None):
         if not nombre:
             raise ValueError("Debe contener un nombre")
 
@@ -10,6 +10,8 @@ class MyAccountManager(BaseUserManager):
             username = username,
             email = self.normalize_email(email),
             nombre = nombre,
+            apellido = apellido,
+            edad = edad,
             password = password,
             contraseña = password
         )
@@ -98,6 +100,13 @@ class Dia(models.Model):
     def __str__(self):
         return self.dia + " " + str(self.hora)
     
+    def save(self,*args, **kwargs):
+        if self.hora == 0:
+            return
+        super(Dia,self).save(*args, **kwargs)
+
+    
+    
 
 
 class Turno(models.Model):
@@ -114,8 +123,8 @@ class Turno(models.Model):
     )
     
     plan= models.CharField(max_length = 50, choices = cantidad_de_dias)
-    alumno = models.ManyToManyField(Persona)
-    dias = models.ManyToManyField(Dia)
+    alumno = models.ManyToManyField(Persona, blank = True, null = True)
+    dias = models.ManyToManyField(Dia, blank = True, null = True)
     # profe = models.CharField(max_length = 50, choices = profesores)
     def __str__(self):
         return self.plan

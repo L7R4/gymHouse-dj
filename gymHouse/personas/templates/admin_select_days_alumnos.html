@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_admin-cambiarplanes.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_admin_alumnos.css' %}">
+
+    <title>Gym House: Alumnos</title>
+</head>
+<body>
+    <nav class="menu">
+        <div class="menu_icons">
+            <ul> <!-- poner los links correctos -->
+                <li>
+                    <a href="{% url 'login_profe' %}">
+                        <img class="logo" src="{% static 'images/logo.png' %}">
+                    </a> 
+                </li> 
+                <li>
+                    <a href="admin_perfil.html">
+                        <img src="{% static 'images/user.png' %}">
+                        <p>Perfil</p>
+                    </a>
+                </li> 
+                <li> 
+                    <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
+                        <img src="{% static 'images/gym/gym.png' %}">
+                        <p>Entrenar</p>
+                    </a> 
+                </li>
+                <li>
+                    <a href="{% url 'posts:adminNoticia' %}">
+                        <img src="{% static 'images/edit.png' %}">
+                        <p>Noticias</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'personas:adminTurnos' %}">
+                        <img src="{% static 'images/calendar.png' %}">
+                        <p>Turnos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'personas:adminAlumnos' %}">
+                        <img src="{% static 'images/users-alt.png' %}">
+                        <p>Alumnos</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navigation" id="navigation">
+        <ul>
+            <li class="list">
+                <a href="{% url 'login_profe' %}">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="text">Inicio</span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="admin_perfil.html">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="text">Perfil</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
+                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                    <span class="text">Entrenar</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{% url 'posts:adminNoticia' %}">
+                    <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <span class="text">Noticias</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{% url 'personas:adminTurnos' %}">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Turnos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{% url 'personas:adminAlumnos' %}">
+                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <span class="text">Alumnos</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <div class="navigation--space" id="navigation--space"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
+
+    <!-- fin de los menú -->
+
+    <div class="register-pupil">
+        <button id="register-pupil">
+            <p>INSCRIBIR ALUMNOS</p>
+        </button>
+    </div>
+
+    <div class="cards-container">
+        {% for person in personas %}
+        
+            <div class="card-info">
+                <figure><img src="{{person.foto_de_perfil}}" alt=""></figure>
+                <div class="pupil_data--name" id="pupil_data--name">
+                    <h1>{{person.apodo}}</h1>
+                    <h3>{{person.nombre}} {{person.apellido}}</h3>
+                    <p>{{person.edad}}</p>
+                </div>
+                <ol class="pupil_data--numbers" id="pupil_data--numbers">
+                    <li>
+                        <h5>{{person.altura}}</h5>
+                        <p>ALTURA</p>
+                    </li>
+                    <li>
+                        <h5>{{person.telefono}}</h5>
+                        <p>CONTACTO</p>
+                    </li>
+                    <li>
+                        <h5>{{person.peso}}</h5>
+                        <p>PESO</li>
+                    </li>
+                </ol>
+                <p class="pupil_plan">{{person.turno_set.all.0}}</p>
+                <ul class="pupil_plan-days">
+                    {% for fecha in person.turno_set.all.0.dias.all %}
+                    
+                        <li>
+                            <p>{{fecha.dia|slice:":3"|upper}}</p>
+                            <p>{{fecha.hora}}hs</p>
+                        </li>
+                    
+                    {% endfor %}
+                </ul>
+            </div>
+        
+        {% endfor %}
+
+        
+
+
+
+        
+    </div>
+
+    <div class="planmensual--pop-up" id="planmensual--pop-up">
+        <form method="POST" class="planmensual--pop-up_wrap" id="form_add_days">
+            {% csrf_token %}
+
+            <div class="pop-up--second" id="pop-up--second">
+                <i class="fa-solid fa-xmark"></i>
+                <p>Elegí los días y horarios que el alumno va a asistir</p>
+                <ul>
+                    {{formsetDays.management_form}}
+                    {% for f in formsetDays %}
+                        <li class="day">
+                            <p></p>
+                            {{f.dia}}
+                            
+                            <div class="custom-num">
+                                {{f.hora}}
+                                <p class="hs">hs</p>
+                            </div>
+                        </li>
+                        
+                    {% endfor %} 
+
+                </ul>
+
+                {% comment %} <ul>
+                    <li class="day selection">
+                        <p>LUN</p>
+                        <div class="custom-num">
+                            <i class="fas fa-angle-up arr-up" id="arr-down"></i>
+                            <input
+                            type="number"
+                            class="num-input"
+                            id="num-imput"
+                            min="14"
+                            max="22"
+                            value="15"/>
+                            <i class="fas fa-angle-down arr-down" id="arr-up"> </i>
+                        </div>
+                        <p class="hs">hs</p>
+                    </li>
+                    <li class="day">
+                        <p>MAR</p>
+                    </li>
+                    <li class="day">
+                        <p>MIÉ</p>
+                    </li>
+                    <li class="day">
+                        <p>JUE</p>
+                    </li>
+                    <li class="day">
+                        <p>VIE</p>
+                    </li>
+                </ul> {% endcomment %}
+                <div class="container_buttons">
+                    
+                    <button type="button" id="second_button"><p>Finalizar</p></button>
+                    <a type="button" href="{% url 'personas:createUserTurno' %}" id="second_secondbutton"><p>Atrás</p></a>
+                </div>
+            </div>
+
+            <div class="pop-up--third" id="pop-up--third">
+                <button type="submit" id="form_close"><i class="fa-solid fa-xmark" id="xmark"></i></button>
+                <h5>¡Plan cambiado exitosamente!</h5>
+                <div class="plan-changed">
+                    <p>Aron Soto</p>
+                    <p>3 días/semana</p>
+                    <ul>
+                        <li>
+                            <p>Lun</p>
+                            <p>16hs</p>
+                        </li>
+                        <li>
+                            <p>Mié</p>
+                            <p>16hs</p>
+                        </li>
+                        <li>
+                            <p>Jue</p>
+                            <p>16hs</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>    
+    </div>
+
+    <script src="{% static 'js/modals_plan.js' %}"></script>
+    <script src="{% static 'js/agregar_dias.js' %}"></script>
+    {% comment %} <script src="{% static 'js/sectionPupils.js' %}"></script> {% endcomment %}
+</body>
+</html>

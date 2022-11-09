@@ -1,5 +1,5 @@
 from django import forms
-from .models import Persona
+from .models import Persona, Dia
 
 class PlaylistForm(forms.ModelForm):
     class Meta:
@@ -37,3 +37,11 @@ class PersonForm(forms.ModelForm):
         self.fields['edad'].required = False
         self.fields['biografia'].required = False
         self.fields['foto_de_perfil'].required = False
+
+class DayForm(forms.ModelForm):
+    class Meta:
+        model = Dia
+        fields =[
+            "dia",
+            "hora",
+        ]

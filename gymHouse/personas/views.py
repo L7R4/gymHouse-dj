@@ -1,12 +1,12 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from .models import Turno
-from personas.models import Persona
-from .forms import PersonForm
+from personas.models import Persona, Dia
+from .forms import PersonForm,DayForm
 from django.urls import reverse_lazy
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
-
+from django.forms import formset_factory
 
 class Turnos(generic.ListView):
     model = Turno
@@ -42,8 +42,100 @@ class Turnos(generic.ListView):
 class AdminTurnos(generic.TemplateView):
     template_name = "admin_turnos_ailin.html"
 
-class AdminAlumnos(generic.TemplateView):
+class AdminAlumnos(generic.View):
+    model = Persona
     template_name = "admin_alumnos.html"
+
+    def get(self,request,*args,**kwargs):
+        personas = Persona.objects.filter(rango="alumno")
+        return render(request, self.template_name,{
+            'personas': personas
+        })
+
+    def post(self,request,*args,**kwargs):
+        personas = Persona.objects.filter(rango="alumno")
+        nombre = request.POST.get("nombre")
+        apellido = request.POST.get("apellido")
+        email = request.POST.get("email")
+        edad = request.POST.get("edad")
+        contraseña = request.POST.get("pass")
+
+        new_user= self.model.objects.create_user(
+            email=email,
+            nombre=nombre,
+            apellido=apellido,
+            edad=edad,
+            username = email,
+            password = contraseña)
+        new_user.rango = "alumno"
+        new_user.save()
+        return redirect("personas:createUserTurno")
+
+class AddTurnoNewUser(generic.View):
+    model = Turno
+    template_name = "admin_select_plan_alumnos.html"
+
+
+    def get(self,request,*args,**kwargs):
+        personas = Persona.objects.filter(rango="alumno")
+        
+        return render(request, self.template_name,{
+            'personas': personas
+        })
+
+    def post(self,request,*args,**kwargs):
+        last_user_created = Persona.objects.all().last()
+        plan = request.POST.get("plan")
+        new_plan = Turno(plan=plan)
+        new_plan.save()
+        new_plan.alumno.add(last_user_created)
+        
+        return redirect("personas:addDaysToTurno")
+
+class AddDaysToNewTurno(generic.FormView):
+    template_name = "admin_select_days_alumnos.html"
+    success_url = "."
+    form_class = formset_factory(DayForm,max_num=4,absolute_max=4)
+    
+    formset = form_class(initial=[
+        {'dia': "lunes",
+        'hora':0},
+        {'dia': "martes",
+        'hora':0},
+        {'dia': "miercoles",
+        'hora':0},
+        {'dia': "jueves",
+        'hora':0},
+        {'dia': "viernes",
+        'hora':0},
+
+    ])
+    print(formset)
+    print(formset.is_valid())
+    
+    def get(self,request,*args,**kwargs):
+        personas = Persona.objects.filter(rango="alumno")
+        
+        return render(request, self.template_name,{
+            'personas': personas,
+            'formsetDays': self.formset
+        })
+
+    def form_valid(self, form):
+            last_plan = Turno.objects.all().last()
+            print("funque")
+            print(self.formset.errors)
+            for f in self.formset:
+                dia  = f.save()
+                last_plan.dias.add(dia)
+            return super(AddDaysToNewTurno,self).form_valid(form)
+    
+    
+
+    
+
+
+
 
 
 class ViewEditPerfil(generic.View):

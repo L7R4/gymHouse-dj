@@ -98,10 +98,10 @@
     </div>
     <div class="navigation--space" id="navigation--space"></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> {% endcomment %}
     <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
 
     <!-- fin de los menú -->
@@ -113,40 +113,49 @@
     </div>
 
     <div class="cards-container">
-        <div class="card-info">
-            <figure><img src="assets/images/avatar/9.png" alt=""></figure>
-            <div class="pupil_data--name" id="pupil_data--name">
-                <h1>L4R7</h1>
-                <h3>Lautaro Rodriguez</h3>
-                <p>19 años</p>
+        {% for person in personas %}
+        
+            <div class="card-info">
+                <figure><img src="{{person.foto_de_perfil}}" alt=""></figure>
+                <div class="pupil_data--name" id="pupil_data--name">
+                    <h1>{{person.apodo}}</h1>
+                    <h3>{{person.nombre}} {{person.apellido}}</h3>
+                    <p>{{person.edad}}</p>
+                </div>
+                <ol class="pupil_data--numbers" id="pupil_data--numbers">
+                    <li>
+                        <h5>{{person.altura}}</h5>
+                        <p>ALTURA</p>
+                    </li>
+                    <li>
+                        <h5>{{person.telefono}}</h5>
+                        <p>CONTACTO</p>
+                    </li>
+                    <li>
+                        <h5>{{person.peso}}</h5>
+                        <p>PESO</li>
+                    </li>
+                </ol>
+                <p class="pupil_plan">{{person.turno_set.all.0}}</p>
+                <ul class="pupil_plan-days">
+                    {% for fecha in person.turno_set.all.0.dias.all %}
+                    
+                        <li>
+                            <p>{{fecha.dia|slice:":3"|upper}}</p>
+                            <p>{{fecha.hora}}hs</p>
+                        </li>
+                    
+                    {% endfor %}
+                </ul>
             </div>
-            <ol class="pupil_data--numbers" id="pupil_data--numbers">
-                <li>
-                    <h5>180</h5>
-                    <p>ALTURA</p>
-                </li>
-                <li>
-                    <h5>3624036724</h5>
-                    <p>CONTACTO</p>
-                </li>
-                <li>
-                    <h5>90</h5>
-                    <p>PESO</li>
-                </li>
-            </ol>
-            <p class="pupil_plan">2 días/semana</p>
-            <ul class="pupil_plan-days">
-                <li>
-                    <p>LUN</p>
-                    <p>20hs</p>
-                </li>
-                <li>
-                    <p>MAR</p>
-                    <p>14hs</p>
-                </li>
-            </ul>
-        </div>
-        <div class="card-info">
+        
+        {% endfor %}
+
+        
+
+
+
+        {% comment %} <div class="card-info">
             <figure><img src="assets/images/avatar/1.png" alt=""></figure>
             <div class="pupil_data--name" id="pupil_data--name">
                 <h1>Linchu</h1>
@@ -424,35 +433,35 @@
                     <p>18hs</p>
                 </li>
             </ul>
-        </div>
+        </div> {% endcomment %}
     </div>
 
     <div class="planmensual--pop-up" id="planmensual--pop-up">
-        <div class="planmensual--pop-up_wrap">
-
+        <form method="POST" class="planmensual--pop-up_wrap" id="form_create_user">
+            {% csrf_token %}
             <div class="pop-up--data" id="pop-up--data">
                 <i class="fa-solid fa-xmark"></i>
                 
                 <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
+                    <input required="" type="text" name="nombre" autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
                     <label class="user-label">Nombre(s)</label>
                 </div>
                 <div class="input-group">
-                    <input required="" type="text" name="text" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
+                    <input required="" type="text" name="apellido" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
                     <label class="user-label">Apellido(s)</label>
                 </div>
                 <div class="input-group" id="input-group--email">
-                    <input required="" type="email" name="text" autocomplete="off" class="input">
+                    <input required="" type="email"  name="email" autocomplete="off" class="input">
                     <label class="user-label">Correo electronico</label>
                 </div>
                 <div class="pop-up--data--numbers" id="pop-up--data--numbers">
                     <div class="input-group">
-                        <input required="" type="tel" min="0" name="text" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="2"> 
+                        <input required="" type="text" min="0" name="edad" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="2"> 
                         <label class="user-label">Edad</label>
                     </div>
                 </div>
                 <div class="input-group">
-                    <input required="" type="password" name="text" autocomplete="off" class="input" id="actualPassword">
+                    <input required="" type="password" name="pass" autocomplete="off" class="input" id="actualPassword">
                     <label class="user-label">
                         Contraseña actual
                     </label>
@@ -460,24 +469,36 @@
                     <i class="fa-solid fa-eye" id="solid-eye-actual"></i>
                 </div>
 
-                <button id="data_button"><p>Siguiente</p></button>
-                <button id="data_secondbutton"><p>Atrás</p></button>
+                <button type="submit" id="submit_button"><p>Siguiente</p></button>
+                <a href="{% url 'personas:adminAlumnos' %}" id="data_secondbutton"><p>Atrás</p></a>
             </div>
 
-            <div class="pop-up--first" id="pop-up--first">
+            {% comment %} <div class="pop-up--first" id="pop-up--first">
                 <i class="fa-solid fa-xmark"></i>
                 <p>Seleccioná el plan del Alumno</p>
-                <ul>
-                    <li class="pop-up--plan">
-                        <p>2 días/semana</p>
-                    </li>
-                    <li class="pop-up--plan">
-                        <p>3 días/semana</p>
-                    </li>
-                    <li class="pop-up--plan">
-                        <p>5 días/semana</p>
-                    </li>
-                </ul>
+                <div class="container_choices">
+
+                        <input type="radio" name="plan" id="dos_semana" value="2 veces/Semana">
+                        <label for="dos_semana" class="choice">
+                            <h2>2</h2>
+                            <h3>dias/semana</h3>
+                        </label>
+
+                        <input type="radio" name="plan" id="tres_semana" value="3 veces/Semana">
+                        <label for="tres_semana" class="choice">
+                            <h2>3</h2>
+                            <h3>dias/semana</h3>
+                        </label>
+
+                        <input type="radio" name="plan" id="cinco_semana" value="5 veces/Semana">
+                        <label for="cinco_semana" class="choice">
+                            <h2>5</h2>
+                            <h3>dias/semana</h3>
+                        </label>
+
+
+                </div>
+
                 <button id="first_button"><p>Siguiente</p></button>
                 <button id="first_secondbutton"><p>Atrás</p></button>
             </div>
@@ -539,8 +560,8 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>    
+            </div> {% endcomment %}
+        </form>    
     </div>
 
     <script src="{% static 'js/sectionPupils.js' %}"></script>
