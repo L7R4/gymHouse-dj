@@ -105,14 +105,15 @@ body {
     font-size: 1.4rem;
     padding: 2rem 1rem;
     margin:0;
+    width: 100%;
     border-radius: 8px;
     background-color: #ffffff;
 }
 
 .formato{
-    width: 100%;
     height: fit-content;
     background: #131313;
+    padding: 1rem;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -156,11 +157,21 @@ body {
 
 /*---------------------------------------------------------*/
 .coments{
-    padding-bottom: 1rem;
+    padding-bottom: 1rem 0;
 }
 .coments-overflow{
-    overflow: scroll;
+    overflow-y: auto;
     height: 20rem;
+}
+.coments-overflow::-webkit-{
+    width: .6rem;
+}
+ .coments-overflow::-webkit-scrollbar-thumb
+{
+    background-color: rgba(88, 86, 86, 0.426);
+    width: 100%;
+    border-radius: 20px;
+    border-color: transparent;
 }
 .coments--user{
     width: 88%;
@@ -182,6 +193,7 @@ body {
 .coments--userinfo img{
     height: 4rem;
     width: 4rem;
+    border-radius: 100%;
     margin-right: 1rem;
 }
 .coments--userinfo h5{
@@ -194,6 +206,35 @@ body {
     font-size: 1.4rem;
     margin:1rem 0 0.4rem 0;
 }
+.input_comment{
+    display: flex;
+    width: 100%;
+    padding: 1rem 2rem;
+    /* margin: auto; */
+}
+.inputtext{
+    width: 100%;
+    max-width: 88rem;
+    height: auto;
+    padding: 1rem;
+    border-radius: 18px;
+    border: none;
+    background: #fff;
+    margin-right: 1rem;
+}
+.boton{
+    border-radius: 18px;
+    border: none;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    font-family: "raleway semibold";
+    font-size: 1.7rem;
+    color: white;
+    padding: 1.3rem 3rem;
+}
+
+
 /*--------------------------------*/
 @media (max-width: 1100px){
     .noticia{

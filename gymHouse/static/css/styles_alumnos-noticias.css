@@ -70,120 +70,95 @@ body{
 
 /*Toda la sección*/
 .news{
-    width: 100%;
-    height: 100%;
-    padding: 2% 2% 2% 6vw;
+    width: 100vw;
+    max-width: 130rem;
+    height: 100vh;
+    margin: auto;
+    padding: 1rem 1rem 1rem 9rem;
 }
 /*---------------------------------------------------------*/
 
 /*Slider*/
 /* container and cards */
 .news_slider {
-    position: relative;
     width: 100%;
-    height: 27%;
-    overflow: hidden;
-    cursor: grab;
-    /* border-top: 10px solid #f00; */
+    height: fit-content;
 }
 
 .cards {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: grid;
-    height: 95%;
-    padding: 0 1% 0 1%;
-    grid-template-columns: repeat(6, 300px);
-    pointer-events: none; 
-    }
-
+    display: flex;
+    height: fit-content;
+    padding: 0 5rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
 .card {
+    height: 20rem;
+    width: 16rem;
     border: 1px solid #ccc;
     border-radius: 1rem;
     overflow: hidden;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 32px;
-    width: 80%;
     display: flex;
     flex-direction: column;
     position: relative;
     justify-content: end;
-    justify-self: center;
-    }
-
+}
 .card__content {
     color: #4e4e4e;
     padding: 1rem;
-    }
-
+}
+.card a{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display:flex;
+    justify-content: center;
+}
 .card figure{
-        width: 100%;
-        height: 100%;
-    }
-    
+    width: 100%;
+    height: 100%;
+}
 .card img{
-        width: 100%;
-        height: 100%;
-    }
-/*---------------------------------------------------------*/
-
-/*---------------------------------------------------------*/
-
-/*Aca estan todos los posts ya sea en imagen o detallado*/
+    height: 100%;
+}
 .news_posts-bigimg{
-    width: 101%;
-    height: 45%;
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
-    margin: 0.5% 0 1% 0;
-    
+    margin: 1rem auto;     
 }
-/*---------------------------------------------------------*/
-
-/*Aca estan todos los posts de imagen sin texto*/
 .posts--images{
-    margin: 1%;
-    height: 93%;
+    margin: auto;
+    height: 26rem;
+    width: 48%;
+    min-width: 25rem;
     display: flex;
     flex-direction: column;
     position: relative;
     justify-content: end;
+    overflow: hidden;
+    border-radius: 32px;
 }
-
 .posts--images a{
     height: 100%;
     width: 100%;
+    margin: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .posts--images img{
-    height: 100%;
     width: 100%;
-    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 32px;
-    z-index: 10;
 }
-/*---------------------------------------------------------*/
-
-/*Para poner especifico cada post en la forma diseñada*/
-.news_posts-bigimg .posts--images:first-child{
-    width: 41%;
-}
-
-.news_posts-bigimg .posts--images:nth-child(2){
-    width: 55%;
-}
-
-/*---------------------------------------------------------*/
-
 /*La franja negra donde va el titulo*/
 .post--images-detail{
-    z-index: 20;
-    height: 17%;
+    z-index: 2;
+    height: 4rem;
     width: 100%;
-    border-radius: 0  0 32px 32px;
     background: rgba(0, 0, 0, 0.6);
     position: absolute;
     display: flex;
@@ -193,240 +168,128 @@ body{
 
 .post--images-detail p{
     font-family: "raleway medium";
-    font-size: max(1.2vw,min(1.4rem));
-    margin-bottom: .5%;
+    font-size: 1.6rem;
+    margin: auto;
     color: rgb(255, 255, 255);
 }
-/*---------------------------------------------------------*/
-
-/*Padre - posts detallados*/
-
-
 .news_posts--incrementable{
-    height: 35%;
+    height: fit-content;
     width: 100%;
     display: flex;
     flex-direction: row;
-    border-radius: 32px;
 }
-
-.news_posts--minimized img {
-    box-shadow: unset;
-}
-/*---------------------------------------------------------*/
-
-/*Hijos - posts detallados (imagencita y texto)*/
 .news_posts--minimized-detailed{
+    width: 100%;
+    height: fit-content;
     border-radius: 32px;
     background: #F2F2F2;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
-    margin: 0.7%;
-    min-height: 28%;
+    margin-bottom: 0.4rem;
     display: flex;
-    justify-content: left;
+    overflow: hidden;
 }
-
-.news_posts--minimized-detailed img:nth-child(1){
+.news_posts--minimized-detailed img{
     width: 15%;
-    height: 100%;
-    margin: unset;
-    border-radius: 32px 0 0 32px;
 }
-
-.news_posts--incrementable .posts--images:last-of-type {
+/* .news_posts--incrementable .posts--images:last-of-type {
     width: 45%;
     height: 95%;
     margin: unset;
     border-radius: 32px 0 0 32px;
     align-self: center;
-}
-
+} */
 .news_posts--minimized{
-    width: 60%;
-    height: 98%;
-    padding-right: 1%;
+    width: 52%;
+    margin: 0 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
-/*---------------------------------------------------------*/
-
-/*---parte de los posts detallados (texto)*/
 .news_posts--minimized-description{
     width: 85%;
-    height: 100%;
-    padding: 1%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin:0.8rem;
 }
-
-.news_posts--minimized-description p:first-child{
+.news_posts--minimized-description p{
     font-family: "raleway bold";
-    font-size: max(1.3vw,min(1.5rem));
-    margin-bottom: .5%;
-    width: 100%;
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
     color: #000;
 }
-
 .news_posts--minimized-description p:last-child{
+    height: fit-content;
     font-family: "raleway medium";
-    font-size: max(.9vw,min(1rem));
-    width: 100%;
+    font-size: 1.4rem;
     color: #000;
 }
+
 /*---------------------------------------------------------*/
-
-/*Responsive todas las noticias*/
-
-@media (max-width:800px) {
-    .menu{
-        display: none;
+@media (max-width:1100px) {
+    .news_slider{
+        display:contents;
     }
     .news{
-        width: 100%;
-        height: 100%;
-        padding: 2%;
+        padding: 1rem 1rem 1rem 6vw;
     }
-    .news_slider{
+    .card {
+        height: 16rem;
+        width: 13rem;
+    }
+    .posts--images{
+        height: 20rem;
+        width: 48%;
+    }
+    .news_posts--incrementable {
+        flex-wrap: wrap;
+    }
+    .news_posts--minimized-detailed img{
+        width: 20%;
+    }
+    .news_posts--incrementable .posts--images:last-of-type {
+        visibility: hidden;
+        height: 10rem;
+    }
+}
+@media (max-width:700px) {
+    .navigation--space{
+        height: 0;
+    }
+    .news{
+        padding: 1rem;
+    }
+    .cards {
+        padding: 0;
+        justify-content: space-around;
+    }
+    .card {
+        height: 40vw;
+        width: 31vw;
+    }
+    .card:nth-child(4), .card:nth-child(5), .card:nth-child(6){
         display: none;
     }
-    body{
+    .posts--images{
+        height: 20rem;
         width: 100%;
+        margin-bottom: 0.4rem;
+    }
+    .news_posts--minimized-detailed img{
+        width: 28%;
+    }
+}
+@media (max-width:450px) {
+    .card {
+        height: 60vw;
+        width: 46vw;
+    }
+    .card:nth-child(3){
+        display: none;
+    }
+    .news_posts--minimized-detailed img{
+        width: 38%;
         height: fit-content;
-        font-size: 1em;
-        line-height: 1.5em;
-        display: flex;
-        flex-direction: column;
+        margin: auto 0;
     }
-/*Slider*/
-
-.wrapper {
-    display: flex;
-    grid-gap: 2rem;
-    width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x;
-    cursor: grab;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* for firefox */
-    margin-bottom: 1rem;
-}
-
-.wrapper::-webkit-scrollbar { /* for chrome */
-    display: none;
-}
-
-.card {
-    min-width: calc(50% - .5rem);
-    aspect-ratio: 1 / 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: #fff;
-    scroll-snap-align: start;
-    user-select: none;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 32px
-}
-
-.card a{
-    width: 100%;
-    height: 100%;
-}
-
-.card img{
-    width: 100%;
-    height: 100%;
-}
-/*---------------------------------------------------------*/
-
-/*Aca estan todos los posts ya sea en imagen o detallado*/
-    .news_posts-bigimg{
-        width: 100%;
-        height: fit-content;
-        margin: 0.5% 0 1% 0;
-        padding-right: 2.5%;
-    }
-
-    .posts--images img {
-        box-shadow: 0px 0px 7px 4px rgb(0 0 0 / 50%);
-    }
-
-    .news_posts-bigimg .posts--images:first-child{
-        min-width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .news_posts-bigimg .posts--images:nth-child(2){
-        min-width: 100%;
-    }
-
-/*---------------------------------------------------------*/
-/*Las noticias con texto*/
-
-.news_posts--incrementable {
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-radius: 32px;
-}
-
-.news_posts--minimized-detailed {
-    border-radius: 32px;
-    background: #F2F2F2;
-    box-shadow: 0px 4px 3px rgb(0 0 0 / 20%);
-    margin-bottom: 1.5rem;
-    min-height: 28%;
-    display: flex;
-    justify-content: left;
-}
-
-.news_posts--minimized {
-    width: 100%;
-    height: 100%;
-    padding-right: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.news_posts--minimized-detailed img:nth-child(1) {
-    width: 25%;
-    height: unset;
-    margin-bottom: unset;
-    border-radius: 32px 0 0 32px;
-}
-
-.news_posts--minimized-description p:first-child {
-    font-family: "raleway bold";
-    font-size: max(2.5vw,min(1.7rem));
-    margin-bottom: .5%;
-    width: 100%;
-    color: #000;
-}
-
-.news_posts--minimized-description p:last-child {
-    font-family: "raleway medium";
-    font-size: max(2vw,min(1.2rem));
-    width: 100%;
-    color: #000;
-}
-
-/*---------------------------------------------------------*/
-
-.news_posts--incrementable .posts--images:last-of-type {
-    width: 100%;
-    height: 25rem;
-    margin: unset;
-    padding: 0 2% 0 2%;
-}
-
-.news_posts--incrementable .post--images-detail{
-    width: 96%;
-}
-
 }
