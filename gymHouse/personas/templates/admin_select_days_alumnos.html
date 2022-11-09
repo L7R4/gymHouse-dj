@@ -167,6 +167,7 @@
                 <p>Elegí los días y horarios que el alumno va a asistir</p>
                 <ul>
                     {{formsetDays.management_form}}
+                    {% comment %} {{formsetDays}}  {% endcomment %}
                     {% for f in formsetDays %}
                         <li class="day">
                             <p></p>
@@ -178,7 +179,7 @@
                             </div>
                         </li>
                         
-                    {% endfor %} 
+                    {% endfor %}
 
                 </ul>
 

@@ -123,8 +123,8 @@ class Turno(models.Model):
     )
     
     plan= models.CharField(max_length = 50, choices = cantidad_de_dias)
-    alumno = models.ManyToManyField(Persona, blank = True, null = True)
-    dias = models.ManyToManyField(Dia, blank = True, null = True)
+    alumno = models.ManyToManyField(Persona)
+    dias = models.ManyToManyField(Dia)
     # profe = models.CharField(max_length = 50, choices = profesores)
     def __str__(self):
         return self.plan

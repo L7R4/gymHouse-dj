@@ -94,25 +94,73 @@ class AddTurnoNewUser(generic.View):
 
 class AddDaysToNewTurno(generic.FormView):
     template_name = "admin_select_days_alumnos.html"
-    success_url = "."
-    form_class = formset_factory(DayForm,max_num=4,absolute_max=4)
+    # success_url = 
+    form_class = formset_factory(DayForm,max_num=5,absolute_max=5)
     
-    formset = form_class(initial=[
+    last_plan = Turno.objects.all().last()
+
+    # print(last_plan)
+
+    data = {
+            'form-TOTAL_FORMS': '5',
+            'form-INITIAL_FORMS': '5',
+            'form-0-dia': 'lunes',
+            'form-0-hora': 0,
+            'form-1-dia': 'martes',
+            'form-1-hora': 14,
+            'form-2-dia': 'miercoles',
+            'form-2-hora': 15,
+            'form-3-dia': 'jueves',
+            'form-3-hora': 20,
+            'form-4-dia': 'viernes',
+            'form-4-hora': 0,
+        }
+
+    formset = form_class(data,initial=[
         {'dia': "lunes",
         'hora':0},
         {'dia': "martes",
         'hora':0},
         {'dia': "miercoles",
-        'hora':0},
+        'hora':2},
         {'dia': "jueves",
         'hora':0},
         {'dia': "viernes",
         'hora':0},
 
     ])
-    print(formset)
     print(formset.is_valid())
-    
+    # # print(formset.cleaned_data)
+    # for form in formset:
+    #     print(form.cleaned_data["hora"])
+    #     # print(form["hora"].value())
+    def post(self, request, *args, **kwargs):
+        print("entro al post")
+        if self.formset.is_valid():
+            print("ES VALIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+            for f in self.formset:
+                # form = f(request.POST)
+                if f.cleaned_data["hora"] == 0:
+                    continue
+                dia  = f.save()
+                
+                # dia_true = dia.save()
+                print("ya lo guarde")
+                self.last_plan.dias.add(dia)
+                print("ya lo relacione")
+        return redirect("personas:adminAlumnos")
+
+    # def form_valid(self, form):  
+    #     print("ES VALIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    #     for f in self.formset:
+    #         if f.cleaned_data["hora"] == 0:
+    #             return
+    #         dia  = f.save()
+    #         self.last_plan.dias.add(dia)
+    #     return super(AddDaysToNewTurno,self).form_valid(form)
+
+
+
     def get(self,request,*args,**kwargs):
         personas = Persona.objects.filter(rango="alumno")
         
@@ -120,21 +168,6 @@ class AddDaysToNewTurno(generic.FormView):
             'personas': personas,
             'formsetDays': self.formset
         })
-
-    def form_valid(self, form):
-            last_plan = Turno.objects.all().last()
-            print("funque")
-            print(self.formset.errors)
-            for f in self.formset:
-                dia  = f.save()
-                last_plan.dias.add(dia)
-            return super(AddDaysToNewTurno,self).form_valid(form)
-    
-    
-
-    
-
-
 
 
 
