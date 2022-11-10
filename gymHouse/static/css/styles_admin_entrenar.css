@@ -179,7 +179,7 @@ div.plegable.desplegado > .ejercicio{
 {
     position: absolute;
     z-index: 2;
-    opacity: 1;
+    opacity: 0;
 }
 .ejercicio-pasos > form > div > .ejercicios__wrapper
 {

@@ -22,22 +22,39 @@
             <div class="menu_icons">
                 <ul> <!-- poner los links correctos -->
                     <li>
-                        <a href="#"> <img class="logo" src="assets/images/logo.png"> </a> 
+                        <a href="{% url 'login_profe' %}">
+                            <img class="logo" src="{% static 'images/logo.png' %}">
+                        </a> 
                     </li> 
                     <li>
-                        <a href="#"> <img src="assets/images/user.png"> <p>Cuenta</p> </a>
+                        <a href="#">
+                            <img src="{% static 'images/user.png' %}">
+                            <p>Perfil</p>
+                        </a>
                     </li> 
                     <li> 
-                        <a href="#"> <img src="assets/images/gym/gym.png"> <p>Entrenar</p> </a> 
+                        <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
+                            <img src="{% static 'images/gym/gym.png' %}">
+                            <p>Entrenar</p>
+                        </a> 
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/edit.png"> <p>Noticias</p> </a>
+                        <a href="{% url 'posts:adminNoticia' %}">
+                            <img src="{% static 'images/edit.png' %}">
+                            <p>Noticias</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/calendar.png"> <p>Turnos</p> </a>
+                        <a href="{% url 'personas:adminTurnos' %}">
+                            <img src="{% static 'images/calendar.png' %}">
+                            <p>Turnos</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#"> <img src="assets/images/users-alt.png"> <p>Alumnos</p> </a>
+                        <a href="{% url 'personas:adminAlumnos' %}">
+                            <img src="{% static 'images/users-alt.png' %}">
+                            <p>Alumnos</p>
+                        </a>
                     </li>
                 </ul>
             </div>

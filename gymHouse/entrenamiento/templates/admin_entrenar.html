@@ -27,7 +27,7 @@
                         </a> 
                     </li> 
                     <li>
-                        <a href="admin_perfil.html">
+                        <a href="#">
                             <img src="{% static 'images/user.png' %}">
                             <p>Perfil</p>
                         </a>
@@ -39,7 +39,7 @@
                         </a> 
                     </li>
                     <li>
-                        <a href="{% url 'posts:noticias' %}">
+                        <a href="{% url 'posts:adminNoticia' %}">
                             <img src="{% static 'images/edit.png' %}">
                             <p>Noticias</p>
                         </a>
@@ -106,14 +106,11 @@
         <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
-    
-         <!-- fin de los menú -->
 
 
         <section class="screen">
             <div class="screen-secciones">
-               
+
                 <div class="seccion" id="abdominales">
                     <div class="title_desplegable">
                         <h2>Abdomen</h2>
@@ -121,112 +118,48 @@
                     </div>
 
                     <div class="plegable">
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="abdomen1" name="ejercicios">
-                            <label for="abdomen1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
+                        {% for a in abdominales %}
+                                <div class="ejercicio">
+                                    <input type="checkbox" id = "brazo{{forloop.counter}}" value="{{a.pk}}" name="ejercicios">
+                                    
+                                    <label for="brazo{{forloop.counter}}">
+                                        <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                        <div class="imgejercicio">
+                                            <img src="{% static '/images/gym/workout.png' %}">
+                                        </div>
+                                        <p>{{a}}</p>
+                                    </label>
                                 </div>
-                                <p>Abdomen1</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "abdomen2" value="abdomen2" name="ejercicios">
-                            <label for="abdomen2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>abdomen2</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "abdomen3" value="abdomen3" name="ejercicios">
-                            <label for="abdomen3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>abdomen3</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "abdomen4" value="abdomen4" name="ejercicios">
-                            <label for="abdomen4">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>abdomen4</p>
-                            </label>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
+
                 <div class="seccion" id="brazos">
                     <div class="title_desplegable">
                         <h2>Brazos</h2>
                         <img src="assets/images/angle-small-left.png">
                      
                     </div>
-
+                    
                     <div class="plegable">
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="nashe1" name="ejercicios">
-                            <label for="nashe">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
+                        {% for b in brazos %}
+                                <div class="ejercicio">
+                                    <input type="checkbox" id = "abdomen{{forloop.counter}}" value="{{b.pk}}" name="ejercicios">
+                                    
+                                    <label for="abdomen{{forloop.counter}}">
+                                        <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                        <div class="imgejercicio">
+                                            <img src="{% static '/images/gym/workout.png' %}">
+                                        </div>
+                                        <p>{{b}}</p>
+                                    </label>
                                 </div>
-                                <p>Nashe1</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe2" value="nashe2" name="ejercicios">
-                            <label for="nashe2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>Nashe2</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe3" value="nashe3" name="ejercicios">
-                            <label for="nashe3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>Nashe3</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe4" value="nashe4" name="ejercicios">
-                            <label for="nashe4">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>Nashe4</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe5" value="nashe5">
-                            <label for="nashe5">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>Nashe5</p>
-                            </label>
-                        </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
+                
                 <div class="seccion" id="espalda">
                     <div class="title_desplegable">
                         <h2>Espalda</h2>
@@ -235,117 +168,23 @@
 
                     <div class="plegable">
 
-                        <div class="ejercicio">
-                            <input type="checkbox" id ="nashe" value ="espalda1" name ="ejercicios">
-                            <label for="espalda1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda1</p>
-                            </label>
-                        </div>
+                        {% for c in espalda %}
+                            <div class="ejercicio">
+                                <input type="checkbox" id = "espalda{{forloop.counter}}" value="{{c.pk}}" name="ejercicios">
+                                
+                                <label for="espalda{{forloop.counter}}">
+                                    <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{c}}</p>
+                                </label>
+                            </div>
+                        {% endfor %}
 
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda1" name="ejercicios">
-                            <label for="espalda1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda1</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda2" name="ejercicios">
-                            <label for="espalda2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda2</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda3" name="ejercicios">
-                            <label for="espalda3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda3</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda4" name="ejercicios">
-                            <label for="espalda4">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda4</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda5" name="ejercicios">
-                            <label for="espalda5">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda5</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda6" name="ejercicios">
-                            <label for="espalda6">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda6</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda7" name="ejercicios">
-                            <label for="espalda7">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda7</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda8" name="ejercicios">
-                            <label for="espalda8">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda8</p>
-                            </label>
-                        </div>
-
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="espalda9" name="ejercicios">
-                            <label for="espalda9">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>espalda9</p>
-                            </label>
-                        </div>
                     </div>
                 </div>
+
                 <div class="seccion" id="piernas">
                     <div class="title_desplegable">
                         <h2>Piernas</h2>
@@ -353,38 +192,23 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="pierna1" name="ejercicios">
-                            <label for="pierna1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>pierna1</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="pierna2" name="ejercicios">
-                            <label for="pierna2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>pierna2</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="pierna3" name="ejercicios">
-                            <label for="pierna3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>pierna3</p>
-                            </label>
-                        </div>
+                        {% for p in piernas %}
+                            <div class="ejercicio">
+                                <input type="checkbox" id = "pierna{{forloop.counter}}" value="{{p.pk}}" name="ejercicios">
+                                
+                                <label for="pierna{{forloop.counter}}">
+                                    <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{p}}</p>
+                                </label>
+                            </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
+
                 <div class="seccion" id="gluteos">
                     <div class="title_desplegable">
                         <h2>Glúteos</h2>
@@ -392,38 +216,23 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="gluteos1" name="ejercicios">
-                            <label for="gluteos1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>gluteos1</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="gluteos2" name="ejercicios">
-                            <label for="gluteos2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>gluteos2</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="gluteos3" name="ejercicios">
-                            <label for="gluteos3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>gluteos3</p>
-                            </label>
-                        </div>
+                        {% for g in gluteos %}
+                            <div class="ejercicio">
+                                <input type="checkbox" id = "gluteo{{forloop.counter}}" value="{{g.pk}}" name="ejercicios">
+                                
+                                <label for="gluteo{{forloop.counter}}">
+                                    <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{g}}</p>
+                                </label>
+                            </div>
+                        {% endfor %}
+                       
                     </div>
                 </div>
+
                 <div class="seccion" id="elongacion">
                     <div class="title_desplegable">
                         <h2>Elongación</h2>
@@ -431,44 +240,29 @@
                     </div>
 
                     <div class="plegable">
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="elongacion1" name="ejercicios">
-                            <label for="elongacion1">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>elongacion1</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="elongacion2" name="ejercicios">
-                            <label for="elongacion2">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>elongacion2</p>
-                            </label>
-                        </div>
-                        <div class="ejercicio">
-                            <input type="checkbox" id = "nashe" value="elongacion3" name="ejercicios">
-                            <label for="elongacion3">
-                                <button type="button" class="ejercicio__buttonQuitar">-</button>
-                                <div class="imgejercicio">
-                                    <img src="assets/images/gym/workout.png">
-                                </div>
-                                <p>elongacion3</p>
-                            </label>
-                        </div>
+                        {% for e in elongacion %}
+                            <div class="ejercicio">
+                                <input type="checkbox" id = "elon{{forloop.counter}}" value="{{e.pk}}" name="ejercicios">
+                                
+                                <label for="elon{{forloop.counter}}">
+                                    <button type="button" class="ejercicio__buttonQuitar">-</button>
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{e}}</p>
+                                </label>
+                            </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
+
                 <div class="entrenar-botones">
                     <h3>¿Deseas agregar un nuevo ejercicio?</h3>
                     <div class="botones">
                         <input type="button" value="Agregar" class="btn-abrir">
                         <button id="abrir-historial" >
-                            <a href="admin_entrenar-historial.html">
+                            <a href="{% url 'entrenamiento:historialRutinas' %}">
                                 Historial de rutinas
                             </a>
                         </button>   
@@ -479,12 +273,17 @@
             <div class="screen-ejercicio" id="divcerrado">
                 <div class="fecha">
                     <h1>Creá la rutina</h1>
-                    <input type="date" name="fecha" min="2022-10-12" max="2025-12-31" />
+                    <input type="date" name="fecha" min="2022-10-12" max="2025-12-31" form="form_ejercicios" />
                 </div>
-                <div class="ejercicio-pasos"></div>
-                    <form class="form_ejercicios">
-                        <!-- <input type="text"> -->
-                        <input type="submit">
+                <div class="ejercicio-pasos">
+                    <form method="POST" class="form_ejercicios" id="form_ejercicios">
+                        {% csrf_token %}
+                        
+                        <input type="submit" value="Guardar" name="button_submit">
+                        <select name="genero" id="id_genero">
+                            <option value="hombre" selected>Hombre</option>
+                            <option value="mujer">Mujer</option>
+                        </select>
                     </form>
                 </div>
                 <div class="ejercicio-video">
@@ -495,24 +294,25 @@
 
         <div class="pop-up">
             <div class="pop-up-wrap">
-                <form action="" class="nuevoejercicio">
+                <form action="" method="POST" class="nuevoejercicio" id="nuevoejercicio">
+                    {% csrf_token %}
                     <div class="agregarejercicio">
                         <div class="ejercicio-nombre">
                             <div class="ejercicio-nombre-c1">
                                 <p>Nombre del ejercicio</p>
-                                <input type="text" value="Ingresar nombre...">
+                                <input type="text" name="nombre" placeholder="Ingresar nombre...">
                             </div>
                         </div>
 
                         <h1>PASOS</h1>
 
                         <div class="ejercicio-pasos">
-                            <textarea name="comentarios" rows="10" cols="50">Escribe aquí los pasos...</textarea>                 
+                            <textarea name="pasos" rows="10" cols="50" form="nuevoejercicio">Escribe aquí los pasos...</textarea>                 
                         </div>
 
                         <div class="agregarvideo">
                             <label for="myfile"> Selecciona una imagen o video: </label>
-                            <input type="file" id="myfile" name="myfile" max="1">
+                            <input type="file" id="myfile" name="archivo" max="1">
                             <!-- dsp agregar el accept="" con los tipos de
                             extensiones a priorizar -->
                         </div>
@@ -521,7 +321,7 @@
                         <!-- agregar opcion para añadir imagen, video o gif -->
 
                         <div class="guardarejercicio">
-                            <button type="submit"><p>Guardar ejercicio</p></button>
+                            <button type="submit" name ="button_submit_ejercicio"><p>Guardar ejercicio</p></button>
                         </div>
                     </div>
                     <div class="tipoejercicio">
@@ -529,33 +329,33 @@
 
                         <h1>Elija el tipo de ejercicio...</h1>
                         <div class="opciones">
-                            <input type="radio" name="ejercicios" id="brazos" value="brazos" />
-                            <label class="tipos-ejercicios" for="brazos">
+                            <input type="radio" name="nombre_tipo" id="brazos_type" value="brazos" />
+                            <label for="brazos_type" class="tipos-ejercicios" >
                                 <p>Brazos</p>
                             </label>
                             
-                            <input type="radio" name="ejercicios" id="piernas" value="piernas" />
-                            <label class="tipos-ejercicios" for="piernas">
+                            <input type="radio" name="nombre_tipo" id="piernas_type" value="piernas" />
+                            <label for="piernas_type" class="tipos-ejercicios" >
                                 <p>Piernas</p>
                             </label>
                             
-                            <input type="radio" name="ejercicios" id="espalda" value="espalda" />
-                            <label class="tipos-ejercicios" for="espalda">
+                            <input type="radio" name="nombre_tipo" id="espalda_type" value="espalda" />
+                            <label for="espalda_type" class="tipos-ejercicios">
                                 <p>Espalda</p>
                             </label>
                             
-                            <input type="radio" name="ejercicios" id="abdomen" value="abdomen" />
-                            <label class="tipos-ejercicios" for="abdomen">
-                                <p>Brazos</p>
+                            <input type="radio" name="nombre_tipo" id="abdomen_type" value="abdomen"/>
+                            <label class="tipos-ejercicios" for="abdomen_type">
+                                <p>Abdomen</p>
                             </label>
                             
-                            <input type="radio" name="ejercicios" id="gluteos" value="gluteos" />
-                            <label class="tipos-ejercicios" for="gluteos">
+                            <input type="radio" name="nombre_tipo" id="gluteos_type" value="gluteos" />
+                            <label for="gluteos_type" class="tipos-ejercicios">
                                 <p>Glúteos</p>
                             </label>
                             
-                            <input type="radio" name="ejercicios" id="elongacion" value="elongacion" />
-                            <label class="tipos-ejercicios" for="elongacion">
+                            <input type="radio" name="nombre_tipo" id="elongacion_type" value="elongacion" />
+                            <label class="tipos-ejercicios" for="elongacion_type">
                                 <p>Elongación</p>
                             </label>
                         </div>

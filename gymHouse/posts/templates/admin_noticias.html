@@ -22,7 +22,7 @@
                     </a> 
                 </li> 
                 <li>
-                    <a href="admin_perfil.html">
+                    <a href="#">
                         <img src="{% static 'images/user.png' %}">
                         <p>Perfil</p>
                     </a>
@@ -34,7 +34,7 @@
                     </a> 
                 </li>
                 <li>
-                    <a href="{% url 'posts:noticias' %}">
+                    <a href="{% url 'posts:adminNoticia' %}">
                         <img src="{% static 'images/edit.png' %}">
                         <p>Noticias</p>
                     </a>
@@ -75,7 +75,7 @@
                 </a>
             </li>
             <li class="list">
-                <a href="{% url 'posts:noticias' %}">
+                <a href="{% url 'posts:adminNoticia' %}">
                     <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                     <span class="text">Noticias</span>
                 </a>
@@ -112,7 +112,7 @@
             <div class="cards">
                 {% for card in noticias_slider %}
             
-                    <a class="card" href="{% url 'posts:detail_noticia' card.id %}">
+                    <a class="card" href="{% url 'posts:adminNoticiaDetail' card.id %}">
                         <figure>
                             <img src="{{card.foto.url}}" alt="{{card.titulo}}">
                         </figure>

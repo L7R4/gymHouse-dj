@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rutinas, Ejercicio
+from .models import Rutina, Ejercicio
 
-admin.site.register(Rutinas)
+admin.site.register(Rutina)
 admin.site.register(Ejercicio)

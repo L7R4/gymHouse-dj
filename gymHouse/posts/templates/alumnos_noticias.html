@@ -17,31 +17,31 @@
         <div class="menu_icons">
             <ul>
                 <li>
-                    <a href="index_alumnos.html">
-                        <img class="logo" src="assets/images/logo.png">
+                    <a href="{% url 'login_user' %}">
+                        <img class="logo" src="{% static 'images/logo.png' %}">
                     </a> 
                 </li> 
                 <li>
-                    <a href="alumnos_perfil.html">
-                        <img src="assets/images/user.png">
-                        <p>Perfil</p>
+                    <a href="#" class="show-profile" id="show-profile"> 
+                        <img src="{% static 'images/user.png' %}"> 
+                        <p>Perfil</p> 
                     </a>
                 </li> 
                 <li> 
-                    <a href="alumnos_entrenar.html">
-                        <img src="assets/images/gym/gym.png">
+                    <a href="{% url 'entrenamiento:ejercicios' %}">
+                        <img src="{% static 'images/gym/gym' %}.png">
                         <p>Entrenar</p> 
                     </a> 
                 </li>
                 <li>
-                    <a href="alumnos_noticias.html">
-                        <img src="images/edit.png">
+                    <a href="{% url 'posts:noticias' %}">
+                        <img src="{% static 'images/edit.png' %}">
                         <p>Noticias</p>
                     </a>
                 </li>
                 <li>
-                    <a href="alumnos_turnos.html">
-                        <img src="assets/images/calendar.png">
+                    <a href="{% url 'personas:turnos' %}">
+                        <img src="{% static 'images/calendar.png' %}">
                         <p>Turnos</p>
                     </a>
                 </li>

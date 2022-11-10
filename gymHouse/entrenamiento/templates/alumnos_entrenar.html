@@ -186,11 +186,15 @@
 
                     <div class="plegable">
                         {% for e in elongacion %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
+                            <div class="ejercicio" id="cruzadas">
                                 <div class="imgejercicio">
                                     <img src="{% static '/images/gym/workout.png' %}">
                                 </div>
                                 <p>{{e}}</p>
+                                <p class="text_pasos">
+                                    {{e.pasos}}
+                                </p>
+                                <video class= "video_ejer" src="{{e.archivo}}"></video>
                             </div>
                         {% endfor %}
                     </div>
@@ -198,23 +202,18 @@
             </form>
 
             <div class="screen-ejercicio" id="divcerrado">
-                <div class="ejercicio">
-                    <div class="imgejercicio">
-                        <img src="{% static '/images/gym/workout.png' %}">
-                    </div>
-                    <p>Cruzadas</p>
-                </div>
-                <div class="ejercicio-pasos">
-                    <p>
+                 
+                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                     <p>
                         Paso 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         Minus tenetur quasi quas quaerat sed vero. Similique nisi omnis officiis
                         <br><br>
                         Paso 2: Repellendus aspernatur voluptate numquam eligendi quia.
                         Reprehenderit hic nobis eveniet maiores? 
-                    </p>
+                    </p> 
                 </div>
                 <div class="ejercicio-video">
-                    <img src="{% static '/images/imagen1.jpg' %}">
+                    {% comment %} <img src="{% static '/images/imagen1.jpg' %}"> {% endcomment %}
                 </div>
             </div>
         </section>
@@ -235,17 +234,18 @@
             })
         })
     </script>
-    <script>
+    {% comment %} <script>
         function myFunction() {
             var x = document.getElementById("divcerrado");
             if (x.style.display === "none"){ x.style.display = "block";}
             else { x.style.display = "none";}
         }
-    </script>
+    </script> {% endcomment %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script> document.getElementById("eprofile").style.display='none'; </script>
+    <script src ="{% static 'js/alumnosEntrenar.js' %}"> </script>
 
 </html>
