@@ -47,8 +47,9 @@
     <div class="modal_login">
         <img class="login-cruz"src="{% static '/images/cross.png' %}">
         <form action="" method ="POST">
+            {% csrf_token %}
             <label for="username">Usuario</label>
-            <input class="input" type="text" id="username" name="user">
+            <input class="input" type="text" id="username" name="username">
             <label for="password">Contraseña</label>
             <input class="input" type="password" id="password" name="password">
             <div class="showPass">

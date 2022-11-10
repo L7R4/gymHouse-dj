@@ -20,12 +20,14 @@ class MyAccountManager(BaseUserManager):
         return user
     
 
-    def create_superuser(self,email,nombre,username, password):
+    def create_superuser(self,email,nombre,apellido,edad,username, password):
 
         user = self.create_user(
             email=email,
             username = username,
             nombre = nombre,
+            apellido = apellido,
+            edad = edad,
             password = password
         )
         user.admin = True
@@ -65,7 +67,7 @@ class Persona(AbstractUser):
     is_active = models.BooleanField( default=True)
 
     USERNAME_FIELD ="username"
-    REQUIRED_FIELDS= ["email","nombre"]
+    REQUIRED_FIELDS= ["email","nombre","apellido","edad"]
     
     objects = MyAccountManager()
 

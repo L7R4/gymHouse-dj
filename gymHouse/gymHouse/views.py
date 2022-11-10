@@ -23,7 +23,7 @@ class IndexView(generic.View):
             "users" : Persona.objects.all(),
         })
     def post(self, request, *args, **kwargs):
-        user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
+        user = authenticate(request, username=request.POST.get("username"), password=request.POST.get("password"))
    
         try:
             grupo_user = user.rango
