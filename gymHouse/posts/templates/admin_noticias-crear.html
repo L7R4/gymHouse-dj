@@ -1,12 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="header" content="" />
-        <link rel="stylesheet" href="assets/styles_menu.css" />
-        <link rel="stylesheet" href="assets/styles_menu-celu.css">
-        <link rel="stylesheet" href="assets/styles_admin_noticias-crear.css" />
+        <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles_admin_noticias_crear.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles_admin_noticias-noticia.css' %}">
         <title>Admin: Noticias - crear noticia</title>
     
     </head>
@@ -16,25 +18,25 @@
                 <div class="menu_icons">
                     <ul> <!-- poner los links correctos -->
                         <li>
-                            <a href="#"> <img class="logo" src="assets/images/logo.png"> </a> 
+                            <a href="#"> <img class="logo" src="{% static 'images/logo.png' %}"> </a> 
                         </li> 
                         <li>
-                            <a href="#"> <img src="assets/images/user.png"> <p>Cuenta</p> </a>
+                            <a href="#"> <img src="{% static 'images/user.png' %}"> <p>Cuenta</p> </a>
                         </li> 
                         <li> 
                             <a href="admin_entrenar.html">
-                                <img src="assets/images/gym/gym.png">
+                                <img src="{% static 'images/gym/gym.png' %}">
                                 <p>Entrenar</p>
                             </a> 
                         </li>
                         <li>
-                            <a href="#"> <img src="assets/images/edit.png"> <p>Noticias</p> </a>
+                            <a href="#"> <img src="{% static 'images/edit.png' %}"> <p>Noticias</p> </a>
                         </li>
                         <li>
-                            <a href="#"> <img src="assets/images/calendar.png"> <p>Turnos</p> </a>
+                            <a href="#"> <img src="{% static 'images/calendar.png' %}"> <p>Turnos</p> </a>
                         </li>
                         <li>
-                            <a href="#"> <img src="assets/images/users-alt.png"> <p>Alumnos</p> </a>
+                            <a href="#"> <img src="{% static 'images/users-alt.png' %}"> <p>Alumnos</p> </a>
                         </li>
                     </ul>
                 </div>
@@ -93,57 +95,40 @@
                     <img src="assets/images/turn-back.png">
                 </a>
     
-                <form action="" class="crearnoticia">
+                <form action="" method="POST" class="crearnoticia" id="form_crear_noticia" enctype="multipart/form-data">
+                    {% comment %} {{form}} {% endcomment %}
+                    {% csrf_token %}
                     <div class="imagen">
                         <div class="imagen-subir">
                             <label for="myfile"><p>insertar imagen</p></label>
-                            <input type="file" id="myfile" name="myfile" max="1">
+                            {% comment %} <input type="file" id="myfile" name="foto" accept="image/*"> {% endcomment %}
+                            <input type="file" name="foto" id="myfile">
+                            
                         </div>
                     </div>
                     <div class="texto">
                         <div class="texto-titulo">
-                            <input type="text" placeholder="Ingresar titulo">
+                            <input type="text" placeholder="Ingresar titulo" name="titulo">
                         </div>
                         <div class="texto-contenido">
-                            <textarea name="comentarios" placeholder="Escribe tu noticia"></textarea>            
+                            <textarea name="texto" placeholder="Escribe tu noticia" form="form_crear_noticia" ></textarea>            
                         </div>
                     </div>
                     <div class="formato">
-                        <div class="formato-texto">
-                            <button id="bold">
-                                <img src="assets/images/text format/Bold.png">
+                        <div class="botones">
+                            <button type="submit"class="publicar">
+                                <p>Publicar noticia</p>
                             </button>
-                            <button id="italic">
-                                <img src="assets/images/text format/Italic.png">
-                            </button>
-                            <button id="underline">
-                                <img src="assets/images/text format/underline.png">
-                            </button>
-                            <button id="list">
-                                <img src="assets/images/text format/list.png">
-                            </button>
-                            <button id="numeralList">
-                                <img src="assets/images/text format/numeral list.png">
+                            <button class="descartar">
+                                <a href="{% url 'posts:adminNoticia' %}">Descartar</a><!--agregar link-->
                             </button>
                         </div>
-                        <!-- <div class="formato-color">
-                            <button id="rosa"></button>
-                            <button id="amarillo"></button>
-                            <button id="azul"></button>
-                            <button id="verde"></button>
-                            <button id="naranja"></button>
-                        </div> -->
                     </div>
-                </form>
                 
-            </div>
-            <div class="botones">
-                <button class="publicar">
-                    <p>Publicar noticia</p>
-                </button>
-                <button class="descartar">
-                    <a href="">Descartar</a><!--agregar link-->
-                </button>
+                
+            
+                    
+                </form>
             </div>
         </div>
 

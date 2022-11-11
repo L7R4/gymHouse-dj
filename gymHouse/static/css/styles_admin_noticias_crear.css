@@ -122,6 +122,7 @@ body {
     margin: 0;
     padding: 2rem 4rem;
     color:#d6e1ff;
+    cursor: pointer;
 }
 .botones button{
     margin: auto auto 2rem;
@@ -138,7 +139,7 @@ body {
     font-family: "raleway bold";
     font-size: 1.6rem;
     padding: 1rem;
-    color:#000000;
+    color:white;
 }
 
 /*--------------------------------*/

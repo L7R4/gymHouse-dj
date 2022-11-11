@@ -1,7 +1,8 @@
 from django.db import models
 from personas.models import Persona
 class Noticia(models.Model):
-    foto = models.ImageField(upload_to='images/news/')
+    # foto = models.ImageField(upload_to='images/news/')
+    foto = models.FileField(upload_to='images/news/')
     titulo = models.CharField(max_length = 100)
     texto = models.TextField()
     like = models.PositiveIntegerField(default=0)

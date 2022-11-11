@@ -51,6 +51,24 @@ body {
     margin: auto;
     margin-bottom: 2rem;
 }
+.crearnoticia{
+    width: 80%;
+    max-width: 110rem;
+    height: fit-content;
+    min-height: 52rem;
+    background: #fdaeae;
+    border-top-left-radius: 160px;
+    border-top-right-radius: 160px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    position: relative;
+    top: -4rem; bottom: 0;
+    right: 0; left: 0;
+    /* margin: 0 auto; */
+    margin: auto;
+    margin-bottom: 2rem;
+}
 
 .turnback{
     position: absolute;
@@ -116,6 +134,7 @@ body {
     padding: 1rem;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    min-height: 2rem;
 }
 
 .icons{

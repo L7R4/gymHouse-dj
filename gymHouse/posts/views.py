@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Noticia,Comentario
 from personas.models import Persona
 from django.http import JsonResponse
+from .forms import CrearNoticia
 
 # SECCIONES DE NOTICIAS DE VISTA ALUMNO
 class Noticias(generic.ListView):
@@ -76,3 +77,32 @@ class AdminNoticiaDetail(generic.DetailView):
         return render(request, self.template_name,{
             'comments': post.comentario_set.all()
         })
+
+
+class CreateNoticias(generic.View):
+    model = Noticia
+    template_name = "admin_noticias-crear.html"
+    form_class = CrearNoticia
+    def get(self,request,*args, **kwargs):
+        return render(request,self.template_name,{
+            "form": self.form_class
+        })
+
+    def post(self,request,*args, **kwargs):
+        form = CrearNoticia(request.POST, request.FILES)
+        if form.is_valid():
+        # texto = request.POST.get("texto")
+        # titulo = request.POST.get("titulo")
+        # foto = request.POST.get("foto")
+        # print(foto)
+        # print(titulo)
+        # print(texto)
+            noticia = Noticia()
+            noticia.foto = form.cleaned_data["foto"]
+            noticia.titulo = form.cleaned_data["titulo"]
+            noticia.texto = form.cleaned_data["texto"]
+            noticia.save()
+        else:
+            print(form)
+            
+        return redirect("posts:adminNoticia")

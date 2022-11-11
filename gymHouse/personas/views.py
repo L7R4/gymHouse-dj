@@ -203,9 +203,10 @@ class ViewEditPerfil(generic.View):
     def get(self,request,*args, **kwargs):
         return render(request, self.template_name)
     def post(self,request,*args, **kwargs):
-        form = PersonForm(request.POST)
+        form = PersonForm(request.POST,request.FILES)
         if form.is_valid():
             user = request.user
+            print(user)
             user.nombre = form.cleaned_data['nombre']
             user.email = form.cleaned_data['email']
             user.apodo = form.cleaned_data['apodo']

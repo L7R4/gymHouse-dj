@@ -79,6 +79,37 @@ body{
     align-items: center;
     justify-content: center;
 }
+.planmensual--pop-up_turnos{
+    /* display: none; */
+    width: 100vw;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.402);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.planmensual--pop-up_turnos > .planmensual--pop-up_wrap > .pop-up--first
+{
+    width: 45rem;
+}
+.planmensual--pop-upt_turnos_dias{
+    /* display: none; */
+    width: 100vw;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.402);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .planmensual--pop-up.active{
     display: flex;
 }
@@ -134,7 +165,7 @@ body{
 }
 /*Primer cuadrito*/
 .pop-up--first{
-    width: 42rem;
+    /* width: 42rem; */
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -304,6 +335,20 @@ ul{
     border-radius: 18px;
     line-height: 2em;
     margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+.pop-up--first > ul > input[type="radio"]
+{
+    display: none;
+}
+.pop-up--first >  ul > input[type="radio"]:checked + label
+{
+    background-color: #5135FF;
+    color: white;
+}
+.pop-up--first >  ul > input[type="radio"]:checked + label > p
+{
+    color: white;
 }
 
 .pop-up--plan p{
@@ -433,8 +478,15 @@ ul{
 }
 
 #form_close{
-    background-color: transparent;
+    border-radius: 18px;
     border: none;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    margin: 0 auto;
+    font-family: "raleway semibold";
+    font-size: 1.7rem;
+    color: white;
+    padding: 1.3rem 3rem;
 }
 
 .planmensual--pop-up_wrap #second_secondbutton
@@ -458,9 +510,17 @@ ul{
     height: 100%;   
     display: none;
 }
-.pop-up--second.active
-{
+.planmensual--pop-upt_turnos_dias > form >.pop-up--second{
     display: flex;
+}
+.planmensual--pop-upt_turnos_dias > form > .pop-up--second > p
+{
+    text-align: center;
+}
+
+.planmensual--pop-upt_turnos_dias > form >.pop-up--second.active
+{
+    display: none;
 }
 
 .pop-up--second > p{
@@ -484,6 +544,16 @@ ul{
     min-width: 7rem;
     max-width: 7rem;
 }
+.update_turno > #pop-up--first.active
+{
+    display: none;
+}
+
+.update_turno > #pop-up--second.active
+{
+    display: flex;
+}
+
 .day > select
 {
     position: absolute;
@@ -619,7 +689,7 @@ input[type=number] { -moz-appearance:textfield; }
 }
 .pop-up--third.active
 {
-    display: block;
+    display: flex;
 }
 
 .pop-up--third h5{

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_admin_noticias.css' %}">
+   
 
     <title>Gym House: Noticias</title>
 </head>
@@ -237,7 +238,7 @@
 
         <div class="botoncito">
             <button>
-                <a href="admin_noticias-crear.html">
+                <a href="{% url 'posts:createNotice' %}">
                     AGREGAR NOTICIA
                 </a>
             </button>

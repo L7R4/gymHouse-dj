@@ -116,7 +116,7 @@
         {% for person in personas %}
         
             <div class="card-info">
-                <figure><img src="{{person.foto_de_perfil}}" alt=""></figure>
+                <figure><img src="{% if person.foto_de_perfil %} {{person.foto_de_perfil}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" alt=""></figure>
                 <div class="pupil_data--name" id="pupil_data--name">
                     <h1>{{person.apodo}}</h1>
                     <h3>{{person.nombre}} {{person.apellido}}</h3>

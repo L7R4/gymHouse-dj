@@ -106,12 +106,12 @@
                                 </div>
                             {% else %}
                                 <div class="profile_data--radiuspic" id="profile_data--radiuspic">
-                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
+                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
                                 </div>
                             {% endif %}
                             
                             <div class="profile_data--name" id="profile_data--name">
-                                <h1>L4R7</h1>
+                                <h1>{{user.apodo}}</h1>
                                 {% comment %} <figure></figure> {% endcomment %}
                                 <h3>{{user.nombre}} {{user.apellido}}</h3>
                                 {% if  user.edad != None%}
@@ -138,19 +138,19 @@
                                         <br>
                                     {% endif %}
 
-                                    {% if user.altura %}
+                                    {% if user.peso %}
                                     <li>
-                                        <h5>{{user.altura}}</h5>
+                                        <h5>{{user.peso}}</h5>
                                         <p>PESO</p>
                                     </li>
                                     {% else %}
                                         <br>
                                     {% endif %}
                                     
-                                    {% if user.contacto %}
+                                    {% if user.altura %}
                                     <li>
-                                        <h5>{{user.contacto}}</h5>
-                                        <p>CONTACTO</p>
+                                        <h5>{{user.altura}}</h5>
+                                        <p>ALTURA</p>
                                     </li>
                                     {% else %}
                                         <br>
@@ -174,7 +174,7 @@
         <section class="landing">
             <div class="landing-noticias">
                 <h1>Te podría interesar...</h1>
-
+                {% comment %} {{user}} {% endcomment %}
                 
                 <div class="landing-noticias-news">
                     {% for post in posts %}

@@ -158,12 +158,12 @@
         
     </div>
 
-    <div class="planmensual--pop-up" id="planmensual--pop-up">
+    <div class="planmensual--pop-upt_turnos_dias" id="planmensual--pop-up">
         <form method="POST" class="planmensual--pop-up_wrap" id="form_add_days">
             {% csrf_token %}
 
             <div class="pop-up--second" id="pop-up--second">
-                <i class="fa-solid fa-xmark"></i>
+                {% comment %} <i class="fa-solid fa-xmark"></i> {% endcomment %}
                 <p>Elegí los días y horarios que el alumno va a asistir</p>
                 <ul>
                     {{formsetDays.management_form}}
@@ -220,9 +220,9 @@
             </div>
 
             <div class="pop-up--third" id="pop-up--third">
-                <button type="submit" id="form_close"><i class="fa-solid fa-xmark" id="xmark"></i></button>
                 <h5>¡Plan cambiado exitosamente!</h5>
-                <div class="plan-changed">
+                <button type="submit" id="form_close">Salir</button>
+                {% comment %} <div class="plan-changed">
                     <p>Aron Soto</p>
                     <p>3 días/semana</p>
                     <ul>
@@ -239,7 +239,7 @@
                             <p>16hs</p>
                         </li>
                     </ul>
-                </div>
+                </div> {% endcomment %}
             </div>
         </form>    
     </div>
