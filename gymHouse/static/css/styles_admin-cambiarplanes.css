@@ -67,6 +67,7 @@ body{
 /*POP-UP para cambiar de plan*/
 
 .planmensual--pop-up{
+    display: none;
     width: 100vw;
     position: fixed;
     z-index: 50;
@@ -74,9 +75,12 @@ body{
     bottom: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.402);
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
+}
+.planmensual--pop-up.active{
+    display: flex;
 }
 .planmensual--pop-up_wrap{
     background: #D6E1FF;
@@ -313,11 +317,12 @@ ul{
 /*Mensual suscription*/
 
 .landing-planmensual{
-    width: 42rem;
     border-radius: 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 1.5rem;
 }
 .planmensual-titulo img{
@@ -379,12 +384,14 @@ ul{
     margin-bottom: 1.3rem;
 }
 #first_secondbutton{
-
     text-align: center;
     text-decoration: none;
     color: #000;
     font-family: "raleway bold";
     font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .planmensual--pop-up_wrap #first_button{
@@ -441,24 +448,6 @@ ul{
     border: none;
     cursor: pointer;
 }
-
-/* .planmensual--pop-up_wrap button:last-of-type{
-    background: none;
-    border: none;
-    display: flex;
-    margin: 0 auto 2rem;
-} */
-
-/* .planmensual--pop-up_wrap button p{
-    text-decoration: none;
-    font-family: "raleway semibold";
-    font-size: 1.2rem;
-    color: #000;
-    text-decoration-line: underline;
-} */
-
-/*--------------------------------------------------------------------*/
-/*Segundo cuadrito*/
 .pop-up--second{
     width: 42rem;
     border-radius: 32px;
@@ -467,11 +456,11 @@ ul{
     /* justify-content: space-between; */
     padding: 1.5rem;
     height: 100%;   
-    /* display: none; */
+    display: none;
 }
 .pop-up--second.active
 {
-    display: none;
+    display: flex;
 }
 
 .pop-up--second > p{
@@ -625,7 +614,6 @@ input[type=number] { -moz-appearance:textfield; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     padding: 2rem 3rem;
     display: none;
 }

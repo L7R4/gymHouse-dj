@@ -133,7 +133,12 @@ div.plegable.desplegado > .ejercicio{
 }
 .fecha input{
     width: 80%;
+    border-radius: 18px;
+    border: none;
+    padding: 0.5rem 1rem;
     margin: auto auto 2rem;
+    font-family: 'raleway bold';
+    font-size: 1.2rem;
 }
 .form_ejercicios input{
     width: fit-content;
@@ -151,6 +156,14 @@ div.plegable.desplegado > .ejercicio{
     font-family: "raleway bold";
     color: white;
     font-size: 1.6rem;
+}
+.selecciongenero{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    margin: 2rem auto 0;
+    border: none;
 }
 .fecha h1{
     margin: auto auto 1rem;
@@ -173,10 +186,12 @@ div.plegable.desplegado > .ejercicio{
 }
 .ejercicio-pasos > form{
     height: fit-content;
-    width: 100%; 
+    width: 100%;
+    display: flex;
+    flex-flow: column-reverse;
+    flex-direction: column-reverse;
 }
-.ejercicio > input
-{
+.ejercicio > input{
     position: absolute;
     z-index: 2;
     opacity: 0;
@@ -219,6 +234,7 @@ div.plegable.desplegado > .ejercicio{
 .screen-ejercicio > .ejercicio-pasos p{
     font-family:"raleway medium";
     font-size: 1.4rem;
+    padding: 0.5rem 0;
 }
 .ejercicio-video{
     margin: 2rem;
