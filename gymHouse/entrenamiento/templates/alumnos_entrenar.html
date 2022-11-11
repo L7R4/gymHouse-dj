@@ -186,11 +186,18 @@
 
                     <div class="plegable">
                         {% for e in elongacion %}
-                            <div class="ejercicio" id="cruzadas">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
-                                </div>
-                                <p>{{e}}</p>
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="elongacion{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="elongacion{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{e}}</p>
+                                    
+                                </label>
                                 <p class="text_pasos">
                                     {{e.pasos}}
                                 </p>
@@ -204,15 +211,9 @@
             <div class="screen-ejercicio" id="divcerrado">
                  
                 <div class="ejercicio-pasos" id="ejercicio_pasosid">
-                     <p>
-                        Paso 1: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Minus tenetur quasi quas quaerat sed vero. Similique nisi omnis officiis
-                        <br><br>
-                        Paso 2: Repellendus aspernatur voluptate numquam eligendi quia.
-                        Reprehenderit hic nobis eveniet maiores? 
-                    </p> 
+                     
                 </div>
-                <div class="ejercicio-video">
+                <div class="ejercicio-video" id="ejercicio_videoid">
                     {% comment %} <img src="{% static '/images/imagen1.jpg' %}"> {% endcomment %}
                 </div>
             </div>

@@ -115,12 +115,20 @@ div.plegable.desplegado > .ejercicio{
     justify-content: space-between;
     margin: 2rem 1rem 1rem 0;
 }
-div.plegable.desplegado > .ejercicio > .text_pasos{
+.text_pasos{
     display: none;
 }
-div.plegable.desplegado > .ejercicio > .video_ejer{
-    display: none;
-    
+.video_ejer{
+    display: none; 
+}
+.text_pasos.active{
+    display: block;
+}
+.video_ejer.active{
+    display: block; 
+}
+.ejercicio >input[type="radio"]{
+    position: absolute;
 }
 
 .screen-ejercicio{
