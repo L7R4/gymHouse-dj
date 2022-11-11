@@ -375,7 +375,7 @@
         <div class="acomodar">
             <div class="landing-planmensual">
                 <div class="planmensual-titulo">
-                    <img src="assets/images/gym/fitness.png">
+                    <img src="{% static 'images/gym/fitness.png' %}">
                 </div>
                 <div class="plan"><p>¿Querés cambiar algun plan?</p></div>
                 <button id="change-plan"><p>Cambiar plan</p></button> 
@@ -457,8 +457,8 @@
                             <p>5 días/semana</p>
                         </li>
                     </ul>
-                    <button id="first_button"><p>Siguiente</p></button>
-                    <button id="first_secondbutton"><p>Atrás</p></button>
+                    <button type="button" id="first_button"><p>Siguiente</p></button>
+                    <button type="button" id="first_secondbutton"><p>Atrás</p></button>
                 </form>
 
                 <form class="pop-up--second" id="pop-up--second">
@@ -493,12 +493,12 @@
                             <p>VIE</p>
                         </li>
                     </ul>
-                    <button id="second_button"><p>Finalizar</p></button>
-                    <button id="second_secondbutton"><p>Atrás</p></button>
+                    <button type="button" id="second_button"><p>Finalizar</p></button>
+                    <button type="button" id="second_secondbutton"><p>Atrás</p></button>
                 </form>
 
                 <div class="pop-up--third" id="pop-up--third">
-                    <i class="fa-solid fa-xmark" id="xmark"></i>
+                    <a href=""><i class="fa-solid fa-xmark" id="xmark"></i></a>
                     <h5>¡Plan cambiado exitosamente!</h5>
                     <div class="plan-changed">
                         <p>Aron Soto</p>

@@ -2,7 +2,7 @@ window.addEventListener('load', loadShifts)
 window.addEventListener('resize', loadShifts)
 
 /*Inicializacion*/
-document.getElementById('planmensual--pop-up').style.display='none';
+// document.getElementById('planmensual--pop-up').style.display='none';
 document.getElementById("navigation--space").style.display='none';
 document.getElementById("navigation").style.display='none';
 /*------------------------------------------------------------------*/

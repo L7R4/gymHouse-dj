@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_admin_landing.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles_admin-cambiarplanes.css' %}" />
         <title>Gym House: Admin</title>
     
     </head>
@@ -201,27 +202,8 @@
                             <img src="{% static 'images/lovefitness.png' %}">
                             <p>Tu plan mensual</p>
                         </div>
-                        <div class="planmensual-tuplan">
-                            <div class="titulo">
-                                <p>3 días/semana</p>
-                            </div>
-                            <div class="diashorario">
-                                <div>
-                                    <p class="dia">LUN</p>
-                                    <p class="horario">16hs</p>
-                                </div>
-                                <div>
-                                    <p class="dia">MIE</p>
-                                    <p class="horario">16hs</p>
-                                </div>
-                                <div>
-                                    <p class="dia">MIE</p>
-                                    <p class="horario">19hs</p>
-                                </div>
-                            </div>            
-                        </div>
-                        <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
-                        <button><a href="#">Cambiar plan</a></button>
+                        <div class="plan"><p>¿Querés cambiar un plan?</p></div>
+                        <button id="button_modal_plan"><p>Cambiar plan</p></button>
                     </div>
 
                     <form class="landing-encuesta">
@@ -231,7 +213,131 @@
                     </form>
                 </div>
             </div>
+
+            <div class="planmensual--pop-up" id="planmensual--pop-up">
+                <div class="planmensual--pop-up_wrap"> 
+                    <form class="pop-up--first" id="pop-up--first">
+                        <i class="fa-solid fa-xmark" id="close_modal_plan"></i>
+                        <p>Elegí el alumno al que vas a cambiar el plan</p>
+    
+                        <div class="container">
+                            <div class="select-box">
+                                <div class="options-container">
+                                    <div class="option">
+                                        <input type="radio" class="radio" id="Soto Aron" name="category"/>
+                                        <label for="Soto Aron">Soto Aron</label>
+                                    </div>
+                            
+                                    <div class="option">
+                                        <input type="radio" class="radio" id="Rodriguez Lautaro" name="category" />
+                                        <label for="Rodriguez Lautaro">Rodriguez Lautaro</label>
+                                    </div>
+                            
+                                    <div class="option">
+                                        <input type="radio" class="radio" id="Meana Ailin" name="category" />
+                                        <label for="Meana Ailin">Meana Ailin</label>
+                                    </div>
+                            
+                                    <div class="option">
+                                        <input type="radio" class="radio" id="Pablito Montiales" name="category" />
+                                        <label for="Pablito Montiales">Pablito Montiales</label>
+                                    </div>
+                                </div>   
+                                
+                                <div class="selected">
+                                    ...
+                                </div>
+                                
+                            </div>
+                        </div>
+    
+                        <p>Seleccioná el plan correspondiente</p>
+                        <ul>
+                            <li class="pop-up--plan">
+                                <p>2 días/semana</p>
+                            </li>
+                            <li class="pop-up--plan">
+                                <p>3 días/semana</p>
+                            </li>
+                            <li class="pop-up--plan">
+                                <p>5 días/semana</p>
+                            </li>
+                        </ul>
+                        <button type="button" id="first_button"><p>Siguiente</p></button>
+                    </form>
+    
+                    <form class="pop-up--second" id="pop-up--second">
+                        <i class="fa-solid fa-xmark"></i>
+                        <p>Elegí los días y horarios que el alumno va a asistir</p>
+                        <ul>
+                            <li class="day selection">
+                                <p>LUN</p>
+                                <div class="custom-num">
+                                    <i class="fas fa-angle-up arr-up" id="arr-down"></i>
+                                    <input
+                                    type="number"
+                                    class="num-input"
+                                    id="num-imput"
+                                    min="14"
+                                    max="22"
+                                    value="15"/>
+                                    <i class="fas fa-angle-down arr-down" id="arr-up"> </i>
+                                </div>
+                                <p class="hs">hs</p>
+                            </li>
+                            <li class="day">
+                                <p>MAR</p>
+                            </li>
+                            <li class="day">
+                                <p>MIÉ</p>
+                            </li>
+                            <li class="day">
+                                <p>JUE</p>
+                            </li>
+                            <li class="day">
+                                <p>VIE</p>
+                            </li>
+                        </ul>
+                        <button type="button" id="second_button"><p>Finalizar</p></button>
+                        <button type="button" id="second_secondbutton"><p>Atrás</p></button>
+                    </form>
+    
+                    <div class="pop-up--third" id="pop-up--third">
+                        <a href=""><i class="fa-solid fa-xmark" id="xmark"></i></a>
+                        
+                        <h5>¡Plan cambiado exitosamente!</h5>
+                        <div class="plan-changed">
+                            <p>Aron Soto</p>
+                            <p>3 días/semana</p>
+                            <ul>
+                                <li>
+                                    <p>Lun</p>
+                                    <p>16hs</p>
+                                </li>
+                                <li>
+                                    <p>Mié</p>
+                                    <p>16hs</p>
+                                </li>
+                                <li>
+                                    <p>Jue</p>
+                                    <p>16hs</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="fill-mediaquery"></div>
+    
+        </div>
+
+
         </section>
 
+        {% comment %} <script>
+            document.getElementById('planmensual--pop-up').style.display='none';
+        </script> {% endcomment %}
+        <script src="{% static 'js/sectionShifts-admin.js' %}"></script>
+        <script src="{% static 'js/modalchangePlanAdmin.js' %}"></script>
     </body>
 </html>
