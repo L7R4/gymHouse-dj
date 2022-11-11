@@ -22,7 +22,7 @@
                         </a> 
                     </li> 
                     <li>
-                        <a href="admin_perfil.html">
+                        <a href="#">
                             <img src="{% static 'images/user.png' %}">
                             <p>Perfil</p>
                         </a>
@@ -109,13 +109,14 @@
         <div class="historialrutinas">
 
             <div class="historial">
-                <form class="pickdate" name="formulario" method="post" action="">
+                <form class="pickdate" name="formulario" method="get" action="">
                     <div>
                         <img src="assets/images/calendar.png">
                         <p>Rutina</p>
                     </div>
                     <p>Selecciona la fecha deseada:</p>
-                    <input type="date" name="fecha" min="2022-10-12" max="2025-12-31" />
+                    <input type="date" name="fecha" min="2022-10-01" max="2025-12-31" id="date" />
+                    <input type="submit">
                 </form>
                 <button>
                     <img src="assets/images/download.svg">
@@ -123,135 +124,240 @@
                 <div class="rutinas">
                     <div class="mujeres">
                         <h1>Mujeres</h1>
-                        <div class="categoria">
-                            <p>Abdominales</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                        {% comment %} {{list_types_woman}} {% endcomment %}
+                        {% if "brazos" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Brazos</p>
+                                <div>
+                                    {% comment %} {{ejercicios_man}} {% endcomment %}
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "brazos" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+                        
+                        {% if "espalda" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Espalda</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "espalda" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "abdominales" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Abdominales</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "abdominales" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="categoria">
-                            <p>Piernas</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "gluteos" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Gluteos</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "gluteos" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "piernas" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Piernas</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "piernas" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="categoria">
-                            <p>Gluteos</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "elongacion" in list_types_woman %}
+                            <div class="categoria">
+                                <p>Elongación</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_woman %}
+                                        {% if "elongacion" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
-                                </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
-                                </div>
-                            </div>
-                        </div>
+                            </div>    
+                        {% endif %}
                     </div>
                     <div class="hombres">
                         <h1>Hombres</h1>
-                        <div class="categoria">
-                            <p>Brazos</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                        
+                        {% if "brazos" in list_types_man %}
+                            <div class="categoria">
+                                <p>Brazos</p>
+                                <div>
+                                    {% comment %} {{ejercicios_man}} {% endcomment %}
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "brazos" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+                        
+                        {% if "espalda" in list_types_man %}
+                            <div class="categoria">
+                                <p>Espalda</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "espalda" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "abdominales" in list_types_man %}
+                            <div class="categoria">
+                                <p>Abdominales</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "abdominales" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "gluteos" in list_types_man %}
+                            <div class="categoria">
+                                <p>Gluteos</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "gluteos" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="categoria">
-                            <p>Espalda</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "piernas" in list_types_man %}
+                            <div class="categoria">
+                                <p>Piernas</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "piernas" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
+                            </div>    
+                        {% endif %}
+
+                        {% if "elongacion" in list_types_man %}
+                            <div class="categoria">
+                                <p>Elongación</p>
+                                <div>
+                                    {% for ejercicio in ejercicios_man %}
+                                        {% if "elongacion" in ejercicio.nombre_tipo %}
+                                            <div class="ejercicio">
+                                                <div class="imgejercicio">
+                                                    <img src="{% static 'images/gym/workout.png' %}">
+                                                </div>
+                                                <p>{{ejercicio.nombre}}</p>
+                                            </div>
+                                        {% endif %}
+                                    
+                                    {% endfor %}
                                 </div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="categoria">
-                            <p>Abdominales</p>
-                            <div>
-                                <div class="ejercicio">
-                                    <div class="imgejercicio">
-                                        <img src="assets/images/gym/workout.png">
-                                    </div>
-                                    <p>ejercicio</p>
-                                </div>
-                            </div>
-                        </div>
+                            </div>    
+                        {% endif %}
+
                     </div>
                 </div>
             </div>
@@ -261,4 +367,5 @@
         <div class="relleno"></div>
 
     </body>
+    <script src ="{% static 'js/historial_rutinas.js' %}"></script>
 </html>

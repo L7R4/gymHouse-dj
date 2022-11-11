@@ -244,7 +244,7 @@ body {
 }
 .agregarvideo input{
     width: 95%;
-    height: 2.2rem;
+    /* height: 2.2rem; */
     margin: 3% 0 0;
     padding: 10px;
 }
@@ -271,6 +271,7 @@ body {
     background-color: #D6E1FF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
     transition: all .3s ease;
+    cursor: pointer;
 }
 .guardarejercicio button:hover{
     transform: scale(1.08);
@@ -311,7 +312,7 @@ body {
 .opciones{
     margin: 8%;
 }
-.tipoejercicio input{
+.opciones > input{
     display: none; 
 }
 .tipos-ejercicios{
@@ -331,16 +332,18 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-
+    cursor: pointer;
     transition: all .3s ease;
 }
+
 .tipos-ejercicios:hover{
     transform: scale(1.08);
 }
-.opciones input[type=radio]:checked + label {
+.opciones > input[type="radio"]:checked + label {
     background:#b2b2b2;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.751);
 }
+
 
 /* fin de tipo ejercicio */
 

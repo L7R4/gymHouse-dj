@@ -33,7 +33,7 @@
                         </a> 
                     </li>
                     <li>
-                        <a href="{% url 'posts:noticias' %}">
+                        <a href="{% url 'posts:adminNoticia' %}">
                             <img src="{% static 'images/edit.png' %}">
                             <p>Noticias</p>
                         </a>
@@ -110,7 +110,7 @@
                 <div class="landing-noticias-news">
                     <div class="noticia-sec">
                         <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="assets/images/entrenamiento.webp">
+                            <img src="{% static 'images/entrenamiento.webp' %}">
                             <div class="titulo-noticiasecundaria"> 
                                 <p>Beneficios del estiramiento</p>
                             </div>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="noticia-principal">
                         <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="assets/images/tacos.webp">
+                            <img src="{% static 'images/tacos.webp' %}">
                             <div class="titulo-noticiaprincipal">
                                 <p>Tacos Healty sin TACC</p>
                             </div>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="noticia-sec">
                         <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="assets/images/herramientas.jpg">
+                            <img src="{% static 'images/herramientas.jpg' %}">
                             <div class="titulo-noticiasecundaria">
                                 <p>Disciplinas complementarias</p>
                             </div>
@@ -150,45 +150,45 @@
                     <div class="ejercicios">
                         <div class="ejercicios-sup">
                             <a href="admin_entrenar.html" id="abdominales">
-                                <img src="assets/images/gym/workout.png">
+                                <img src="{% static 'images/gym/workout.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" id="brazos">                                
-                                <img src="assets/images/gym/training.png">
+                                <img src="{% static 'images/gym/training.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" id="calentamiento">
-                                <img src="assets/images/gym/stationary-bike.png">
+                                <img src="{% static 'images/gym/stationary-bike.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" class="vuelan" id="piernas">
-                                <img src="assets/images/gym/running.png">
+                                <img src="{% static 'images/gym/running.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" class="vuelan" id="gluteos">
-                                <img src="assets/images/gym/dumbbells.png">
+                                <img src="{% static 'images/gym/dumbbells.png' %}">
                                 <p>saber más</p>
                             </a>
                         </div>
                         <div class="ejercicios-inf">
                             <a href="admin_entrenar.html" id="pecho">
-                                <img src="assets/images/gym/workout.png">
+                                <img src="{% static 'images/gym/workout.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" id="hombros">
-                                <img src="assets/images/gym/training.png">
+                                <img src="{% static 'images/gym/training.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" id="estiramiento">
-                                <img src="assets/images/gym/stationary-bike.png">
+                                <img src="{% static 'images/gym/stationary-bike.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" class="vuelan" id="cardio">
-                                <img src="assets/images/gym/running.png">
+                                <img src="{% static 'images/gym/running.png' %}">
                                 <p>saber más</p>
                             </a>
                             <a href="admin_entrenar.html" class="vuelan" id="espalda">
-                                <img src="assets/images/gym/dumbbells.png">
+                                <img src="{% static 'images/gym/dumbbells.png' %}">
                                 <p>saber más</p>
                             </a>
                         </div>
@@ -198,7 +198,7 @@
                 <div class="plan-playlist"> 
                     <div class="landing-planmensual"> 
                         <div class="planmensual-titulo">
-                            <img src="assets/images/lovefitness.png">
+                            <img src="{% static 'images/lovefitness.png' %}">
                             <p>Tu plan mensual</p>
                         </div>
                         <div class="planmensual-tuplan">

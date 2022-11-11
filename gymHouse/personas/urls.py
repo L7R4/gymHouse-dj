@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import Turnos, ViewEditPerfil, UpdatePassword, AdminTurnos,AdminAlumnos, AddTurnoNewUser,AddDaysToNewTurno
+from .views import Turnos, ViewEditPerfil, UpdatePassword, AdminTurnos,AdminAlumnos,AddTurnoNewUser,AddDaysToNewTurno
+
 app_name= "personas"
 
 urlpatterns = [

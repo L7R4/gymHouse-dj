@@ -98,9 +98,10 @@ class AddDaysToNewTurno(generic.FormView):
     # success_url = 
     form_class = formset_factory(DayForm,max_num=5,absolute_max=5)
     
-    last_plan = Turno.objects.all().last()
+    
 
-    print(last_plan)
+    # print(last_plan)
+    # print("antes del post")
 
     data = {
             'form-TOTAL_FORMS': '5',
@@ -134,6 +135,7 @@ class AddDaysToNewTurno(generic.FormView):
     # print(formset)
    
     def post(self, request, *args, **kwargs):
+        last_plan = Turno.objects.all().last()
         print("entro al post")
         if self.formset.is_valid():
             form_lunes = request.POST.get("form-0-hora")
@@ -170,12 +172,14 @@ class AddDaysToNewTurno(generic.FormView):
 
                     ])
             print(formset)
+            print(last_plan)
+            print("dentro del post")
             for f in formset:
                 if f.cleaned_data["hora"] == 0:
                     continue
                 dia  = f.save()
                 print("ya lo guarde")
-                self.last_plan.dias.add(dia)
+                last_plan.dias.add(dia)
                 print("ya lo relacione")
         return redirect("personas:adminAlumnos")
 
