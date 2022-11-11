@@ -28,7 +28,7 @@ class Turnos(generic.ListView):
                 
                 data['dias'] = dias
                 data['horas'] = horas
-                data['foto_url'] = persona.foto_de_perfil.url
+                data['foto_url'] = persona.foto_de_perfil
                 turnos.append(data)
   
             except IndexError:

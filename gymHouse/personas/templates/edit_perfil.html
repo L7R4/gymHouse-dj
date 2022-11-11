@@ -15,7 +15,7 @@
         {% csrf_token %}
         
         <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
-            <img src="{{user.foto_de_perfil}}" id="eprofile_data--pic">
+            <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" id="eprofile_data--pic">
             <label for="eprofile_data--button-image" class="eprofile_data--button-image-label">
                 Cambiar imagen
             </label>

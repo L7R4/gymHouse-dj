@@ -198,10 +198,16 @@
                                     <p>{{e}}</p>
                                     
                                 </label>
-                                <p class="text_pasos">
-                                    {{e.pasos}}
-                                </p>
-                                <video class= "video_ejer" src="{{e.archivo}}"></video>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{e.pasos}}
+                                    </p>
+                                </div>
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{e.archivo}}"></video>
+                                </div>
+                                
                             </div>
                         {% endfor %}
                     </div>
@@ -210,12 +216,8 @@
 
             <div class="screen-ejercicio" id="divcerrado">
                  
-                <div class="ejercicio-pasos" id="ejercicio_pasosid">
-                     
-                </div>
-                <div class="ejercicio-video" id="ejercicio_videoid">
-                    {% comment %} <img src="{% static '/images/imagen1.jpg' %}"> {% endcomment %}
-                </div>
+                
+                
             </div>
         </section>
 

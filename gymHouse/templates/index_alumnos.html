@@ -106,7 +106,7 @@
                                 </div>
                             {% else %}
                                 <div class="profile_data--radiuspic" id="profile_data--radiuspic">
-                                    <img src="{{user.foto_de_perfil}}" class="profile_data--pic" id="profile_data--pic">
+                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
                                 </div>
                             {% endif %}
                             
@@ -119,24 +119,42 @@
                                 {% endif %}
                                 {% comment %} <p>{{user.edad}}</p> {% endcomment %}
                             </div>
-                            <div class="profile_data--description" id="profile_data--description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio autem deleniti aliquid exercitationem iure et sit consectetur similique eaque molestias, voluptatibus modi magni a eum quas dicta fugit ratione mollitia.</p>
-                            </div>
+                            {% if user.biografia %}
+                                <div class="profile_data--description" id="profile_data--description">
+                                    <p>{{user.biografia}}</p>
+                                </div>
+                            {% else %}
+                                <br>
+                            {% endif %}
+                            
                             <div class="profile_data--numbers" id="profile_data--numbers">
                                 <ol>
+                                    {% if user.telefono %}
                                     <li>
-                                        
-                                        <h5>{% if user.telefono != None %}{{user.telefono}}{% endif %}</h5>
+                                        <h5>{{user.telefono}}</h5>
                                         <p>CONTACTO</p>
                                     </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+
+                                    {% if user.altura %}
                                     <li>
-                                        <h5>{% if user.altura != None %}{{user.altura}}{% endif %}</h5>
-                                        <p>ALTURA</p>
+                                        <h5>{{user.altura}}</h5>
+                                        <p>PESO</p>
                                     </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                    
+                                    {% if user.contacto %}
                                     <li>
-                                        <h5>{% if user.peso != None %}{{user.peso}}{% endif %}</h5>
-                                        <p>PESO</li>
+                                        <h5>{{user.contacto}}</h5>
+                                        <p>CONTACTO</p>
                                     </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
                                 </ol>
                             </div>
                             <button id="profile_data--button" class="profile_data--button">
@@ -240,7 +258,12 @@
                         </div>
                         <div class="planmensual-tuplan">
                             <div class="titulo">
-                                <p>{{plan}}</p>
+                                {% if plan == None %}
+                                    <p>Todavia no tiene un turno registrado</p>
+                                {% else %}
+                                    <p>{{plan}}</p>
+                                {% endif %} 
+                                
                             </div>
                             <div class="diashorario">
                                 {% for x in dias %}

@@ -115,12 +115,12 @@ div.plegable.desplegado > .ejercicio{
     justify-content: space-between;
     margin: 2rem 1rem 1rem 0;
 }
-.text_pasos{
+/* .text_pasos{
     display: none;
 }
 .video_ejer{
     display: none; 
-}
+} */
 .text_pasos.active{
     display: block;
 }
@@ -130,6 +130,34 @@ div.plegable.desplegado > .ejercicio{
 .ejercicio >input[type="radio"]{
     position: absolute;
 }
+
+.plegable > .ejercicio > .ejercicio-pasos{
+    display: none;
+}
+.plegable > .ejercicio  > .ejercicio-video{
+    display: none;
+}
+.screen-ejercicio > .ejercicio > .ejercicio-pasos{
+    width: auto;
+    margin: auto;
+    padding: 1.6rem 2rem;
+    background: #D6E1FF;
+}
+.screen-ejercicio > .ejercicio > .ejercicio-pasos p{
+    font-family:"raleway medium";
+    font-size: 1.4rem;
+}
+.screen-ejercicio > .ejercicio > .ejercicio-video{
+    margin: 2rem;
+}
+.screen-ejercicio > .ejercicio > label{
+    background: #101010;
+}
+.screen-ejercicio > .ejercicio > .ejercicio-video img{
+    width: 100%;
+    margin: auto
+}
+
 
 .screen-ejercicio{
     display: none;
@@ -151,25 +179,9 @@ div.plegable.desplegado > .ejercicio{
     min-width: 8rem;
     max-width: 90%;
     margin: 0 auto 3%;
-    background: #282828;
+    background: transparent;
 }
-.screen-ejercicio > .ejercicio-pasos{
-    width: auto;
-    margin: auto;
-    padding: 1.6rem 2rem;
-    background: #D6E1FF;
-}
-.screen-ejercicio > .ejercicio-pasos p{
-    font-family:"raleway medium";
-    font-size: 1.4rem;
-}
-.ejercicio-video{
-    margin: 2rem;
-}
-.ejercicio-video img{
-    width: 100%;
-    margin: auto
-}
+
 
 /*--------------------------------*/
 @media (max-width: 1100px) {}

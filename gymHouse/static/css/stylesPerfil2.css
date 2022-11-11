@@ -1,0 +1,971 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway regular";/*400*/
+    src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("../fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("../fonts/Raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("../fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("../fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito black";
+    src: url("../fonts/Nunito/static/Nunito-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito extrabold";
+    src: url("../fonts/Nunito/static/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "nunito bold";
+    src: url("../fonts/Nunito/static/Nunito-Bold.ttf");
+}
+/*FIN FONTS-----------------------------------------------------------------------------------------------------*/
+
+/*INICIALIZACION--------------------------------------------------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.curve{
+    display: none;
+}
+
+.navigation, .navigation--space{
+    display: none;
+}
+/*--------------------------*/
+
+.perfil_bg--blur{
+    backdrop-filter: blur(15px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+}
+.perfil_bg--gradient{
+    width: 35vw;
+    min-width: 50rem;
+    background: linear-gradient(180deg, #5A43FF 0%, #7876FF 18.75%, #8388FF 41.67%, #7B87FF 59.9%, #AEB8FF 82.81%, #E0E8FF 100%);
+    box-shadow: 0px 4px 100px rgb(0 0 0 / 50%);
+    border-radius: 0px 50px 50px 0px;
+    padding: 3rem;
+}
+.perfil_bg{
+    transition: all 0.5s;
+    background: #F9F9FF;
+    border-radius: 0px 50px 50px 0px;
+    padding: 1rem 1rem 1rem 5rem
+}   
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_data--radiuspic{
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid rgba(0, 0, 0, 0.795);
+    border-radius: 100rem;
+    padding: 0.8rem;
+}
+.profile_data--radiuspic img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 100rem;
+}
+
+/*---------------------------------------------------*/
+
+/*Nickname-Name-age*/
+.profile_data--name{
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 2rem;
+}
+.profile_data--name h1{
+    font-family: "nunito black";
+    text-align: center;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
+    padding: 1rem 0;
+}
+.profile_data--name h3{
+    font-family: "nunito bold";
+    text-align: center;
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0.5rem 0;
+}
+.profile_data--name p{
+    font-family: "nunito bold";
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+.profile_data--description{
+    width: 90%;
+    text-align: justify;
+    background: rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+.profile_data--description p{
+    font-family: "raleway medium";
+    text-align: justify;
+    font-size: 1.5rem;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    line-height: 1.5rem;
+}
+ol{
+    list-style: none;
+}
+.profile_data--numbers{
+    width: 90%;
+    margin: 1.5rem auto;
+}
+.profile_data--numbers ol{
+    display: flex;
+    justify-content: space-evenly;
+}
+.profile_data--numbers li{
+    width: 33%;
+}
+.profile_data--numbers li p{
+    font-family: "raleway medium";
+    text-align: center;
+    font-size: 1.3rem;
+}
+.profile_data--numbers li h5{
+    font-family: "raleway medium";
+    text-align: center;
+    font-size: 1.5rem;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+/*BUTTON----------------------------------*/
+.profile_data--button{
+    border-radius: 18px;
+    overflow: hidden;
+    border: none;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    display: flex;
+    margin-bottom: 1rem;
+}
+.profile_data--button a{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: 1.5rem;
+    color: #D6E1FF;
+    padding: 1.5rem 3rem;
+}
+.botonito{
+    font-family: "raleway semibold";
+    font-size: 1.2rem;
+    color: black;
+    display: flex;
+    align-content: center;
+    margin: auto auto 2rem;
+}
+/*----------------------------------------------------------*/
+
+
+/*PROFILE (EDICION)-----------------------------------------*/
+
+/*Background-------------------------------------------------*/
+
+.bgfill--gradient{
+    transition: all 1s;
+    width: 100vw;
+    height: 100vh;
+    min-width: 500px;
+    min-height: 500px;
+    display: flex;
+    border-radius: 0px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #5A43FF 0%, #7876FF 18.75%, #8388FF 41.67%, #7B87FF 59.9%, #AEB8FF 82.81%, #E0E8FF 100%);
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.50);
+}
+
+.bgfill{
+    transition: all 1s;
+    width: 70%;
+    height: 85%;
+    min-width: 67rem;
+    border-radius: 50px 50px 50px 50px;
+    background: #F9F9FF;
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.30);
+}
+
+.eprofile{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10% 40% 10% 20% 10% 10%;
+    grid-template-areas: 
+        "picture nickname nickname"
+        "picturebtn name number"
+        ". gender password"
+        "description gender password"
+        "description . btnupdate"
+        ". btnsave .";
+    grid-column-gap: 1rem;
+    grid-row-gap: 0.1rem;
+    padding: 4rem;
+    
+}
+/*----------------------------------------------------------*/
+
+/*1st column (pic - button - description)-------------------------------------------------*/
+
+.eprofile_data--radiuspic{
+    width: auto;
+    height: 100%;
+    align-self: center;
+    justify-self: center;
+    grid-column-start: picture;
+    grid-column-end: picture;
+    grid-row-end: picturebtn;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eprofile_data--radiuspic > img{
+    width: 80%;
+    height: auto;
+    max-height: 100%;
+    border: 3px solid rgba(0, 0, 0, 0.795);
+    border-radius: 50%;
+    padding: 0.8rem;
+    margin-bottom: 5%;
+}
+
+.eprofile_data--button-image{
+    width: 9vw;
+    min-width: 13rem;
+    min-height: auto;
+    align-self: end;
+    justify-self: center;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: #D6E1FF;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.eprofile_data--button-image p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: max(.8vw,min(1.3rem));
+    color: #5135FF;
+    display: flex;
+    align-content: center;
+    margin: 5%;
+}
+
+.eprofile_data--description{
+    grid-column-start: description;
+    grid-column-end: description;
+    grid-row-start: description;
+    grid-row-end: description;
+    height:auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    background: rgba(230, 230, 230, 0.5);
+    mix-blend-mode: normal;  
+    border-radius: 20px;
+    padding: 2.5%;
+    box-sizing: border-box;
+    align-self: start;
+    justify-self: center;
+}
+
+.eprofile_data--description h3{
+    font-family: "raleway semibold";
+    text-align: center;
+    font-size: max(1.2vw,min(1.6rem));
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    margin-bottom: 2%;
+}
+
+textarea::-webkit-scrollbar{
+    display: none;
+}
+
+.eprofile_data--description > textarea{
+    padding: 0.8rem;
+    height: 15vh;
+    resize: none;
+    border: none;
+    max-width: 100%;
+    background-color: transparent;
+    font-family: "raleway medium";
+    text-align: center;
+    font-size: max(.9vw,min(1.3rem));
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    line-height: 1.5em;
+}
+
+/*----------------------------------------------------------*/
+
+/*Inputs*/
+/* From uiverse.io by @alexruix */
+.input-group {
+    position: relative;
+    margin: 0.25rem;
+}
+.input {
+    width: 100%;
+    height: 100%;
+    min-height: 3.5rem;
+    min-width: 200px;
+    border: solid 1.5px #D6E1FF;
+    border-radius: 1rem;
+    background: none;
+    padding: 3%;
+    font-family: "raleway semibold";
+    font-size: max(1.2vw,min(1.4rem));
+    color: #414141;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.user-label {
+    position: absolute;
+    top: 1.5%;
+    left: 15px;
+    color: #414141;
+    font-family: "raleway semibold";
+    font-size: max(1.2vw,min(1.4rem));
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.input:focus, .input:valid {
+    outline: none;
+    border: 1.7px solid #F9F9FF;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: rgba(249, 249,255, 1);
+    padding: 0.3em;
+    color: #5135FF;
+    top: 1px;
+}
+
+
+
+
+/*2nd column (nickname - name - gender)-------------------------------------------------*/
+.eprofile_data--nickname{
+    grid-column-start: nickname;
+    grid-column-end: nickname;
+    grid-row-start: nickname;
+    grid-row-end: nickname;
+    width: 50%;
+    justify-self: center;
+}
+
+.eprofile_data--name{
+    grid-column-start: name;
+    grid-column-end: name;
+    grid-row-start: name;
+    grid-row-end: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.eprofile_data--gender{
+    grid-column-start: gender;
+    grid-column-end: gender;
+    grid-row-start: gender;
+    grid-row-end: gender;
+}
+
+ol{
+    list-style: none;
+}
+
+.eprofile_data--gender > .eprofile_data--genderdiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.eprofile_data--gender label{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction:column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.eprofile_data--gender label > p{
+    font-family: "raleway medium";
+    text-align: center;
+    height: 4rem;
+    justify-self: center;
+    font-size: max(1.2vw,min(1.2rem));
+    color: #414141
+}
+
+.gender_selected{
+    background-color: #FFD43A;
+    border-radius: 20px;
+}
+
+.eprofile_data--gender figure{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.eprofile_data--gender figure > img{
+    align-self: center;
+    width: 5rem;
+    height: 5rem;
+}
+
+.eprofile_data--gender input{
+    display: none;
+}
+
+.eprofile_data--button-save{
+    grid-column-start: btnsave;
+    grid-column-end: btnsave;
+    grid-row-start: btnsave;
+    grid-row-end: btnsave;
+}
+
+.eprofile_data--button-save{
+    width: 9vw;
+    height: auto;
+    padding: 1rem;
+    min-height: 4rem;
+    min-width: 10rem;
+    border-radius: 18px;
+    border-color: transparent;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+}
+
+.eprofile_data--button-save p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: max(1.2vw,min(1.3rem));
+    color: #D6E1FF;
+    display: flex;
+    align-content: center;
+    margin: auto;
+}
+
+.input-group #input-correoElectronico{
+    grid-column-start: email;
+    grid-column-end: email;
+    grid-row-start: email;
+    grid-row-end: email;
+}
+
+/*3rd column (numbers - password - button)-------------------------------------------------*/
+
+.eprofile_data--numbers{
+    grid-column-start: number;
+    grid-column-end: number;
+    grid-row-start: number;
+    grid-row-end: number;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.eprofile_data--numbers .input-group {
+    position: relative;
+    width: 9rem;
+}
+.eprofile_data--numbers .input {
+    width: 9rem;
+    height: 100%;
+    min-width: 9rem;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-family: "raleway semibold";
+    font-size: 1.7rem;
+    color: #414141;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+
+.eprofile_data--numbers .input:focus, .input:valid {
+    outline: none;
+    border: 1.7px solid #F9F9FF;
+}
+
+.input:focus ~ label, .input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: rgba(249, 249,255, 1);
+    padding: 0.2em;
+    color: #5135FF;
+}
+
+
+
+.eprofile_data--password{
+    grid-column-start: password;
+    grid-column-end: password;
+    grid-row-start: password;
+    grid-row-end: password;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    /* justify-content: space-between; */
+    padding-top: 3px;
+}
+
+.eprofile_data--password .input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.eprofile_data--password i {
+    font-size: max(1.4vw,min(1.5rem));
+    align-self: center;
+    padding: 4%;
+}
+
+.eprofile_data--button-update{
+    grid-column-start: btnupdate;
+    grid-column-end: btnupdate;
+    grid-row-start: btnupdate;
+    grid-row-end: btnupdate;
+    width: 11vw;
+    min-width: 150px;
+    height: auto;
+    padding: 0.9rem;
+    align-self: center;
+    justify-self: center;
+    border-radius: 14px;
+    border-color: transparent;
+    background-color: #D6E1FF;
+    display:flex;
+    justify-content: center;
+}
+
+.eprofile_data--button-update p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: max(.9vw,min(1.2rem));
+    color: #5135FF;
+    display: flex;
+    align-content: center;
+    margin: auto;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Celphone - No Edition */
+
+@media (max-width:800px) {
+    /*No-Edition*/
+    body{
+        background-color: #F9F9FF;
+        width: 100%;
+        height: 100%;
+        background-image: unset;
+        background-repeat: unset;
+        background-size: unset;
+        background-attachment: unset;
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    
+    
+    /* Background */
+    .section-profile{
+        width: 100%;
+        height: 100%;
+    }
+
+    .perfil_bg--blur{
+        backdrop-filter: unset;
+        width: unset;
+        height: unset;
+        display: unset;
+        justify-content: unset;
+        align-items: unset;
+    }
+
+    /*Desplegable*/
+    .perfil_bg--gradient{
+        width: 100%;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        background: unset;
+        mix-blend-mode: unset;
+        box-shadow: unset;
+        border-radius: unset;
+        display: unset;
+        justify-content: unset;
+        align-items: unset;
+    }
+
+
+    .perfil_bg{
+        transition: all 0.5s;
+        width: 100%;
+        height: 100%;
+        background: #F9F9FF;
+        border-radius: unset;
+        box-shadow: unset;
+        display: flex;
+        flex-direction: column;
+        box-sizing: content-box;
+    }   
+
+
+    .navbar--fill{
+        display: none;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .profile_data--button{
+        width: 37%;
+        height: 6%;
+        border-radius: 18px;
+        border-color: transparent;
+        background-color: #5135FF;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
+}
+
+@media (max-width:700px) {
+
+    .bgfill--gradient{
+        transition: unset;
+        width: 100%;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        display: unset;
+        border-radius: unset;
+        justify-content: unset;
+        align-items: unset;
+        background: unset;
+        mix-blend-mode: unset;
+        box-shadow: unset;
+    }
+
+    .bgfill{
+        transition: unset;
+        width: 100%;
+        height: fit-content;
+        border-radius: unset;
+        background: #F9F9FF;
+        box-shadow: unset;
+        min-width: unset;
+    }
+
+    .eprofile{
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "picture"
+            "nickname"
+            "names"
+            "password"
+            "updatebutton"
+            "gender"
+            "numbers"
+            "description"
+            "savebutton";
+        grid-row-gap: 1rem;
+        padding: .7rem;
+    }
+
+    /*----------------------------------------------------------*/
+
+    /*1st row (pic)-------------------------------------------------*/
+
+    .eprofile_data--radiuspic{
+        width: auto;
+        height: 100%;
+        align-self: center;
+        justify-self: unset;
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-end: picture;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .eprofile_data--radiuspic > img{
+        width: 60%;
+        height: auto;
+        max-height: 100%;
+        border: 3px solid rgba(0, 0, 0, 0.795);
+        border-radius: 50%;
+        padding: 0.8rem;
+        margin-bottom: 5%;
+    }
+
+    .eprofile_data--button-image{
+        width: 9vw;
+        min-width: 13rem;
+        min-height: auto;
+        justify-self: center;
+        border-radius: 14px;
+        border-color: transparent;
+        background-color: #D6E1FF;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        margin-bottom: 5%;
+    }
+
+    /*2nd row (nickname)-------------------------------------------------*/
+
+    .eprofile_data--nickname{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: nickname;
+        grid-row-end: nickname;
+        width: 60%;
+        justify-self: center;
+        min-width: unset;
+    }
+
+    .eprofile_data--nickname input{
+        min-width: unset;
+    }
+
+
+    /*3rd row (name - surname)-------------------------------------------------*/
+
+    .eprofile_data--name{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: names;
+        grid-row-end: names;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .eprofile_data--name .input-group {
+        position: relative;
+        margin: 0.25rem;
+        width: 45%;
+    }
+
+    .eprofile_data--name .input {
+        width: 100%;
+        height: 100%;
+        min-height: 3.5rem;
+        min-width: unset;
+        border: solid 1.5px #D6E1FF;
+        border-radius: 1rem;
+        background: none;
+        padding: 3%;
+        font-family: "raleway semibold";
+        font-size: max(1.2vw,min(1.4rem));
+        color: #414141;
+        transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    }
+
+    #input-group--tel{
+        position: relative;
+        margin: 1rem 25% 0 25%;
+        width: 45%;
+        justify-self: center;
+    }
+
+    #input-group--email{
+        position: relative;
+        margin: 1rem 0.25rem 0.25rem 0.25rem;
+        width: 75%;
+    }
+
+    /*4th row (passwords)-------------------------------------------------*/
+
+    .eprofile_data--password{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: password;
+        grid-row-end: password;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 3px;
+    }
+
+    .eprofile_data--password .input-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 75%;
+        margin-top: 2%;
+        margin-left: 7%;
+    }
+
+    .eprofile_data--password input{
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+    }
+    
+    .eprofile_data--password i {
+        width: 1%;
+        font-size: max(1.4vw,min(1.5rem));
+        align-self: center;
+        padding: 4%;
+        
+    }
+
+    .eprofile_data--button-update{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: updatebutton;
+        grid-row-end: updatebutton;
+        width: 11vw;
+        min-width: 150px;
+        height: auto;
+        padding: 0.9rem;
+        align-self: center;
+        justify-self: center;
+        border-radius: 14px;
+        border-color: transparent;
+        background-color: #D6E1FF;
+        display:flex;
+        justify-content: center;
+    }
+
+    /*5th row (gender)-------------------------------------------------*/
+
+    .eprofile_data--gender{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: gender;
+        grid-row-end: gender;
+    }
+
+    /*6th row (numbers)-------------------------------------------------*/
+
+    .eprofile_data--numbers{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: numbers;
+        grid-row-end: numbers;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    /*7th row (description)-------------------------------------------------*/
+
+    .eprofile_data--description{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: description;
+        grid-row-end: description;
+        height:auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        background: rgba(230, 230, 230, 0.5);
+        mix-blend-mode: normal;  
+        border-radius: 20px;
+        padding: 2.5%;
+        box-sizing: border-box;
+        align-self: start;
+        justify-self: center;
+    }
+
+    /*8th row (savebutton)-------------------------------------------------*/
+
+    .eprofile_data--button-save{
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: savebutton;
+        grid-row-end: savebutton;
+    }
+
+}
