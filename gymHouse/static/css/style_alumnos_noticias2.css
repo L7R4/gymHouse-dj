@@ -1,0 +1,87 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa; 
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.news
+{
+    margin-left: 8rem;
+    /* margin-top: 5rem; */
+    height: 100vh;
+}
+.news_wrapper
+{
+    height: 100%;
+}
+.cards{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 5rem;
+}
+.card
+{
+    width: 30%;
+    height: 30rem;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-width: 40rem;
+}
+.card > figure{
+    width: 100%;
+    height: 100%;
+    
+}
+.card > figure > img
+{
+    width: 100%;
+    height: 100%;
+}
+.post__images_detail
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(44, 42, 42, 0.829);
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post__images_detail > p{
+    color:white;
+    font-size: 1.7rem;
+    font-family: "raleway medium";
+    /* text-align: center; */
+}

@@ -1,19 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="{% static 'js/sectionNewsComplete.js' %}"></script>
+    
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
-    
-    <link rel="stylesheet" href="{% static 'css/styles_admin_noticias-noticia.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/styles_admin_noticias.css' %}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_admin_noticia2.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
-        <script src="{% static 'js/sectionProfile.js' %}"></script>
-    <title>Gym House: noticias</title>
+    <script src="{% static 'js/sectionProfile.js' %}"></script>
+    <title>Document</title>
 </head>
 <body>
     <nav class="menu">
@@ -21,7 +20,7 @@
             <ul> <!-- poner los links correctos -->
                 <li>
                     <a href="{% url 'login_profe' %}">
-                        <img class="logo" src="{% static 'images/logo.png' %}">
+                        <img class="logo" src="{% static 'images/icon.png' %}">
                     </a> 
                 </li> 
                 <li>
@@ -37,7 +36,7 @@
                     </a> 
                 </li>
                 <li>
-                    <a href="{% url 'posts:noticias' %}">
+                    <a href="{% url 'posts:adminNoticia' %}">
                         <img src="{% static 'images/edit.png' %}">
                         <p>Noticias</p>
                     </a>
@@ -78,7 +77,7 @@
                 </a>
             </li>
             <li class="list">
-                <a href="{% url 'posts:noticias' %}">
+                <a href="{% url 'posts:adminNoticia' %}">
                     <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
                     <span class="text">Noticias</span>
                 </a>
@@ -98,7 +97,6 @@
             <div class="indicator"></div>
         </ul>
     </div>
-    <div class="navigation--space" id="navigation--space"></div>
     <section class="section-profile" id="section-profile">
         <div id="perfil_bg--blur" class="perfil_bg--blur">
             <div class="perfil_bg--gradient" id="perfil_bg--gradient">
@@ -176,100 +174,30 @@
         <div class="aestethical-margin"></div>
 
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- <script> document.getElementById("eprofile").style.display='none'; </script> -->
 
-    <!-- fin de los menú -->
-
-    <div class="wrapper_noticias">
-
-        <a class="turnback" href="">
-            <img src="{% static 'images/turn-back.png' %}">
-        </a>
-
-        <div class="noticia">
-            <div class="imagen">
-                <img src="{{post.foto.url}}">
-            </div>
-            <div class="texto">
-                <div class="texto-titulo">
-                    <h3>{{post.titulo}}</h3>
-                </div>
-                <div class="texto-contenido">
-                    <p>{{post.texto}}</p>   
-                </div>
-            </div>
-            <div class="formato">
-                <div class="iconitos">
-                    <button>
-                        <img src="{% static 'images/editar.png' %}">
-                    </button>
-                    <button>
-                        <img src="{% static 'images/borrar.png' %}">
-                    </button>
-                </div>
-                <div class="coments">
-                    <div class="coments-overflow">
-                        {% if comments.count == 0 %}
-
-                            <h1>Parece que no hay comentarios! Sé el primero!</h1>
-                        
-                        {% endif %}
-                        {% for comment in comments %}
-
-                            <div class="coments--user">
-                                <div class="coments--userinfo">
-                                    <img src="/public/{{comment.persona.foto_de_perfil}}" alt="{{comment.persona}}">
-                                    <h5>{{comment.persona}}</h5>
-                                </div>
-                                <p>{{comment}}</p>
-                            </div>
-
-                        {% endfor %}
-                        {% comment %} 
-                        
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/images/avatar/2.png" alt="">
-                                <h5>Lalinchi</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetursint laboriosam.</p>
+    <section class="news">
+            <div class="cards">
+                {% for card in noticias_slider %}
+            
+                    <a class="card" href="{% url 'posts:adminNoticiaDetail' card.id %}">
+                        <figure>
+                            <img src="{{card.foto.url}}" alt="{{card.titulo}}">
+                        </figure>
+                        <div class="post__images_detail">
+                            <p>{{card.titulo}}</p>
                         </div>
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/images/avatar/7.png" alt="">
-                                <h5>user</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetursint laboriosam.</p>
-                        </div>
-                        <div class="coments--user">
-                            <div class="coments--userinfo">
-                                <img src="assets/images/avatar/11.png" alt="">
-                                <h5>Don Juan</h5>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetursint laboriosam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, aliquid? Deleniti consectetur consequatur ullam facere eveniet, dignissimos nulla pariatur quos delectus minima amet hic blanditiis illum nostrum assumenda est iste.</p>
-                        </div> 
-                        
-                        {% endcomment %}
-                    </div>
-                </div>
-                <form class="input_comment" method="POST" id="form_comment">
-                    {% csrf_token %}
-                    <input class="inputtext" type="text" name="texto" id="comment">
-                    <input class="boton" type="submit" value="Enviar">
-                </form>   
+                    </a>
+            
+                {% endfor %}
             </div>
-        </div>
-
-        <div class="rellenofinal"></div>
-
-    </div>
-    
-
-    <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
+            <div class="botoncito">
+                <button>
+                    <a href="{% url 'posts:createNotice' %}">
+                        AGREGAR NOTICIA
+                    </a>
+                </button>
+            </div>
+    </section>
 
 </body>
 </html>

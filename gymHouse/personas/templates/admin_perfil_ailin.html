@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_admin_perfil.css' %}" />
-        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+        <script src="{% static 'js/sectionProfile.js' %}"></script>
     </head>
     <body>
         <nav class="menu">
@@ -22,9 +23,9 @@
                         </a> 
                     </li> 
                     <li>
-                        <a href="#">
-                            <img src="{% static 'images/user.png' %}">
-                            <p>Perfil</p>
+                        <a href="#" class="show-profile" id="show-profile"> 
+                            <img src="/static/images/user.png"> 
+                            <p>Perfil</p> 
                         </a>
                     </li> 
                     <li> 
@@ -96,7 +97,83 @@
             </ul>
         </div>
         <div class="navigation--space" id="navigation--space"></div>
+        <section class="section-profile" id="section-profile">
+            <div id="perfil_bg--blur" class="perfil_bg--blur">
+                <div class="perfil_bg--gradient" id="perfil_bg--gradient">
+                    <div class="perfil_bg" id="perfil_bg">
+                        <!-- Perfil minimizado........................................ -->
+                        <div class="navbar--fill" id="navbar--fill"></div> 
+                        <div id="profile" class="profile">
+                            {% if user.foto_de_perfil == None %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% static 'images/avatar/9.png' %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% else %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% endif %}
+                            
+                            <div class="profile_data--name" id="profile_data--name">
+                                <h1>{{user.apodo}}</h1>
+                                {% comment %} <figure></figure> {% endcomment %}
+                                <h3>{{user.nombre}} {{user.apellido}}</h3>
+                                {% if  user.edad != None%}
+                                    <p>{{user.edad}} años</p>
+                                {% endif %}
+                                {% comment %} <p>{{user.edad}}</p> {% endcomment %}
+                            </div>
+                            {% if user.biografia %}
+                                <div class="profile_data--description" id="profile_data--description">
+                                    <p>{{user.biografia}}</p>
+                                </div>
+                            {% else %}
+                                <br>
+                            {% endif %}
+                            
+                            <div class="profile_data--numbers" id="profile_data--numbers">
+                                <ol>
+                                    {% if user.telefono %}
+                                    <li>
+                                        <h5>{{user.telefono}}</h5>
+                                        <p>CONTACTO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+
+                                    {% if user.peso %}
+                                    <li>
+                                        <h5>{{user.peso}}</h5>
+                                        <p>PESO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                    
+                                    {% if user.altura %}
+                                    <li>
+                                        <h5>{{user.altura}}</h5>
+                                        <p>ALTURA</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                </ol>
+                            </div>
+                            <button id="profile_data--button" class="profile_data--button">
+                                <a href="{% url 'personas:perfil' %}">Editar Perfil</a> 
+                            </button>
+                            <a class="botonito" href="{% url 'logout' %}">Salir de la cuenta</a>
+                        </div>
+                        <!-- Fin perfil minimizado........................................ -->
+                    </div>
+                </div>
+            </div>
     
+            <div class="aestethical-margin"></div>
+    
+        </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

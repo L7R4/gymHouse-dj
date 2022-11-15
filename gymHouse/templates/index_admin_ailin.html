@@ -6,25 +6,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="header" content="" />       
         <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles-admin_navcel.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_admin_landing.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles_admin-cambiarplanes.css' %}" />
-        <title>Gym House: Admin</title>
-    
+        <link rel="shortcut icon" href="{% static 'images/logo.svg' %}">
+        
+        <title>Gym House</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+        <script src="{% static 'js/sectionProfile.js' %}"></script>
     </head>
     <body>
+        <style>
+            html{
+                background-image: url("{% static 'images/fondogym-ai.png' %}");
+                background-size: 25rem;
+                background-repeat: repeat;
+            }
+        </style> 
+
         <nav class="menu">
             <div class="menu_icons">
                 <ul> <!-- poner los links correctos -->
                     <li>
                         <a href="{% url 'login_profe' %}">
-                            <img class="logo" src="{% static 'images/logo.png' %}">
+                            <img class="logo" src="{% static 'images/logo.svg' %}">
                         </a> 
+                        
                     </li> 
                     <li>
-                        <a href="#">
-                            <img src="{% static 'images/user.png' %}">
-                            <p>Perfil</p>
+                        <a href="#" class="show-profile" id="show-profile"> 
+                            <img src="/static/images/user.png"> 
+                            <p>Perfil</p> 
                         </a>
                     </li> 
                     <li> 
@@ -58,45 +70,120 @@
             <ul>
                 <li class="list">
                     <a href="{% url 'login_profe' %}">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="icono"><img class="landing" src="{% static 'images/logo.svg' %}"></span>
                         <span class="text">Inicio</span>
                     </a>
                 </li>
                 <li class="list active">
                     <a href="admin_perfil.html">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="icono"><img src="/static/images/user.png"> </span>
                         <span class="text">Perfil</span>
                     </a>
                 </li>
                 <li class="list">
                     <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
-                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                        <span class="icono"><img src="{% static 'images/gym/gym.png' %}"></span>
                         <span class="text">Entrenar</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="{% url 'posts:noticias' %}">
-                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <a href="{% url 'posts:adminNoticia' %}">
+                        <span class="icono"><img src="{% static 'images/edit.png' %}"></span>
                         <span class="text">Noticias</span>
                     </a>
                 </li>
                 <li class="list">
                     <a href="{% url 'personas:adminTurnos' %}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="icono"><img src="{% static 'images/calendar.png' %}"></span>
                         <span class="text">Turnos</span>
                     </a>
                 </li>
                 <li class="list">
                     <a href="{% url 'personas:adminAlumnos' %}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="icono"><img src="{% static 'images/users-alt.png' %}"></span>
                         <span class="text">Alumnos</span>
                     </a>
                 </li>
                 <div class="indicator"></div>
             </ul>
         </div>
-        <div class="navigation--space" id="navigation--space"></div>
+        <section class="section-profile" id="section-profile">
+            <div id="perfil_bg--blur" class="perfil_bg--blur">
+                <div class="perfil_bg--gradient" id="perfil_bg--gradient">
+                    <div class="perfil_bg" id="perfil_bg">
+                        <!-- Perfil minimizado........................................ -->
+                        <div class="navbar--fill" id="navbar--fill"></div> 
+                        <div id="profile" class="profile">
+                            {% if user.foto_de_perfil == None %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% static 'images/avatar/9.png' %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% else %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% endif %}
+                            
+                            <div class="profile_data--name" id="profile_data--name">
+                                <h1>{{user.apodo}}</h1>
+                                {% comment %} <figure></figure> {% endcomment %}
+                                <h3>{{user.nombre}} {{user.apellido}}</h3>
+                                {% if  user.edad != None%}
+                                    <p>{{user.edad}} años</p>
+                                {% endif %}
+                                {% comment %} <p>{{user.edad}}</p> {% endcomment %}
+                            </div>
+                            {% if user.biografia %}
+                                <div class="profile_data--description" id="profile_data--description">
+                                    <p>{{user.biografia}}</p>
+                                </div>
+                            {% else %}
+                                <br>
+                            {% endif %}
+                            
+                            <div class="profile_data--numbers" id="profile_data--numbers">
+                                <ol>
+                                    {% if user.telefono %}
+                                    <li>
+                                        <h5>{{user.telefono}}</h5>
+                                        <p>CONTACTO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+
+                                    {% if user.peso %}
+                                    <li>
+                                        <h5>{{user.peso}}</h5>
+                                        <p>PESO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                    
+                                    {% if user.altura %}
+                                    <li>
+                                        <h5>{{user.altura}}</h5>
+                                        <p>ALTURA</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                </ol>
+                            </div>
+                            <button id="profile_data--button" class="profile_data--button">
+                                <a href="{% url 'personas:perfil' %}">Editar Perfil</a> 
+                            </button>
+                            <a class="botonito" href="{% url 'logout' %}">Salir de la cuenta</a>
+                        </div>
+                        <!-- Fin perfil minimizado........................................ -->
+                    </div>
+                </div>
+            </div>
     
+            <div class="aestethical-margin"></div>
+    
+        </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -106,35 +193,23 @@
         <!-- fin de los menú -->
 
         <section class="landing">
+            
             <div class="landing-noticias">
                 <h1>Te podría interesar...</h1>
                 <div class="landing-noticias-news">
-                    <div class="noticia-sec">
-                        <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="{% static 'images/entrenamiento.webp' %}">
-                            <div class="titulo-noticiasecundaria"> 
-                                <p>Beneficios del estiramiento</p>
+                    {% for post in posts %}
+                        <a href="{% url 'posts:detail_noticia' post.pk %}" class="noticia-sec">
+                            <div> 
+                                <img src="{{post.foto.url}}">
+                                <div class="titulo-noticiasecundaria"> 
+                                    <p>{{post.titulo}}</p>
+                                </div>
                             </div>
                         </a>
-                    </div>
-                    <div class="noticia-principal">
-                        <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="{% static 'images/tacos.webp' %}">
-                            <div class="titulo-noticiaprincipal">
-                                <p>Tacos Healty sin TACC</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="noticia-sec">
-                        <a src="#"> <!-- agregar que redireccione a la noticia -->
-                            <img src="{% static 'images/herramientas.jpg' %}">
-                            <div class="titulo-noticiasecundaria">
-                                <p>Disciplinas complementarias</p>
-                            </div>
-                        </a>
-                    </div>
+                    {% endfor %}
                 </div>
-                <a src="#"> <!-- agregar link a la seccion noticias -->
+                
+                <a href="{% url 'posts:adminNoticia' %}"> 
                     <button class="landing-noticias-boton">
                         <p>Ver todas las noticias</p>
                     </button>
@@ -142,59 +217,46 @@
             </div>
             <div class="landing-ordenar"> 
                 <div class="landing-ejercicios"> 
-                <!-- cambiar colores, agregar iconos definitivos -->
-                    <a href="#">
-                        <div class="ejercicios-titulo">
-                            <p>Ejercicios</p> 
-                        </div>
-                    </a>
-                    <div class="ejercicios">
-                        <div class="ejercicios-sup">
-                            <a href="admin_entrenar.html" id="abdominales">
-                                <img src="{% static 'images/gym/workout.png' %}">
+                    <!-- cambiar colores, agregar iconos definitivos -->
+                        <a href="#">
+                            <div class="ejercicios-titulo">
+                                <p>Ejercicios</p> 
+                            </div>
+                        </a>
+                        <div class="ejercicios">
+                            <a href="#">
+                                <h1>Brazos</h1>
+                                <img src="{% static 'images/gym/brazos.png' %}">
                                 <p>saber más</p>
                             </a>
-                            <a href="admin_entrenar.html" id="brazos">                                
-                                <img src="{% static 'images/gym/training.png' %}">
+                            <a href="#">
+                                <h1>Abdominales</h1>                           
+                                <img src="{% static 'images/gym/abdominales.png' %}">
                                 <p>saber más</p>
                             </a>
-                            <a href="admin_entrenar.html" id="calentamiento">
-                                <img src="{% static 'images/gym/stationary-bike.png' %}">
+                            <a href="#">
+                                <h1>Elongacion</h1>
+                                <img src="{% static 'images/gym/calentamiento.png' %}">
                                 <p>saber más</p>
                             </a>
-                            <a href="admin_entrenar.html" class="vuelan" id="piernas">
-                                <img src="{% static 'images/gym/running.png' %}">
+                            <a href="#">
+                                <h1>Gluteos</h1>
+                                <img src="{% static 'images/gym/gluteos.png' %}">
                                 <p>saber más</p>
                             </a>
-                            <a href="admin_entrenar.html" class="vuelan" id="gluteos">
-                                <img src="{% static 'images/gym/dumbbells.png' %}">
+                            <a href="#">
+                                <h1>Piernas</h1>
+                                <img src="{% static 'images/gym/piernas.png' %}">
                                 <p>saber más</p>
                             </a>
-                        </div>
-                        <div class="ejercicios-inf">
-                            <a href="admin_entrenar.html" id="pecho">
-                                <img src="{% static 'images/gym/workout.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="admin_entrenar.html" id="hombros">
-                                <img src="{% static 'images/gym/training.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="admin_entrenar.html" id="estiramiento">
-                                <img src="{% static 'images/gym/stationary-bike.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="admin_entrenar.html" class="vuelan" id="cardio">
-                                <img src="{% static 'images/gym/running.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="admin_entrenar.html" class="vuelan" id="espalda">
-                                <img src="{% static 'images/gym/dumbbells.png' %}">
+                            <a href="#">
+                                <h1>Espalda</h1>
+                                <img src="{% static 'images/gym/espalda.png' %}">
                                 <p>saber más</p>
                             </a>
                         </div>
+                        
                     </div>
-                </div>
 
                 <div class="plan-playlist"> 
                     <div class="landing-planmensual"> 
@@ -206,95 +268,14 @@
                         <button id="button_modal_plan"><p>Cambiar plan</p></button>
                     </div>
 
-                    <form class="landing-encuesta">
+                    <form class="landing-encuesta" method="POST">
+                        {% csrf_token %}
                         <p>¿Querés cambiar la encuesta?</p>
-                        <input type="text">
-                        <button>CAMBIAR</button>
+                        <input type="text" name="poll">
+                        <button type ="submit" name="submit_update_poll">CAMBIAR</button>
                     </form>
                 </div>
             </div>
-
-
-            {% comment %} <div  class="planmensual--pop-up" id="planmensual--pop-up">
-                <div class="planmensual--pop-up_wrap" id="form_add_days">
-                    {% csrf_token %}
-        
-                    <div class="pop-up--second" id="pop-up--second">
-                        <i class="fa-solid fa-xmark"></i>
-                        <p>Elegí los días y horarios que el alumno va a asistir</p>
-                        <ul>
-                            {{formsetDays.management_form}}
-                            {% comment %} {{formsetDays}}  
-                            {% for f in formsetDays %}
-                                <li class="day">
-                                    <p></p>
-                                    {{f.dia}}
-                                    
-                                    <div class="custom-num">
-                                        {{f.hora}}
-                                        <p class="hs">hs</p>
-                                    </div>
-                                </li>
-                                
-                            {% endfor %}
-        
-                        </ul>
-        
-
-                        <div class="container_buttons">
-                            <button type="button" id="second_button"><p>Finalizar</p></button>
-                            <a type="button" href="{% url 'personas:createUserTurno' %}" id="second_secondbutton"><p>Atrás</p></a>
-                        </div>
-                    </div>
-        
-                    <div class="pop-up--third" id="pop-up--third">
-                        <button type="submit" id="form_close"><i class="fa-solid fa-xmark" id="xmark"></i></button>
-                        <h5>¡Plan cambiado exitosamente!</h5>
-                        <div class="plan-changed">
-                            <p>Aron Soto</p>
-                            <p>3 días/semana</p>
-                            <ul>
-                                <li>
-                                    <p>Lun</p>
-                                    <p>16hs</p>
-                                </li>
-                                <li>
-                                    <p>Mié</p>
-                                    <p>16hs</p>
-                                </li>
-                                <li>
-                                    <p>Jue</p>
-                                    <p>16hs</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>    
-            
-                <div class="pop-up--third" id="pop-up--third">
-                    <a href=""><i class="fa-solid fa-xmark" id="xmark"></i></a>
-                    
-                    <h5>¡Plan cambiado exitosamente!</h5>
-                    <div class="plan-changed">
-                        <p>Aron Soto</p>
-                        <p>3 días/semana</p>
-                        <ul>
-                            <li>
-                                <p>Lun</p>
-                                <p>16hs</p>
-                            </li>
-                            <li>
-                                <p>Mié</p>
-                                <p>16hs</p>
-                            </li>
-                            <li>
-                                <p>Jue</p>
-                                <p>16hs</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> {% endcomment %}
 
 
             <div class="planmensual--pop-up" id="planmensual--pop-up">
@@ -305,31 +286,33 @@
                             <i class="fa-solid fa-xmark" id="close_modal_plan"></i>
                             <p>Elegí el alumno al que vas a cambiar el plan</p>
         
-                            <select name="" id="">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
+                            <select name="alumno" id="alumno_pick">
+                                {% for alumno in  alumnos %}
+                                    <option value="{{alumno.pk}}">{{alumno}}</option>
+                                {% endfor %}
+                               
                             </select>
         
                             <p>Seleccioná el plan correspondiente</p>
                             <ul>
-                                <input type="radio" name="plan" id="dos_dias">
-                                <label class="pop-up--plan" for="dos_dias">
+                                <input type="radio" name="plan" id="dos_dias" value="2 días/semana">
+                                <label class="pop-up--plan" for="dos_dias" >
                                     <p>2 días/semana</p>
                                 </label>
                                 
-                                <input type="radio" name="plan" id="tres_dias">
+                                <input type="radio" name="plan" id="tres_dias" value="3 días/semana">
                                 <label class="pop-up--plan" for="tres_dias">
                                     <p>3 días/semana</p>
                                 </label>
 
-                                <input type="radio" name="plan" id="cinco_dias">
+                                <input type="radio" name="plan" id="cinco_dias" value="5 días/semana">
                                 <label class="pop-up--plan" for="cinco_dias">
                                     <p>5 días/semana</p>
                                 </label>
                             </ul>
                             <button type="button" id="first_button"><p>Siguiente</p></button>
+                            <a id="out_modal" href="{% url 'login_profe' %}">Salir</a>
+                            
                         </div>
                         <div class="pop-up--second" id="pop-up--second">
                             <i class="fa-solid fa-xmark"></i>
@@ -360,44 +343,10 @@
                         </div>
                         <div class="pop-up--third" id="pop-up--third">
                             <h5>¡Plan cambiado exitosamente!</h5>
-                            <button type="submit" id="form_close">Salir</i></button>
+                            <button type="submit" id="form_close" name="submit_update_plan">Salir</button>
                             
                         </div>
-                        {% comment %} <form class="pop-up--second" id="pop-up--second">
-                            <i class="fa-solid fa-xmark"></i>
-                            <p>Elegí los días y horarios que el alumno va a asistir</p>
-                            <ul>
-                                <li class="day selection">
-                                    <p>LUN</p>
-                                    <div class="custom-num">
-                                        <i class="fas fa-angle-up arr-up" id="arr-down"></i>
-                                        <input
-                                        type="number"
-                                        class="num-input"
-                                        id="num-imput"
-                                        min="14"
-                                        max="22"
-                                        value="15"/>
-                                        <i class="fas fa-angle-down arr-down" id="arr-up"> </i>
-                                    </div>
-                                    <p class="hs">hs</p>
-                                </li>
-                                <li class="day">
-                                    <p>MAR</p>
-                                </li>
-                                <li class="day">
-                                    <p>MIÉ</p>
-                                </li>
-                                <li class="day">
-                                    <p>JUE</p>
-                                </li>
-                                <li class="day">
-                                    <p>VIE</p>
-                                </li>
-                            </ul>
-                            <button type="button" id="second_button"><p>Finalizar</p></button>
-                            <button type="button" id="second_secondbutton"><p>Atrás</p></button>
-                        </form> {% endcomment %}
+
                         
                     </form>
                 </div>    
@@ -409,10 +358,9 @@
 
         </section>
 
-        {% comment %} <script>
-            document.getElementById('planmensual--pop-up').style.display='none';
-        </script> {% endcomment %}
+
         <script src="{% static 'js/sectionShifts-admin.js' %}"></script>
         <script src="{% static 'js/modalchangePlanAdmin.js' %}"></script>
+        <script src="{% static 'js/agregar_dias.js' %}"></script>
     </body>
 </html>

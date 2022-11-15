@@ -1,0 +1,178 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway regular";/*400*/
+    src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("../fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("../fonts/Raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("../fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("../fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito black";
+    src: url("../fonts/Nunito/static/Nunito-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito extrabold";
+    src: url("../fonts/Nunito/static/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "nunito bold";
+    src: url("../fonts/Nunito/static/Nunito-Bold.ttf");
+}
+
+
+/*NAV-----------------------------------------------------*/
+
+
+body{
+    width: 100%;
+    height: fit-content;
+    font-size: 1em;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+.navigation{
+    width: 100%;
+    height: 70px;
+    background: #d6e1ff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.navigation ul{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 16%;
+    z-index: 110;
+}
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-family: "raleway semibold";
+    text-decoration: none;
+}
+.list > a > span > img{
+    width: 2rem;
+    height: 2rem;
+}
+.landing{
+    width: 4rem;
+    height: 3rem;
+}
+.navigation ul li a .icono{
+    position: relative;
+    display: block;
+    transition: 0.5s;
+}
+.navigation ul li.active a .icono{
+    transform: translateY(-32px);
+    color: #5135FF;
+}
+.navigation ul li a .text{
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+    background: #5135FF;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 12px;
+} 
+.navigation ul li.active a .text{
+    opacity: 1;
+    transform: translateY(-4px);
+}
+.indicator{
+    position: absolute;
+    width: 16.6%;
+    height: 40px;
+    background: #d6e1ff;
+    border-radius: 50%;
+    transition: 0.5s;
+    z-index: 105;
+    top: -20px;
+}
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 37px;
+    height: 30px;
+    left : -32px;
+    border-radius: 50% ;
+    background: transparent;
+    box-shadow: 15px 18px #d6e1ff;
+}
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 37px;
+    height: 30px;
+    right: -32px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: -15px 18px #d6e1ff;
+}
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform: translateX(calc(100%*0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(100%*1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform: translateX(calc(100%*2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform: translateX(calc(100%*3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator{
+    transform: translateX(calc(100%*4));
+}
+.navigation ul li:nth-child(6).active ~ .indicator{
+    transform: translateX(calc(100%*5));
+}
+    
+
+/*---------------------------------------------------------*/
+    

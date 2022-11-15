@@ -37,7 +37,7 @@ body {
     width: 80%;
     max-width: 110rem;
     height: fit-content;
-    min-height: 52rem;
+    min-height: 50rem;
     background: #fdaeae;
     border-top-left-radius: 160px;
     border-top-right-radius: 160px;
@@ -55,7 +55,7 @@ body {
     width: 80%;
     max-width: 110rem;
     height: fit-content;
-    min-height: 52rem;
+    min-height: 50rem;
     background: #fdaeae;
     border-top-left-radius: 160px;
     border-top-right-radius: 160px;
@@ -90,9 +90,10 @@ body {
     margin: 0 auto;
     margin-top: 13%;
     overflow: hidden;
+    display: flex;
 }
 .imagen img{
-    width: 100%;
+    margin: auto;
     height: 100%;
 }
 
@@ -110,6 +111,8 @@ body {
 .texto-titulo h3{
     font-family: "raleway bold";
     font-size: 2.6rem;
+    line-height: 2.6rem;
+    margin-bottom: 2rem;
 }
 .texto-contenido{
     width: 90%;
@@ -137,17 +140,25 @@ body {
     min-height: 2rem;
 }
 
-.icons{
-    height: 100%;
-    width: fit-content;
-    /* padding: 1% 0 0 2%; */
+.iconitos{
     display: flex;
+    margin: auto;
+    justify-content: flex-end;
 }
-
-.icons i{
-    font-size: 3rem;
-    margin: 1rem 0 1rem 2rem;
-    color: #fff;
+.iconitos button{
+    background: none;
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 0 0.5rem;
+}
+.iconitos button img{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
 }
 
 .formato-texto{
@@ -180,7 +191,14 @@ body {
 }
 .coments-overflow{
     overflow-y: auto;
-    height: 20rem;
+    height: fit-content;
+}
+.coments-overflow h1{
+    font-family: "raleway medium";
+    font-size: 1.6rem;
+    padding: 2rem 1rem;
+    color: white;
+    text-align: center;
 }
 .coments-overflow::-webkit-{
     width: .6rem;

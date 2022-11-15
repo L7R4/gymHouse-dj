@@ -1,0 +1,381 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway regular";/*400*/
+    src: url("../fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("../fonts/Raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("../fonts/Raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("../fonts/Raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("../fonts/Raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("../fonts/Raleway/static/Raleway-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito black";
+    src: url("../fonts/Nunito/static/Nunito-Black.ttf");
+}
+
+@font-face {
+    font-family: "nunito extrabold";
+    src: url("../fonts/Nunito/static/Nunito-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "nunito bold";
+    src: url("../fonts/Nunito/static/Nunito-Bold.ttf");
+}
+/*FIN FONTS-----------------------------------------------------------------------------------------------------*/
+
+/*INICIALIZACION--------------------------------------------------------------------------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+    background: linear-gradient(180deg, #5A43FF 0%, #b4baff 40%);
+    background-color: #b4baff;
+    background-attachment:fixed;
+}
+
+.curve{
+    display: none;
+}
+
+.navigation, .navigation--space{
+    display: none;
+}
+.fondoperfil{
+    height: fit-content;
+    padding: 1rem;
+}
+.o{
+    display: flex;
+    background: #ffffff;
+    padding: 3rem;
+    max-width: 100rem;
+    margin: auto;
+    width: 100%;
+    border-radius: 3rem;
+    justify-content: space-around;
+}
+.o1{
+    width: 30%;
+    height: fit-content;
+}
+.o2{
+    width: 40%;
+}
+.o3{
+    width: 22%;
+}
+.perfilfoto{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-back{
+    width: 90vw;
+    max-width: 100rem;
+    display: flex;
+    justify-content: right;
+    margin: 1rem auto;
+}
+.button-back > img{
+    height: 3rem;
+}
+
+.perfilfoto > img{
+    max-width: 20rem;
+    width: 70%;
+    height: auto;
+    max-height: 100%;
+    border: 3px solid rgba(0, 0, 0, 0.795);
+    border-radius: 50%;
+    padding: 0.8rem;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+.perfilfoto-label{
+    margin:auto;
+    font-family: 'raleway semibold';
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+}
+.perfilfoto-image{
+    border-radius: 14px;
+    border: none;
+    background-color: #D6E1FF;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.perfilfoto-image p{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: max(.8vw,min(1.3rem));
+    color: #5135FF;
+    display: flex;
+    align-content: center;
+    margin: 5%;
+}
+
+.biografia{
+    display: flex;
+    flex-direction: column;
+    background: rgba(230, 230, 230, 0.5);
+    border-radius: 20px;
+    padding: 1rem;
+}
+.biografia h3{
+    font-family: "raleway semibold";
+    text-align: center;
+    font-size: 1.6rem;
+}
+textarea::-webkit-scrollbar{
+    display: none;
+}
+.biografia > textarea{
+    padding: 0.8rem;
+    height: 10rem;
+    border: none;
+    max-width: 100%;
+    background-color: transparent;
+    font-family: "raleway medium";
+    text-align: center;
+    font-size: 1.4rem;
+    resize: none;
+}
+.inputgroup {
+    position: relative;
+    margin: 0.5rem 0;
+}
+.inputt {
+    width: 100%;
+    height: 100%;
+    min-height: 3.5rem;
+    min-width: 200px;
+    border: solid 1.5px #D6E1FF;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-family: "raleway semibold";
+    font-size: 1.4rem;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.userlabel {
+    position: absolute;
+    top: 0.3rem;
+    left: 1.5rem;
+    font-family: "raleway semibold";
+    font-size: 1.2rem;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #5135ff;
+}
+.inputt:focus, .inputt:valid {
+    outline: none;
+}
+.nickname{
+    justify-self: center;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+ol{
+    list-style: none;
+}
+.gender > .genderdiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+}
+.gender label{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction:column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.gender label > p{
+    font-family: "raleway medium";
+    text-align: center;
+    justify-self: center;
+    font-size: 1.2rem;
+}
+.gender_selected{
+    background-color: #FFD43A;
+    border-radius: 20px;
+}
+.gender figure{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+}
+.gender figure > img{
+    align-self: center;
+    width: 3rem;
+    height: 3rem;
+}
+.gender input{
+    /*display: none;*/
+}
+.gender label input:checked{
+    background-color: #7876FF;
+}
+.button-save{
+    border-radius: 18px;
+    border: none;
+    display: flex;
+    overflow: hidden;
+    margin: 2rem auto;
+}
+.button-save p{
+    width: fit-content;
+    padding: 1.5rem 4rem;
+    text-decoration: none;
+    font-family: "raleway bold";
+    font-size: 1.6rem;
+    color: #FFF;
+    margin: auto;
+    background-color:#5135FF;
+}
+.numbers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.numbers .inputgroup {
+    position: relative;
+    width: 9rem;
+}
+.numbers .inputt {
+    width: 9rem;
+    height: 100%;
+    min-width: 9rem;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-family: "raleway semibold";
+    font-size: 1.7rem;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.numbers .inputt:focus, .inputt:valid {
+    outline: none;
+}
+.inputt:focus ~ label, .inputt:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: rgba(249, 249,255, 1);
+    padding: 0.2em;
+    color: #5135FF;
+}
+.password{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 3px;
+}
+.password .inputgroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.password i {
+    font-size: 1.5rem;
+    align-self: center;
+    padding: 1rem;
+}
+.button-update{
+    width: fit-content;
+    border-radius: 14px;
+    border: none;
+    text-decoration: none;
+    margin: 25rem auto 2rem;
+    display: flex;
+}
+.button-update p{
+    width: max-content;
+    border-radius: 14px;
+    border: none;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-family: "raleway bold";
+    font-size: 1.1rem;
+    color: #5135FF;
+    margin: auto;
+    background-color: #D6E1FF;
+}
+
+/*----------------------------------------*/
+/* Celphone - No Edition */
+
+@media (max-width:750px) {
+    .o{
+        display:block;
+    }
+    .o1{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .o2{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .o3{
+        width: 100%;
+    }
+    .numbers{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .button-update {
+        margin: 2rem auto 0;
+    }
+    .gender label{
+        max-width: 10rem;
+    }
+    .gender > .genderdiv {
+        justify-content: center;
+    }
+}

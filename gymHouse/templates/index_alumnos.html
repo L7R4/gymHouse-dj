@@ -6,25 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="header" content="" />
         <link rel="stylesheet" href="{% static 'css/styles_menu.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles-alumno_navcel.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles-alumnos_perfil.css' %}">
+
         <link rel="stylesheet" href="{% static 'css/styles_alumnos-landing.css' %}" />
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/styles_navcel.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
         <script src="{% static 'js/sectionProfile.js' %}"></script>
 
-        <title>GymHouse: Alumnos</title>
+        <link rel="shortcut icon" href="{% static 'images/logo.svg' %}">
+        <title>Gym House</title>
     
     
     </head>
     <body>
+        <style>
+            html{
+                background-image: url("{% static 'images/fondogym-ai.png' %}");
+                background-size: 25rem;
+                background-repeat: repeat;
+            }
+        </style> 
 
         <nav class="menu">
             <div class="menu_icons">
                 <ul>
                     <li>
                         <a href="{% url 'login_user' %}">
-                            <img class="logo" src="{% static 'images/logo.png' %}">
+                            <img class="logo" src="{% static 'images/logo.svg' %}">
                         </a> 
                     </li> 
                     <li>
@@ -56,42 +65,40 @@
         </nav>
         
         <div class="navigation" id="navigation">
-            
             <ul>
                 <li class="list">
-                    <a href="{% url 'login_user' %}">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <a href="{% url 'login_profe' %}">
+                        <span class="icono"><img class="landing" src="{% static 'images/logo.svg' %}"></span>
                         <span class="text">Inicio</span>
                     </a>
                 </li>
                 <li class="list active">
-                    <a href="alumnos_perfil.html">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <a href="admin_perfil.html">
+                        <span class="icono"><img src="/static/images/user.png"> </span>
                         <span class="text">Perfil</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="{% url 'entrenamiento:ejercicios' %}">
-                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                    <a href="{% url 'entrenamiento:ejerciciosAdmin' %}">
+                        <span class="icono"><img src="{% static 'images/gym/gym.png' %}"></span>
                         <span class="text">Entrenar</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="{% url 'posts:noticias' %}">
-                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                    <a href="{% url 'posts:adminNoticia' %}">
+                        <span class="icono"><img src="{% static 'images/edit.png' %}"></span>
                         <span class="text">Noticias</span>
                     </a>
                 </li>
                 <li class="list">
-                    <a href="{% url 'personas:turnos' %}">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                    <a href="{% url 'personas:adminTurnos' %}">
+                        <span class="icono"><img src="{% static 'images/calendar.png' %}"></span>
                         <span class="text">Turnos</span>
                     </a>
                 </li>
                 <div class="indicator"></div>
             </ul>
         </div>
-        <div class="navigation--space" id="navigation--space"></div>
     
         <section class="section-profile" id="section-profile">
             <div id="perfil_bg--blur" class="perfil_bg--blur">
@@ -203,51 +210,38 @@
                         </div>
                     </a>
                     <div class="ejercicios">
-                        <div class="ejercicios-sup">
-                            <a href="#">
-                                <img src="{% static 'images/gym/workout.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#">                                
-                                <img src="{% static 'images/gym/training.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#">
-                                <img src="{% static 'images/gym/stationary-bike.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#" class="vuelan">
-                                <img src="{% static 'images/gym/running.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#" class="vuelan">
-                                <img src="{% static '/images/gym/dumbbells.png' %}">
-                                <p>saber más</p>
-                            </a>
-                        </div>
-                        <div class="ejercicios-inf">
-                            <a href="#">
-                                <img src="{% static 'images/gym/workout.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#">
-                                <img src="{% static 'images/gym/training.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#">
-                                <img src="{% static 'images/gym/stationary-bike.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#" class="vuelan">
-                                <img src="{% static 'images/gym/running.png' %}">
-                                <p>saber más</p>
-                            </a>
-                            <a href="#" class="vuelan">
-                                <img src="{% static 'images/gym/dumbbells.png' %}">
-                                <p>saber más</p>
-                            </a>
-                        </div>
+                        <a href="#">
+                            <h1>Brazos</h1>
+                            <img src="{% static 'images/gym/brazos.png' %}">
+                            <p>saber más</p>
+                        </a>
+                        <a href="#">
+                            <h1>Abdominales</h1>                           
+                            <img src="{% static 'images/gym/abdominales.png' %}">
+                            <p>saber más</p>
+                        </a>
+                        <a href="#">
+                            <h1>Elongacion</h1>
+                            <img src="{% static 'images/gym/calentamiento.png' %}">
+                            <p>saber más</p>
+                        </a>
+                        <a href="#">
+                            <h1>Gluteos</h1>
+                            <img src="{% static 'images/gym/gluteos.png' %}">
+                            <p>saber más</p>
+                        </a>
+                        <a href="#">
+                            <h1>Piernas</h1>
+                            <img src="{% static 'images/gym/piernas.png' %}">
+                            <p>saber más</p>
+                        </a>
+                        <a href="#">
+                            <h1>Espalda</h1>
+                            <img src="{% static 'images/gym/espalda.png' %}">
+                            <p>saber más</p>
+                        </a>
                     </div>
+                    
                 </div>
 
                 <div class="plan-playlist"> 
@@ -275,7 +269,7 @@
                             </div>            
                         </div>
                         <div class="plan"><p>¿Querés cambiar tu plan?</p></div>
-                        <a href="https://wa.me/5493624643544">Cambiar plan</a>
+                        <a href="https://wa.me/5493624594665">Cambiar plan</a>
                     </div>
 
                     <div class="landing-playlist">
@@ -292,7 +286,7 @@
             <div class="landing-encuesta">
                 <p>Ayudanos a seguir mejorando nuestro servicio</p>
                 <button> 
-                    <a href="{{encuesta}}">Participar en una encuesta</a> <!-- linkear alguna encuesta -->
+                    <a href="{{encuesta}}" target="_blank">Participar en una encuesta</a> <!-- linkear alguna encuesta -->
                 </button> 
             </div>
         </section>

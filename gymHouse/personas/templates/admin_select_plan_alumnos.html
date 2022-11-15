@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles_admin-cambiarplanes.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_admin_alumnos.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+    <script src="{% static 'js/sectionProfile.js' %}"></script>
     <title>Gym House: Alumnos</title>
 </head>
 <body>
@@ -116,9 +117,13 @@
         {% for person in personas %}
         
             <div class="card-info">
-                <figure><img src="{{person.foto_de_perfil}}" alt=""></figure>
+                <figure><img src="{% if person.foto_de_perfil %} {{person.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" alt=""></figure>
                 <div class="pupil_data--name" id="pupil_data--name">
-                    <h1>{{person.apodo}}</h1>
+                    {% if person.apodo %}
+                        <h1>{{person.apodo}}</h1>
+                    {% else %}
+                        <p></p>
+                    {% endif %}
                     <h3>{{person.nombre}} {{person.apellido}}</h3>
                     <p>{{person.edad}}</p>
                 </div>

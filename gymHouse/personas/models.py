@@ -84,8 +84,7 @@ class Persona(AbstractUser):
     @property
     def is_staff(self):
         return self.admin
-
-    
+ 
 
 class Dia(models.Model):
     dias = (
@@ -106,9 +105,6 @@ class Dia(models.Model):
         if self.hora == 0:
             return
         super(Dia,self).save(*args, **kwargs)
-
-    
-    
 
 
 class Turno(models.Model):

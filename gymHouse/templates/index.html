@@ -79,50 +79,36 @@
     <section class="sobrenosotros" id="sobrenosotros">
         <h1 class="sobrenosotros__titulo">Sobre nosotros</h1>
         <p class="sobrenosotros__texto">
-            Lorem ipsum luzma libnda dolor sit amet, consectetur adipiscing elit.
-            Vestibulum a metus eget nisl congue iaculis. Integer commodo
-            magna quis sapien pulvinar consequat. Sed lectus nisl,
-            malesuada et commodo vel, consectetur et ipsum. Nam et
-            lacus ultricies, blandit magna non, accumsan est. Donec
-            ac fringilla erat, eu commodo lorem. Praesent id leo
-            dignissim, porttitor lectus interdum, laoreet nisl. Aliquam
-            facilisis metus mauris, vitae molestie est rhoncus iaculis.
-            Quisque commodo pharetra ipsum vitae varius. Ut eu mi id mi
-            sollicitudin placerat. Integer ultrices nec nulla non
-            condimentum. Phasellus in ex ac mi iaculis rutrum. Phasellus
-            vitae metus et tortor sollicitudin scelerisque vitae nec nunc.
-            In fringilla mauris ut nibh imperdiet elementum. Vestibulum
-            semper elit feugiat, condimentum mi in, faucibus libero. Ut
-            quam augue, hendrerit at faucibus vel, venenatis vitae est.
-        
-            Aenean magna dolor, luctus sit amet mauris eu, imperdiet
-            tincidunt arcu. Vivamus rutrum orci in tempus ornare. Nam
-            feugiat leo felis, sed luctus urna tristique id. Donec
-            iaculis commodo est. Aenean placerat augue mauris, a
-            iaculis metus rutrum et. In euismod et ipsum id efficitur.
+            Todos sabemos que el entrenamiento físico es muy bueno, pero en <strong>“House Gimnasio”</strong> lo queremos hacer divertido. 
+            Te ayudaremos a encontrar una rutina que se adapte a tu estilo de vida y tus metas personales; ya sea que recién estés comenzando a entrenarte o que tengas experiencia.
+            Tenemos lo que necesitas para mantenerte sano y que te sientas bien. 
+            Creamos un espacio donde todos puedan venir y pasarla bien haciendo ejercicio. Queremos que cuando salgas del “gym” te sientas mejor que nunca. 
+            Dar el primer paso puede ser lo más difícil. 
+            Nosotros nos encargamos del resto. Nuestro objetivo es que mejores tu salud, mejorando tu condición física. 
+            
         </p> 
 
         <div class="sobrenosotros__imagenes"> <!-- hacer las imagenes responsives -->
-            <figure>
-                <img src="{% static 'images\8.png' %}">
-                <p>Nombre</p>
-            </figure> 
-            <figure>
-                <img src="{% static 'images\1.png' %}">
-                <p>Nombre</p>
-            </figure>
-            <figure>
-                <img src="{% static 'images\7.png' %}">
-                <p>Nombre</p>
-            </figure> 
+            <div class="trainer_1">
+                <figure>
+                    <img src="{% static 'images/houseGym/fede.png' %}">
+                </figure> 
+                <p>Federico Maza</p>
+            </div>
+            <div class="trainer_2">
+                <figure>
+                    <img src="{% static 'images/houseGym/moi.png' %}">
+                </figure> 
+                <p>Moira <br>With</p>
+            </div>
+            
         </div>
         
         <p class="sobrenosotros__texto">
-            Nam etacus ultricies, blandit magna non, accumsan est. Donec
-            ac fringilla erat, eu commodo lorem. Praesent id leo
-            dignissim, porttitor lectus interdum, laoreet nisl. Donec
-            iaculis commodo est. Aenean placerat augue mauris, a
-            iaculis metus rutrum et. In euismod et ipsum id efficitur.
+            House Gym es un emprendimiento familiar, sus dueños son Federico, profesor de educación física y su esposa MOIRA,  contadora.<br> 
+            Un equipo que se complementa perfecto para llevar adelante todas las tareas del gym.
+            Nuestra visión es la de ser líderes promotores de la vida saludable y en familia en la zona norte de Resistencia; seguir creciendo en el rubro y afianzarnos como empresa local. 
+
         </p>
     </section>
 
@@ -136,30 +122,16 @@
         </div>
         <div id="slider-container" class="slider-container"> <!-- Resolver responsive! -->
             <div class="slider" id="slider">
-              <div class="slider__element"> 
-                <a href="index_noticia.html">
-                    <img src="{% static 'images/imagen.jfif' %}" alt="" />
-                </a>
-                <div class="element__detalle"> 
-                    <h6>Titulo</h6>
-                </div>
-              </div>
-              <div class="slider__element">
-                <a href="detalle_noticia.html">
-                    <img src="{% static 'images/imagen2.jfif' %}" alt=""/>
-                </a>
-                <div class="element__detalle">
-                    <h6>Titulo2</h6>
-                </div>
-              </div>
-              <div class="slider__element"> 
-                <a href="detalle_noticia.html">
-                    <img src="{% static 'images/imagen1.jpg' %}" alt=""/>
-                </a>
-                <div class="element__detalle">
-                    <h6>Titulo3</h6>
-                </div>
-              </div>
+                {% for post in posts %}
+                    <div class="slider__element"> 
+                        <a href="index_noticia.html">
+                            <img src="{{post.foto.url}}" alt="" />
+                        </a>
+                        <div class="element__detalle"> 
+                            <h6>{{post.titulo}}</h6>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="slider-button"> 
@@ -173,7 +145,7 @@
 
     <section class="ubicacion" id="ubicacion"> 
         <h1 class="ubicacion_text"> 
-            Nuestro gymnasio se encuentra en el -barrio UOM- siendo el único por la zona
+            Nuestro gymnasio se encuentra en el San Fernando 3965. Barrio 130 Viviendas. Zona Hipermercado Libertad. 
         </h1> 
         <iframe class="ubicacion_mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.870679030558!2d-58.96320947942016!3d-27.410963687717057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450dd4ea307821%3A0x20160f1de01dbb45!2sHouse.Gimnasio!5e0!3m2!1ses-419!2sar!4v1659881013184!5m2!1ses-419!2sar" 
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -185,7 +157,7 @@
         <h1 class="horarios__title">
             Nuestros horarios
         </h1> 
-        <p class="horarios__text">Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent.</p>
+        <p class="horarios__text">¿Alguna vez terminaste de entrenar y te arrepentiste? </p>
         <div class="agenda"> 
             <div class="dias">
                 <div class="lun">

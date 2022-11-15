@@ -115,12 +115,11 @@ div.plegable.desplegado > .ejercicio{
     justify-content: space-between;
     margin: 2rem 1rem 1rem 0;
 }
-/* .text_pasos{
-    display: none;
+.ejercicio > label
+{
+    cursor: pointer;
 }
-.video_ejer{
-    display: none; 
-} */
+
 .text_pasos.active{
     display: block;
 }
@@ -129,6 +128,7 @@ div.plegable.desplegado > .ejercicio{
 }
 .ejercicio >input[type="radio"]{
     position: absolute;
+    display: none;
 }
 
 .plegable > .ejercicio > .ejercicio-pasos{
@@ -148,10 +148,18 @@ div.plegable.desplegado > .ejercicio{
     font-size: 1.4rem;
 }
 .screen-ejercicio > .ejercicio > .ejercicio-video{
-    margin: 2rem;
+    width: 100%;
+    height: 25rem;
+}
+.screen-ejercicio > .ejercicio > .ejercicio-video > video
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
 }
 .screen-ejercicio > .ejercicio > label{
     background: #101010;
+    border-radius: 17px;
 }
 .screen-ejercicio > .ejercicio > .ejercicio-video img{
     width: 100%;

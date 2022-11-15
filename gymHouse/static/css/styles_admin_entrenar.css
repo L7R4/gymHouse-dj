@@ -252,6 +252,8 @@ div.plegable.desplegado > .ejercicio{
 .entrenar-botones h3{
     font-family: "raleway bold";
     font-size: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 .botones{
     display: flex;

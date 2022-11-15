@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="{% static 'css/styles_menu-celu.css' %}">
         <link rel="stylesheet" href="{% static 'css/styles_ejercicios.css' %}"/>
         <link rel="stylesheet" href="{% static 'css/styles_alumnos-entrenar.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+        <script src="{% static 'js/sectionProfile.js' %}"></script>
         <title>Entrenar: Alumnos</title>
     
     
@@ -87,8 +89,84 @@
                 <div class="indicator"></div>
             </ul>
         </div>
-        <div class="navigation--space" id="navigation--space"></div>
+        <section class="section-profile" id="section-profile">
+            <div id="perfil_bg--blur" class="perfil_bg--blur">
+                <div class="perfil_bg--gradient" id="perfil_bg--gradient">
+                    <div class="perfil_bg" id="perfil_bg">
+                        <!-- Perfil minimizado........................................ -->
+                        <div class="navbar--fill" id="navbar--fill"></div> 
+                        <div id="profile" class="profile">
+                            {% if user.foto_de_perfil == None %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% static 'images/avatar/9.png' %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% else %}
+                                <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
+                                </div>
+                            {% endif %}
+                            
+                            <div class="profile_data--name" id="profile_data--name">
+                                <h1>{{user.apodo}}</h1>
+                                {% comment %} <figure></figure> {% endcomment %}
+                                <h3>{{user.nombre}} {{user.apellido}}</h3>
+                                {% if  user.edad != None%}
+                                    <p>{{user.edad}} años</p>
+                                {% endif %}
+                                {% comment %} <p>{{user.edad}}</p> {% endcomment %}
+                            </div>
+                            {% if user.biografia %}
+                                <div class="profile_data--description" id="profile_data--description">
+                                    <p>{{user.biografia}}</p>
+                                </div>
+                            {% else %}
+                                <br>
+                            {% endif %}
+                            
+                            <div class="profile_data--numbers" id="profile_data--numbers">
+                                <ol>
+                                    {% if user.telefono %}
+                                    <li>
+                                        <h5>{{user.telefono}}</h5>
+                                        <p>CONTACTO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+
+                                    {% if user.peso %}
+                                    <li>
+                                        <h5>{{user.peso}}</h5>
+                                        <p>PESO</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                    
+                                    {% if user.altura %}
+                                    <li>
+                                        <h5>{{user.altura}}</h5>
+                                        <p>ALTURA</p>
+                                    </li>
+                                    {% else %}
+                                        <br>
+                                    {% endif %}
+                                </ol>
+                            </div>
+                            <button id="profile_data--button" class="profile_data--button">
+                                <a href="{% url 'personas:perfil' %}">Editar Perfil</a> 
+                            </button>
+                            <a class="botonito" href="{% url 'logout' %}">Salir de la cuenta</a>
+                        </div>
+                        <!-- Fin perfil minimizado........................................ -->
+                    </div>
+                </div>
+            </div>
     
+            <div class="aestethical-margin"></div>
+    
+        </section>
+        <div class="navigation--space" id="navigation--space"></div>
         <section class="screen">
             <form class="screen-secciones" method="post" action="">
                 <!-- cambiar los ID de los ejercicios, etc -->
@@ -100,11 +178,28 @@
 
                     <div class="plegable">
                         {% for a in abdominales %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="abdominales{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="abdominales{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{a}}</p>
+                                    
+                                </label>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{a.pasos}}
+                                    </p>
                                 </div>
-                                <p>{{a}}</p>
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{a.archivo.url}}"></video>
+                                </div>
+                                
                             </div>
                         {% endfor %}
                     </div>
@@ -115,13 +210,30 @@
                         <img src="{% static '/images/angle-small-left.png' %}">
                     </div>
                     <div class="plegable">
-                        {% for  b in brazos %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
+                        {% for b in brazos %}
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="brazos{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="brazos{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{b}}</p>
+                                    
+                                </label>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{b.pasos}}
+                                    </p>
                                 </div>
-                                <p>{{b}}</p>
-                            </div> 
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{b.archivo.url}}" controls></video>
+                                </div>
+                                
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
@@ -133,13 +245,29 @@
 
                     <div class="plegable">
                         {% for e in espalda %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="espalda{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="espalda{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{e}}</p>
+                                    
+                                </label>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{e.pasos}}
+                                    </p>
                                 </div>
-                                <p>{{e}}</p>
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{e.archivo.url}}" controls></video>
+                                </div>
+                                
                             </div>
-                        
                         {% endfor %}
                         
                     </div>
@@ -151,12 +279,30 @@
                     </div>
 
                     <div class="plegable">
+                        
                         {% for p in piernas %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="piernas{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="piernas{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{p}}</p>
+                                    
+                                </label>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{p.pasos}}
+                                    </p>
                                 </div>
-                                <p>{{p}}</p>
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{p.archivo.url}}" controls></video>
+                                </div>
+                                
                             </div>
                         {% endfor %}
                     </div>
@@ -168,12 +314,30 @@
                     </div>
 
                     <div class="plegable">
+                    
                         {% for g in gluteos %}
-                            <div class="ejercicio" id="cruzadas" onclick="myFunction()">
-                                <div class="imgejercicio">
-                                    <img src="{% static '/images/gym/workout.png' %}">
+                            
+                            <div class="ejercicio" >
+                                <input type="radio" id="gluteos{{forloop.counter}}" name="ejercicio">
+                                
+                                <label for="gluteos{{forloop.counter}}">
+
+                                    <div class="imgejercicio">
+                                        <img src="{% static '/images/gym/workout.png' %}">
+                                    </div>
+                                    <p>{{g}}</p>
+                                    
+                                </label>
+                                <div class="ejercicio-pasos" id="ejercicio_pasosid">
+                                    <p class="text_pasos">
+                                        {{g.pasos}}
+                                    </p>
                                 </div>
-                                <p>{{g}}</p>
+                                
+                                <div class="ejercicio-video" id="ejercicio_videoid">
+                                    <video class= "video_ejer" src="{{g.archivo.url}}" controls></video>
+                                </div>
+                                
                             </div>
                         {% endfor %}
                     </div>
@@ -205,7 +369,7 @@
                                 </div>
                                 
                                 <div class="ejercicio-video" id="ejercicio_videoid">
-                                    <video class= "video_ejer" src="{{e.archivo}}"></video>
+                                    <video class= "video_ejer" src="{{e.archivo.url}}" controls></video>
                                 </div>
                                 
                             </div>
@@ -237,13 +401,7 @@
             })
         })
     </script>
-    {% comment %} <script>
-        function myFunction() {
-            var x = document.getElementById("divcerrado");
-            if (x.style.display === "none"){ x.style.display = "block";}
-            else { x.style.display = "none";}
-        }
-    </script> {% endcomment %}
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/1169c95eac.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

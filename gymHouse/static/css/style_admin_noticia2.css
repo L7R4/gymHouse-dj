@@ -1,0 +1,167 @@
+/* FONTS */
+@font-face {
+    font-family: "raleway medium";/*500*/
+    src: url("fonts/raleway/static/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: "raleway semibold";/*600*/
+    src: url("fonts/raleway/static/Raleway-SemiBold.ttf");
+}
+@font-face {
+    font-family: "raleway bold";/*700*/
+    src: url("fonts/raleway/static/Raleway-Bold.ttf");
+}
+@font-face {
+    font-family: "raleway extrabold";/*800*/
+    src: url("fonts/raleway/static/Raleway-ExtraBold.ttf");
+}
+@font-face {
+    font-family: "raleway black";/*900*/
+    src: url("fonts/raleway/static/Raleway-Black.ttf");
+}
+html{
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa; 
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.news{
+    margin-left: 8rem;
+    height: 100vh;
+}
+.cards{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 5rem;
+}
+.card{
+    width: 31%;
+    max-width: 50rem;
+    min-width: 40rem;
+    height: 30rem;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card > figure{
+    width: 100%;
+    height: 100%;
+}
+.card > figure > img{
+    width: 100%;
+    min-height: 100%;
+}
+
+.post__images_detail{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(0 0 0 / 74%);
+    /* height: 4rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post__images_detail > p{
+    color: white;
+    font-size: 1.7rem;
+    font-family: "raleway medium";
+    text-align: center;
+    padding: 1rem;
+}
+
+.botoncito{
+    margin: auto;
+    padding: 3rem 0;
+    width: fit-content;
+    height: fit-content;
+    margin-top: auto;
+}
+.botoncito button{
+    border-radius: 18px;
+    border: none;
+    background-color: #5135FF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    transition: all .5s ease;
+    height: 4.8rem;
+}
+.botoncito a{
+    text-decoration: none;
+    font-family: "raleway semibold";
+    font-size: 1.7rem;
+    color: white;
+    padding: 0 3.5rem;
+}
+
+@media (max-width:900px){
+    .news{
+        margin-left: 7rem;
+    }
+    .card{
+        min-width: 20rem;
+        height: 30rem;
+    }
+    .card > figure {
+        width: auto;
+        height: 30rem;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .card > figure > img {
+        height: 30rem;
+        min-width: max-content;
+    }
+}
+@media (max-width:800px){
+    .news{
+        margin-left: 0rem;
+    }
+    .cards {
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    .botoncito {
+        padding: 2rem 0 0;
+        margin-bottom: 10rem;
+    }
+}
+@media (max-width:630px){
+    .card{
+        min-width: 18rem;
+        height: 25rem;
+    }
+    .post__images_detail > p{
+        font-size: 1.5rem;
+    }
+    .card > figure {
+        height: 25rem;
+    }
+    .card > figure > img {
+        height: 25rem;
+    }
+}
+@media (max-width:400px){
+    .card{
+        min-width: 15rem;
+    }
+    .post__images_detail > p{
+        font-size: 1.4rem;
+    }
+    .botoncito button{
+        height: 4rem;
+    }
+    .botoncito a{
+        font-size: 1.4rem;
+        padding: 0 3rem;
+    }
+}

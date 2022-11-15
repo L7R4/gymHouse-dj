@@ -39,9 +39,126 @@ class Turnos(generic.ListView):
             'alumnos': turnos
         })
 
-class AdminTurnos(generic.TemplateView):
+class AdminTurnos(generic.View):
+    model= Persona
     template_name = "admin_turnos_ailin.html"
+    form_class = formset_factory(DayForm,max_num=5,absolute_max=5)
+    
+    data = {
+            'form-TOTAL_FORMS': '5',
+            'form-INITIAL_FORMS': '5',
+            'form-0-dia': 'lunes',
+            'form-0-hora': 0,
+            'form-1-dia': 'martes',
+            'form-1-hora': 0,
+            'form-2-dia': 'miercoles',
+            'form-2-hora': 0,
+            'form-3-dia': 'jueves',
+            'form-3-hora': 0,
+            'form-4-dia': 'viernes',
+            'form-4-hora': 0,
+        }
 
+    formset = form_class(data,initial=[
+        {'dia': "lunes",
+        'hora':0},
+        {'dia': "martes",
+        'hora':0},
+        {'dia': "miercoles",
+        'hora':0},
+        {'dia': "jueves",
+        'hora':0},
+        {'dia': "viernes",
+        'hora':0},
+
+    ])
+
+    def get(self, request, *args, **kwargs):
+        personas = list(Persona.objects.all())
+        # print(personas)
+        turnos =[]
+        for persona in personas:
+            try:
+                data = {}
+                data['persona'] = persona.nombre + " " + persona.apellido
+                cant_semana = persona.turno_set.all()[0]
+                turno = list(cant_semana.dias.all())
+                
+                dias = [item.dia for item in turno]
+                horas = [item.hora for item in turno]
+                
+                data['dias'] = dias
+                data['horas'] = horas
+                data['foto_url'] = persona.foto_de_perfil
+                turnos.append(data)
+  
+            except IndexError:
+                print("No tiene turno asignado")
+            
+        print(turnos)
+        return render(request, self.template_name,{
+            'alumnos': turnos,
+            "alumnos_range": Persona.objects.filter(rango="alumno"),
+            'formsetDays': self.formset,
+        })
+
+    def post(self,request,*args, **kwargs):  
+        user = request.POST.get("alumno") # Extre el alumno del html
+        
+        user_picker = Persona.objects.get(pk=user) # Se inicializa un alumno
+        
+        old_plan = user_picker.turno_set.all()[0] # Extre el plan antiguo del alumno
+        old_plan.delete() # Elimina el plan antiguo
+        new_plan_picker = request.POST.get("plan")# Extre el plan del html
+        new_plan = Turno() # Se inicializa un Turno
+        new_plan.plan = new_plan_picker #Setea el nuevo valor del plan 
+        new_plan.save()
+        user_picker.turno_set.add(new_plan) #Agrega el nuevo plan al alumno seleccionado
+        print(new_plan)
+        last_plan = Turno.objects.all().last()
+
+        if self.formset.is_valid():
+            form_lunes = request.POST.get("form-0-hora")
+            form_martes = request.POST.get("form-1-hora")
+            form_mier = request.POST.get("form-2-hora")
+            form_jueves = request.POST.get("form-3-hora")
+            form_viernes = request.POST.get("form-4-hora")
+            data = {
+                    'form-TOTAL_FORMS': '5',
+                    'form-INITIAL_FORMS': '5',
+                    'form-0-dia': 'lunes',
+                    'form-0-hora': form_lunes,
+                    'form-1-dia': 'martes',
+                    'form-1-hora': form_martes,
+                    'form-2-dia': 'miercoles',
+                    'form-2-hora': form_mier,
+                    'form-3-dia': 'jueves',
+                    'form-3-hora': form_jueves,
+                    'form-4-dia': 'viernes',
+                    'form-4-hora': form_viernes }
+            
+            formset = self.form_class(data,initial=[
+                        {'dia': "lunes",
+                        'hora':form_lunes},
+                        {'dia': "martes",
+                        'hora':form_martes},
+                        {'dia': "miercoles",
+                        'hora':form_mier},
+                        {'dia': "jueves",
+                        'hora':form_jueves},
+                        {'dia': "viernes",
+                        'hora':form_viernes},
+                    ])
+            
+            for f in formset:
+                print(f)
+                if f.cleaned_data["hora"] == 0:
+                    continue
+                dia  = f.save()
+                print("ESTOY IMPRIMIENDO DIA")
+                print(dia)
+                last_plan.dias.add(dia) 
+        return redirect("personas:adminTurnos")
 class AdminAlumnos(generic.View):
     model = Persona
     template_name = "admin_alumnos.html"
@@ -93,16 +210,12 @@ class AddTurnoNewUser(generic.View):
         
         return redirect("personas:addDaysToTurno")
 
+
+
 class AddDaysToNewTurno(generic.FormView):
     template_name = "admin_select_days_alumnos.html"
-    # success_url = 
     form_class = formset_factory(DayForm,max_num=5,absolute_max=5)
     
-    
-
-    # print(last_plan)
-    # print("antes del post")
-
     data = {
             'form-TOTAL_FORMS': '5',
             'form-INITIAL_FORMS': '5',
@@ -131,19 +244,18 @@ class AddDaysToNewTurno(generic.FormView):
         'hora':0},
 
     ])
-    print(formset.is_valid())
-    # print(formset)
+
    
     def post(self, request, *args, **kwargs):
         last_plan = Turno.objects.all().last()
-        print("entro al post")
+        
         if self.formset.is_valid():
             form_lunes = request.POST.get("form-0-hora")
             form_martes = request.POST.get("form-1-hora")
             form_mier = request.POST.get("form-2-hora")
             form_jueves = request.POST.get("form-3-hora")
             form_viernes = request.POST.get("form-4-hora")
-            print("ES VALIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+
             data = {
                     'form-TOTAL_FORMS': '5',
                     'form-INITIAL_FORMS': '5',
@@ -156,7 +268,7 @@ class AddDaysToNewTurno(generic.FormView):
                     'form-3-dia': 'jueves',
                     'form-3-hora': form_jueves,
                     'form-4-dia': 'viernes',
-                    'form-4-hora': form_viernes, }
+                    'form-4-hora': form_viernes }
             
             formset = self.form_class(data,initial=[
                         {'dia': "lunes",
@@ -171,16 +283,13 @@ class AddDaysToNewTurno(generic.FormView):
                         'hora':form_viernes},
 
                     ])
-            print(formset)
-            print(last_plan)
-            print("dentro del post")
+            
             for f in formset:
+                print(f)
                 if f.cleaned_data["hora"] == 0:
                     continue
                 dia  = f.save()
-                print("ya lo guarde")
-                last_plan.dias.add(dia)
-                print("ya lo relacione")
+                last_plan.dias.add(dia) 
         return redirect("personas:adminAlumnos")
 
 

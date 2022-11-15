@@ -488,6 +488,7 @@ html{
     margin: 1rem 10%;
     font-weight: 500;
     text-align: justify;
+    line-height: 2.6rem;
 }
 .sobrenosotros__imagenes{
     width: 100%;
@@ -498,26 +499,41 @@ html{
     padding: 1.5rem 0 4rem;
     flex-wrap: wrap;
 }
-.sobrenosotros__imagenes figure{
-    height: 150px;
-    width: 167px;
-    margin-top: 70px;
-    margin-right:9px;
+.trainer_1 , .trainer_2 {
+    position: relative;
     background: #4C5967;
     border-radius: 18px;
+    height: 80%;
+    width: 15.2rem;
+    margin-top: auto;
 }
+
+.trainer_1
+{
+    margin-right: 6rem;
+}
+
+.sobrenosotros__imagenes figure{
+    height: 160px;
+    width: 160px;    
+    position: absolute;
+    top: -5rem;
+    left: -.4rem;
+    overflow: hidden;
+}
+
 .sobrenosotros__imagenes figure p{
     font-family: "raleway_medium";
     font-size: 2.4rem;
     color: #ffffff;
 }
 .sobrenosotros__imagenes img{
-    width: 175px;
-    height: 175px;
-    margin-left: -4px;
-    margin-top: -70px;
+    width: 100%;
+    height: 100%;
     border-radius: 117px;
+    object-fit: none;
 }
+
 @media (max-width: 1100px) {}
 @media (max-width: 600px) {
     .sobrenosotros__titulo{

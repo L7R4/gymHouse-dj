@@ -6,93 +6,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_navcel.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
-    <script src="{% static 'js/sectionProfile.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_editperfil.css' %}">
+    <!--<script src="{% static 'js/sectionProfile.js' %}"></script>-->
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" id="eprofile" class="eprofile" enctype="multipart/form-data">
+
+    <form method="POST" id="eprofile" class="fondoperfil" enctype="multipart/form-data">
         {% csrf_token %}
         
-        <div class="eprofile_data--radiuspic" id="eprofile_data--radiuspic">
-            <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" id="eprofile_data--pic">
-            <label for="eprofile_data--button-image" class="eprofile_data--button-image-label">
-                Cambiar imagen
-            </label>
-            <input type="file" name="foto_de_perfil" id="eprofile_data--button-image" class="eprofile_data--button-image">
-        </div>
-        {% comment %} <input type="image" id="eprofile_data--button-image" class="eprofile_data--button-image" >  {% endcomment %}
-        
-        <div class="eprofile_data--description" id="eprofile_data--description">
-            <h3>Biografía</h3>
-            {% comment %} {{form.biografia}} {% endcomment %}
-            <textarea form="eprofile"  name="biografia" placeholder="Cuentanos un poco acerta de ti!"></textarea>
-        </div>
-        <div class="eprofile_data--nickname">
-            <div class="input-group">
-                <input required="" type="text" name="apodo" autocomplete="off" class="input" value="{% if user.apodo != None %}{{user.apodo}}{% endif %}">
-                <label class="user-label">Apodo</label>
-            </div>
-        </div>
-        <div class="eprofile_data--name" id="eprofile_data--name">
-            <div class="input-group">
-                <input required="" name="nombre" value="{% if user.nombre != None %}{{user.nombre}}{% endif %}"  type="text"  autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="input">
-                <label class="user-label">Nombre(s)</label>
-            </div>
-            <div class="input-group">
-                <input required="" value="{% if user.apellido != None %}{{user.apellido}}{% endif %}"type="text" name="apellido" autocomplete="off" class="input" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
-                <label class="user-label">Apellido(s)</label>
-            </div>
-            <div class="input-group" id="input-group--tel">
-                <input required="" name="telefono" value="{% if user.telefono != None %}{{user.telefono}}{% endif %}"type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" class="input">
-                <label class="user-label">Telefono</label>
-            </div>
-            <div class="input-group" id="input-group--email">
-                <input required="" value="{% if user.email != None %}{{user.email}}{% endif %}" type="email" name="email" autocomplete="off" class="input">
-                <label class="user-label">Correo electronico</label>
-            </div>
-        </div>
-
-        <div class="eprofile_data--gender" id="eprofile_data--gender">
-            <div class="eprofile_data--genderdiv">
-                <label for="man">
-                    <p>Hombre</p>
-                    <figure id="gender_man"> <img src="assets/img/men.png" alt=""></figure>
-                </label>
-                <input type="radio" name="genero" id="man" value="hombre" {% if user.genero == "hombre" %}checked{% endif %}>
-                <label for="woman">
-                    <p>Mujer</p>
-                    <figure id="gender_woman"><img src="assets/img/woman.png" alt=""></figure>
-                </label>
-                <input type="radio" name="genero" id="woman" value="mujer" {% if user.genero == "mujer" %}checked{% endif %}>
-                <label for="other">
-                    <p>Otro</p>
-                    <figure id="gender_other"><img src="assets/img/other.png" alt=""></figure>
-                </label>
-                <input type="radio" name="genero" id="other" value="otro" {% if user.genero == "otro" %}checked{% endif %}>  
-            </div>     
-        </div>
-
-        <div class="eprofile_data--numbers" id="eprofile_data--numbers">
-            <div class="input-group">
-                <input required="" value="{% if user.altura != None %}{{user.altura}}{% endif %}" type="tel" min="0" name="altura" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
-                <label class="user-label">Altura</label>
-            </div>
-            <div class="input-group">
-                <input required="" value="{% if user.peso != None %}{{user.peso}}{% endif %}" type="tel" min="0" name="peso" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3">
-                <label class="user-label">Peso</label>
-            </div>
-            <div class="input-group">
-                <input required="" value="{% if user.edad != None %}{{user.edad}}{% endif %}" type="tel" min="0" name="edad" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="input" maxlength="3"> 
-                <label class="user-label">Edad</label>
-            </div>
-        </div>
-        
-        <a href ="{% url 'personas:change_pass' %}" id="eprofile_data--button-update" class="eprofile_data--button-update">
-            <p>actualizar contraseña</p> 
+        <a href ="#" class="button-back">
+            <img src="{% static 'images/turn-back.png' %}"> 
         </a> 
-        <button id="eprofile_data--button-save" class="eprofile_data--button-save" type="submit">
-            <p>Guardar</p> 
+
+        <div class="o">
+            <div class="o1">
+                <div class="perfilfoto" id="eprofile_data--radiuspic">
+                    <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" id="eprofile_data--pic">
+                    <label for="eprofile_data--button-image" class="perfilfoto-label">
+                        Cambiar imagen
+                    </label>
+                    <input type="file" name="foto_de_perfil" id="eprofile_data--button-image" class="perfilfoto-image">
+                </div>
+                {% comment %} <input type="image" id="eprofile_data--button-image" class="perfilfoto-image" >  {% endcomment %}
+
+                <div class="biografia" id="eprofile_data--description">
+                    <h3>Biografía</h3>
+                    {% comment %} {{form.biografia}} {% endcomment %}
+                    <textarea form="eprofile"  name="biografia" placeholder="Cuentanos un poco acerta de ti!"></textarea>
+                </div>
+            </div>
+
+            <div class="o2">
+                <div class="nickname">
+                    <div class="inputgroup">
+                        <input required="" type="text" name="apodo" autocomplete="off" class="inputt" value="{% if user.apodo != None %}{{user.apodo}}{% endif %}">
+                        <label class="userlabel">Apodo</label>
+                    </div>
+                </div>
+                        
+                <div class="name" id="eprofile_data--name">
+                    <div class="inputgroup">
+                        <input required="" name="nombre" value="{% if user.nombre != None %}{{user.nombre}}{% endif %}"  type="text"  autocomplete="off" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)" class="inputt">
+                        <label class="userlabel">Nombre(s)</label>
+                    </div>
+                    <div class="inputgroup">
+                        <input required="" value="{% if user.apellido != None %}{{user.apellido}}{% endif %}"type="text" name="apellido" autocomplete="off" class="inputt" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32)">
+                        <label class="userlabel">Apellido(s)</label>
+                    </div>
+                    <div class="inputgroup" id="input-group--tel">
+                        <input required="" name="telefono" value="{% if user.telefono != None %}{{user.telefono}}{% endif %}"type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" maxlength="10" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autocomplete="off" class="inputt">
+                        <label class="userlabel">Telefono</label>
+                    </div>
+                    <div class="inputgroup" id="input-group--email">
+                        <input required="" value="{% if user.email != None %}{{user.email}}{% endif %}" type="email" name="email" autocomplete="off" class="inputt">
+                        <label class="userlabel">Correo electronico</label>
+                    </div>
+                </div>
+            
+                <div class="gender" id="eprofile_data--gender">
+                    <div class="genderdiv">
+                        <label for="man">
+                            <p>Hombre</p>
+                            <figure id="gender_man"> <img src="{% static 'images/male.png' %}" alt=""></figure>
+                        </label>
+                        <input type="radio" name="genero" id="man" value="hombre" {% if user.genero == "hombre" %}checked{% endif %}>
+                        <label for="woman">
+                            <p>Mujer</p>
+                            <figure id="gender_woman"><img src="{% static 'images/female.png' %}" alt=""></figure>
+                        </label>
+                        <input type="radio" name="genero" id="woman" value="mujer" {% if user.genero == "mujer" %}checked{% endif %}>
+                        <label for="other">
+                            <p>Otro</p>
+                            <figure id="gender_other"><img src="{% static 'images/non-binary.png' %}" alt=""></figure>
+                        </label>
+                        <input type="radio" name="genero" id="other" value="otro" {% if user.genero == "otro" %}checked{% endif %}>  
+                    </div>     
+                </div>
+            </div>
+
+            <div class="o3">
+                <div class="numbers" id="eprofile_data--numbers">
+                    <div class="inputgroup">
+                        <input required="" value="{% if user.altura != None %}{{user.altura}}{% endif %}" type="tel" min="0" name="altura" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="inputt" maxlength="3">
+                        <label class="userlabel">Altura</label>
+                    </div>
+                    <div class="inputgroup">
+                        <input required="" value="{% if user.peso != None %}{{user.peso}}{% endif %}" type="tel" min="0" name="peso" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="inputt" maxlength="3">
+                        <label class="userlabel">Peso</label>
+                    </div>
+                    <div class="inputgroup">
+                        <input required="" value="{% if user.edad != None %}{{user.edad}}{% endif %}" type="tel" min="0" name="edad" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="inputt" maxlength="3"> 
+                        <label class="userlabel">Edad</label>
+                    </div>
+                </div>
+
+                <a href ="{% url 'personas:change_pass' %}" id="eprofile_data--button-update" class="button-update">
+                    <p>CAMBIAR CONTRASEÑA</p> 
+                </a> 
+            </div>
+        </div>
+        
+        <button id="button-save" class="button-save" type="submit">
+            <p>GUARDAR</p> 
         </button>
     </form>
 </body>

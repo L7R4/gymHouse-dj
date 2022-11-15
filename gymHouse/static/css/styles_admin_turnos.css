@@ -63,7 +63,7 @@ body{
 }
 /*--------------------------------------------------------------------------------------------------------------*/
 .turnos{
-    width: 100vw;
+    /* width: 100vw; */
     display: flex;
     padding: 2rem 1rem 1rem 9rem;
 }
@@ -72,6 +72,8 @@ body{
 }
 .acomodar{
     width: 30%;
+    position: relative;
+    overflow: hidden;
 }
 
 /*shift table-title*/
@@ -234,9 +236,37 @@ body{
     align-content: center;
     justify-self: center;
 }
-
+#window_turno_alumnos_close_admin
+{
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: #b8b4ff;
+    color: #5135FF;
+    border-radius: 10px;
+    cursor: pointer;
+}
 /*Estilo de los horarios asignados*/
-
+.shifts_info > .alumnos
+{
+    display: none;
+}
+.classmates_names > .alumnos > li > img{
+    height: 4rem;
+    width: auto;
+    border: 1.5px solid rgba(0, 0, 0, 0.795);
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-right: 1rem;
+}
+.classmates_names > .alumnos > li{
+    display: flex;
+    align-items: center;    
+    /* justify-content: space-around; */
+    font-family: "raleway semibold";
+    font-size: max(0.8vw,min(1.1rem));
+}
 .shifts_info--designed{
     width: 90%;
     background: #FFFFFF;
@@ -286,6 +316,13 @@ body{
     border-radius: 32px;
     padding: 3rem 2rem;
     margin: 2rem 0 0 0;
+    position: absolute;
+    bottom: -100%;
+    transition: 1s all ease;
+}
+.classmates.active
+{
+    bottom: 58%;
 }
 
 .classmates_phrase{
@@ -305,6 +342,7 @@ body{
     grid-row-start: 2;
     grid-row-end: 3;
     height: fit-content;
+    margin-top: 2rem;
 }
 
 ol{

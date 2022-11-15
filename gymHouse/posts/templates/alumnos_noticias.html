@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_menu-celu.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_alumnos-noticias.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/styles_alumnos-noticias.css' %}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_alumnos_noticias2.css' %}">
     <script src="assets/js/sectionNews.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPerfil.css' %}">
+    <script src="{% static 'js/sectionProfile.js' %}"></script>
     <title>Gym House: noticias</title>
 </head>
 <body> 
@@ -84,20 +87,97 @@
         </ul>
     </div>
     <div class="navigation--space" id="navigation--space"></div>
+    <section class="section-profile" id="section-profile">
+        <div id="perfil_bg--blur" class="perfil_bg--blur">
+            <div class="perfil_bg--gradient" id="perfil_bg--gradient">
+                <div class="perfil_bg" id="perfil_bg">
+                    <!-- Perfil minimizado........................................ -->
+                    <div class="navbar--fill" id="navbar--fill"></div> 
+                    <div id="profile" class="profile">
+                        {% if user.foto_de_perfil == None %}
+                            <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                <img src="{% static 'images/avatar/9.png' %}" class="profile_data--pic" id="profile_data--pic">
+                            </div>
+                        {% else %}
+                            <div class="profile_data--radiuspic" id="profile_data--radiuspic">
+                                <img src="{% if user.foto_de_perfil %} {{user.foto_de_perfil.url}} {% else %} {% static 'images/avatar/11.png' %} {% endif %}" class="profile_data--pic" id="profile_data--pic">
+                            </div>
+                        {% endif %}
+                        
+                        <div class="profile_data--name" id="profile_data--name">
+                            <h1>{{user.apodo}}</h1>
+                            {% comment %} <figure></figure> {% endcomment %}
+                            <h3>{{user.nombre}} {{user.apellido}}</h3>
+                            {% if  user.edad != None%}
+                                <p>{{user.edad}} años</p>
+                            {% endif %}
+                            {% comment %} <p>{{user.edad}}</p> {% endcomment %}
+                        </div>
+                        {% if user.biografia %}
+                            <div class="profile_data--description" id="profile_data--description">
+                                <p>{{user.biografia}}</p>
+                            </div>
+                        {% else %}
+                            <br>
+                        {% endif %}
+                        
+                        <div class="profile_data--numbers" id="profile_data--numbers">
+                            <ol>
+                                {% if user.telefono %}
+                                <li>
+                                    <h5>{{user.telefono}}</h5>
+                                    <p>CONTACTO</p>
+                                </li>
+                                {% else %}
+                                    <br>
+                                {% endif %}
 
+                                {% if user.peso %}
+                                <li>
+                                    <h5>{{user.peso}}</h5>
+                                    <p>PESO</p>
+                                </li>
+                                {% else %}
+                                    <br>
+                                {% endif %}
+                                
+                                {% if user.altura %}
+                                <li>
+                                    <h5>{{user.altura}}</h5>
+                                    <p>ALTURA</p>
+                                </li>
+                                {% else %}
+                                    <br>
+                                {% endif %}
+                            </ol>
+                        </div>
+                        <button id="profile_data--button" class="profile_data--button">
+                            <a href="{% url 'personas:perfil' %}">Editar Perfil</a> 
+                        </button>
+                        <a class="botonito" href="{% url 'logout' %}">Salir de la cuenta</a>
+                    </div>
+                    <!-- Fin perfil minimizado........................................ -->
+                </div>
+            </div>
+        </div>
+
+        <div class="aestethical-margin"></div>
+
+    </section>
 
 
     <section class="news">
 
-        <div class="news_slider">
+        <div class="news_wrapper">
+            
             <div class="cards">
                 {% for card in noticias_slider %}
             
-                    <a class="card" href="{% url 'posts:detail_noticia' card.id %}">
+                    <a class="card" href="{% url 'posts:adminNoticiaDetail' card.id %}">
                         <figure>
                             <img src="{{card.foto.url}}" alt="{{card.titulo}}">
                         </figure>
-                        <div class="post--images-detail">
+                        <div class="post__images_detail">
                             <p>{{card.titulo}}</p>
                         </div>
                     </a>
@@ -105,121 +185,7 @@
                 {% endfor %}
             </div>
         </div>
-
-        <div class="wrapper">
-            {% for card in noticias_slider %}
-            
-                <div class="card">
-                    <a href="{% url 'posts:detail_noticia' card.id %}">
-                        <img src="{{card.foto.url}}" alt="{{card.titulo}}">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>{{card.titulo}}</p>
-                    </div>
-                </div>
-            
-            {% endfor %}
-                {% comment %} <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/ensalada2.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-                </div> {% endcomment %}
-        </div>
-
-        <div class="news_posts-bigimg">
-
-            {% for post in noticias_bigimg %}
-            
-                <div class="posts--images">
-                    <a href="{% url 'posts:detail_noticia' post.id %}">
-                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>{{post.titulo}}</p>
-                    </div>
-                </div>
-            
-            {% endfor %}
-
-
-        </div>
-
-        <div class="news_posts--incrementable">
-
-            <div class="news_posts--minimized">
-
-                {% for post in noticias_minimized %}
-            
-                    <a href="{% url 'posts:detail_noticia' post.id %}" class="news_posts--minimized-detailed">
-                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
-                        <div class="news_posts--minimized-description">
-                            <p>{{post.titulo}}</p>
-                            <p>{{post.texto}}</p>
-                        </div>
-                    </a>
-            
-                {% endfor %}
-
-            </div>
-
-            {% comment %} <div class="posts--images">
-                    <a href="alumnos_noticias-noticiacompleta.html">
-                        <img src="assets/img/wafless.jpg" alt="">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>Noticia</p>
-                    </div>
-            </div> {% endcomment %}
-            {% for post in noticias_next_minimized %}
-            
-                <div class="posts--images">
-                    <a href="{% url 'posts:detail_noticia' post.id %}">
-                        <img src="{{post.foto.url}}" alt="{{post.titulo}}">
-                    </a>
-                    <div class="post--images-detail">
-                        <p>{{post.titulo}}</p>
-                    </div>
-                </div>
-            
-            {% endfor %}
-
-        </div>
-
+        
     </section>
     
 </body>

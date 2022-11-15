@@ -63,7 +63,7 @@ body{
 }
 /*--------------------------------------------------------------------------------------------------------------*/
 .turnos{
-    width: 100vw;
+    /* width: 100vw; */
     display: flex;
     padding: 2rem 1rem 1rem 9rem;
     overflow-y: hidden;
@@ -290,7 +290,7 @@ body{
 }
 .titulo p{
     font-family: "raleway semibold";
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: center;
     padding: 8px 0 8px;
     margin: 0 0 3.6px;

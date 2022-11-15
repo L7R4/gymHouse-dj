@@ -47,7 +47,7 @@ class DetailNoticia(generic.DetailView):
 # SECCIONES DE NOTICIAS DE VISTA ADMIN        
 class AdminNoticias(generic.ListView):
     model = Noticia
-    template_name = "admin_noticias.html"
+    template_name = "admin_noticia_2.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
